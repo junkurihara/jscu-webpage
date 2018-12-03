@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | jscu</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A Universal Cryptographic Library for JavaScript"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="jscu"><meta property="twitter:description" content="A Universal Cryptographic Library for JavaScript"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/junkurihara/jscu"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#javascript-cryptographic-utilities-for-browsers-and-node-js-crypto-suite-compatibility" data-ice="link">JavaScript Cryptographic Utilities for Browsers and Node.js Crypto-Suite Compatibility</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#overview" data-ice="link">Overview</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#module-structure" data-ice="link">Module structure</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#installation" data-ice="link">Installation</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#usage" data-ice="link">Usage</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#key-generation--sign-and-verify" data-ice="link">Key generation, sign and verify</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#encryption-and-decryption-through-ecdh-with-aes-gcm-of-256-bits-key-and-sha-256-based-hkdf" data-ice="link">Encryption and decryption through ECDH with AES-GCM of 256 bits key and SHA-256 based HKDF</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#rsa-oaep-encryption-and-decryption" data-ice="link">RSA-OAEP encryption and decryption</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#converting-between-json-web-key--jwk--and-spki-formatted--public-key--or-pkcs8-formatted--private-key--pem-der" data-ice="link">Converting between Json Web Key (JWK) and SPKI-formatted (public key) or PKCS8-formatted (private key) PEM/DER</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#generation-of-self-signed-x-509-certificate-from-jwk-formatted-public-key" data-ice="link">Generation of self-signed X.509 certificate from JWK-formatted public key</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/README.html"><a href="manual/README.html#extract-jwk-from-x-509-certificate" data-ice="link">Extract JWK from X.509 certificate</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#notes" data-ice="link">Notes</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/README.html"><a href="manual/README.html#license" data-ice="link">License</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h2 id="javascript-cryptographic-utilities-for-browsers-and-node-js-crypto-suite-compatibility">JavaScript Cryptographic Utilities for Browsers and Node.js Crypto-Suite Compatibility</h2><p><a href="https://badge.fury.io/js/js-crypto-utils"><img src="https://badge.fury.io/js/js-crypto-utils.svg" alt="npm version"></a>
+<a href="https://david-dm.org/junkurihara/jscu?path=packages/js-crypto-utils"><img src="https://david-dm.org/junkurihara/jscu.svg?path=packages/js-crypto-utils" alt="Dependencies"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
+<blockquote>
+<p><strong>WARNING</strong>: At this time this solution should be considered suitable for research and experimentation, further code and security review is needed before utilization in a production application.</p>
+</blockquote>
+<h1 id="overview">Overview</h1><p>This library is being developed to provide unified (and specific) cryptographic APIs for browsers and Node.js. There currently exist various sophisticated cryptographic suites for JavaScript that are implemented as native functions, e.g., WebCrypto API and <code>crypto</code> in Node.js. However, they have different interfaces and are NOT supported at all platforms. For instance, FireFox cannot be fed PKCS8-formatted private key in WebCrypto API but Chrome does. On the other hand, such suites have not been designed to keep compatibility to existing non-Web cryptographic suites like OpenSSL. This can be seen from the fact that WebCrypto API does not support PEM-formatted keys. Hence we (actually I!) need to write ugly codes so as to enable apps to work in various environments. From this observation, we aim that this library provides support functions to fill such gaps among JS cryptographic suites and that between JavaScript and other popular crypto suites.</p>
+<p>Firstly, this library provides following functions that works in most modern browsers and Node.js.</p>
+<ul>
+<li>ECDSA signing, verification, key generation (P-256/P-384/P-521/P-256K)</li>
+<li>RSA-PSS/RSASSA-PKCS1-v1_5 signing, verification, key generation.</li>
+<li>Encryption using ECDH and HKDF.</li>
+<li>Encryption using RSA-OAEP. </li>
+<li>Public/private key format conversion between JWK and PEM/DER (SPKI for public/PKCS8 for private)</li>
+<li>Generation of JWK Thumbprint</li>
+<li>Generation of X.509 public key certificate from JWK and extraction of JWK public key from X.509 public key certificate.
+Additionally, this library provides random, hash, AES, HMAC, HKDF, and PBKDF functions. </li>
+</ul>
+<h1 id="module-structure">Module structure</h1><p>The module structure of this library can be illustrated as follows.</p>
+<pre><code><code class="source-code prettyprint">/**
+ * index.js
+ * Structure of API
+ *  |-- Key (Key object handling EC and RSA public/private keys)
+ *  |
+ *  |-- pkc (public key crypto, EC and RSA)
+ *  |    |-- generateKey
+ *  |    |-- encrypt
+ *  |    |-- decrypt
+ *  |    |-- sign
+ *  |    |-- verify
+ *  |
+ *  |-- x509
+ *  |    |-- toJwk
+ *  |    |-- fromJwk
+ *  |    |-- parse (to verify)
+ *  |
+ *  |-- aes
+ *  |-- random
+ *  |-- hash
+ *  |-- hmac
+ *  |-- hkdf
+ *  |-- pbkdf
+ */</code>
+</code></pre><p>We should note that most of this library&apos;s functions are independently available through NPM and GitHub as modules. In other words, this library is being developed as an integrated wrapper of those independent modules. The independent modules are listed as follows:</p>
+<ul>
+<li><code>Key</code>: <a href="https://github.com/junkurihara/js-crypto-key-utils">https://github.com/junkurihara/js-crypto-key-utils</a></li>
+<li><code>pkc</code> (EC): <a href="https://github.com/junkurihara/js-crypto-ec">https://github.com/junkurihara/js-crypto-ec</a></li>
+<li><code>pkc</code> (RSA): <a href="https://github.com/junkurihara/js-crypto-rsa">https://github.com/junkurihara/js-crypto-rsa</a></li>
+<li><code>x509</code>: <a href="https://github.com/junkurihara/js-x509-utils">https://github.com/junkurihara/js-x509-utils</a></li>
+<li><code>aes</code>: <a href="https://github.com/junkurihara/js-crypto-aes">https://github.com/junkurihara/js-crypto-aes</a></li>
+<li><code>random</code>: <a href="https://github.com/junkurihara/js-crypto-random">https://github.com/junkurihara/js-crypto-random</a></li>
+<li><code>hash</code>: <a href="https://github.com/junkurihara/js-crypto-hash">https://github.com/junkurihara/js-crypto-hash</a></li>
+<li><code>hkdf</code>: <a href="https://github.com/junkurihara/js-crypto-hkdf">https://github.com/junkurihara/js-crypto-hkdf</a></li>
+<li><code>pbkdf</code>: <a href="https://github.com/junkurihara/js-crypto-pbkdf">https://github.com/junkurihara/js-crypto-pbkdf</a></li>
+<li><code>hmac</code>: <a href="https://github.com/junkurihara/js-crypto-hmac">https://github.com/junkurihara/js-crypto-hmac</a></li>
+</ul>
+<p>Please refer to the above repos for further information.</p>
+<p><strong>NOTE</strong>: If you would use only few modules and employ neither <code>Key</code> nor <code>pkc</code>, we highly recommend use our independent modules since those independent ones are relatively small and this library would be overkill. </p>
+<h1 id="installation">Installation</h1><p>At your project directory, do either one of the following.</p>
+<ul>
+<li><p>From npm/yarn:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">$ npm install --save js-crypto-utils // npm
+$ yarn add js-crypt-utils // yarn</code>
+</code></pre>
+</li>
+<li><p>From GitHub:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">$ git clone https://github.com/junkurihara/jscu.git</code>
+</code></pre>
+</li>
+</ul>
+<p>Then you should import the package as follows.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import jscu from &apos;js-crypto-utils&apos;; // for npm
+import jscu from &apos;js-crypto-utils/dist/index.js&apos;; // for npm/github</code>
+</code></pre>
+<h1 id="usage">Usage</h1><p><strong>NOTE:</strong> This library always uses <code>jscu.Key</code> objects as instances of public and private keys, and the <code>Key</code> object can be instantiated from and can export ones in various formats. For the detailed usage of <code>Key</code> object, please refer to <a href="https://github.com/junkurihara/js-crypto-key-utils">another GitHub repo</a>.</p>
+<h2 id="key-generation--sign-and-verify">Key generation, sign and verify</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">// case of ECDSA
+jscu.pkc.generateKey(  // key generation
+  &apos;EC&apos;, // ECDSA or ECDH key pair
+  {namedCurve: &apos;P-256&apos;} // or &apos;P-384&apos;, &apos;P-521&apos;, &apos;P-256K&apos;
+)
+.then( async (keyPair) =&gt; { // get a key pair in jscu.Key object
+  const msg = new Uint8Array(32);
+  for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
+
+  const sig = await jscu.pkc.sign(msg, keyPair.privateKey, &apos;SHA-256&apos;); // uint8array
+  const result = await jscu.pkc.verify(msg, sig, keyPair.publicKey, &apos;SHA-256&apos;); // true or false
+});</code>
+</code></pre>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">// case of RSA
+jscu.pkc.generateKey(  // key generation
+  &apos;RSA&apos;, // RSA key pair
+  {modulusLength: 2048}
+)
+.then( async (keyPair) =&gt; { // get a key pair in jscu.Key object
+  const msg = new Uint8Array(32);
+  for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
+
+  // case of RSA-PSS
+  // RSASSA-PKCS1-v1_5 is supported as well. see test files.
+  const sig = await jscu.pkc.sign(msg, keyPair.privateKey, &apos;SHA-256&apos;, {name: &apos;RSA-PSS&apos;, saltLength: 32}); // uint8array
+  const result = await jscu.pkc.verify(msg, sig, keyPair.publicKey, &apos;SHA-256&apos;, {name: &apos;RSA-PSS&apos;, saltLength: 32}); // true or false
+});</code>
+</code></pre>
+<h2 id="encryption-and-decryption-through-ecdh-with-aes-gcm-of-256-bits-key-and-sha-256-based-hkdf">Encryption and decryption through ECDH with AES-GCM of 256 bits key and SHA-256 based HKDF</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">const msg = new Uint8Array(32);
+for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
+
+const remotePublicKey = {...}; // destination&apos;s publicKey in jscu.Key object
+const remotePrivateKey = {...}; // destination&apos;s privateKey in jscu.Key object
+
+jscu.pkc.generateKey(  // key generation
+  &apos;EC&apos;, // ECDSA or ECDH key pair
+  {namedCurve: &apos;P-256&apos;} // or &apos;P-384&apos;, &apos;P-521&apos;, &apos;P-256K&apos;
+).then( async (keyPair) =&gt; { // get a key pair in jscu.Key object
+  ////////////////////////////
+  // encryption at my side
+  ////////////////////////////
+  const optionsEncryption = {
+    privateKey: keyPair.privateKey, // for ECDH, my private key
+    hash: &apos;SHA-256&apos;, // for HKDF
+    encrypt: &apos;AES-GCM&apos;, // for encryption of message
+    keyLength: 32, // key length of AES
+    info: &apos;&apos; // for HKDF
+  };
+  const encrypted = await jscu.pkc.encrypt(msg, remotePublicKey, optionsEncryption);
+  // now you get the encrypted message
+
+  ////////////////////////////
+  // decryption at remote side
+  ////////////////////////////
+  const optionsDecryption = {
+    publicKey: keyPair.publicKey, // for ECDH, my public key
+    hash: &apos;SHA-256&apos;, // for HKDF
+    encrypt: &apos;AES-GCM&apos;, // for encryption of message
+    keyLength: 32, // key length of AES
+    info: &apos;&apos;, // for HKDF
+    salt: encrypted.salt, // for HKDF
+    iv: encrypted.iv // for AES
+  };
+  const decrypted = await jscu.pkc.decrypt(encrypted.data, remotePrivateKey, optionsDecryption);
+  // now you get decrypted message
+});</code>
+</code></pre>
+<p>Note that AES and HKDF are independently available from <code>jscu.aes</code> and <code>jscu.hkdf</code> as well as <code>random</code> and <code>hash</code>. Also note that the HKDF employed in this library is the one specified in RFC5869 (<a href="https://tools.ietf.org/html/rfc5869)">https://tools.ietf.org/html/rfc5869)</a>. </p>
+<h2 id="rsa-oaep-encryption-and-decryption">RSA-OAEP encryption and decryption</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">const msg = new Uint8Array(32);
+for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
+
+const publicKey = {...}; // publicKey in jscu.Key object
+const privateKey = {...}; // privateKey in jscu.Key object
+
+jscu.pkc.encrypt(
+  msg,
+  publicKey,
+  {hash: &apos;SHA-256&apos;} // for OAEP
+).then( (encrypted) =&gt; {
+ // now you get the encrypted message
+ return jscu.pkc.decrypt(
+   encrypted, 
+   privateKey,
+   {hash: &apos;SHA-256&apos;}); // for OAEP
+}).then( (decrypted) =&gt; {
+  // now you get the decrypted message
+})</code>
+</code></pre>
+<h2 id="converting-between-json-web-key--jwk--and-spki-formatted--public-key--or-pkcs8-formatted--private-key--pem-der">Converting between Json Web Key (JWK) and SPKI-formatted (public key) or PKCS8-formatted (private key) PEM/DER</h2><p>We shall explain the conversion using an example of elliptic curve cryptography keys. First let an elliptic curve crypto public key is given in the form of JWK (<a href="https://tools.ietf.org/html/rfc7517">RFC7517</a>) as follows:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const publicJwk = {kty: &apos;EC&apos;, crv: &apos;P-256&apos;, x: &apos;...&apos;, y: &apos;...&apos;};</code>
+</code></pre>
+<p>Given JWKs can be converted to the PEM/DER formatted keys in the following procedure.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const publicKeyObject = new jscu.Key(&apos;jwk&apos;, publicJwk);
+const publicAsn = await publicKeyObject.export(
+  &apos;pem&apos;, // output format is in string PEM, &apos;der&apos; is also available
+  {
+    compact: false // if true, compressed form of keys are obtained
+  });</code>
+</code></pre>
+<p>This library also re-convert keys in PEM/DER to JWK as follows.</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const publicKeyObjectR = new jscu.Key(&apos;pem&apos;, publicASN);
+const publicJwkR = publicKeyObjectR.export(&apos;jwk&apos;);</code>
+</code></pre>
+<p>Note that JWK/DER/PEM-formatted RSA keys can be handled in the similar manner to the above. </p>
+<h2 id="generation-of-self-signed-x-509-certificate-from-jwk-formatted-public-key">Generation of self-signed X.509 certificate from JWK-formatted public key</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">const publicJwk = {kty: &apos;EC&apos;, crv: &apos;P-256&apos;, x: &apos;...&apos;, y: &apos;...&apos;}; // public key to be signed
+const privateJwk = {ktyp: &apos;EC&apos;, crv: &apos;P-256&apos;, x: &apos;...&apos;, y: &apos;...&apos;, d: &apos;...&apos;}; // private key
+
+const name = { // this is optional
+      countryName: &apos;JP&apos;,
+      stateOrProvinceName: &apos;Tokyo&apos;,
+      localityName: &apos;Chiyoda&apos;,
+      organizationName: &apos;example&apos;,
+      organizationalUnitName: &apos;Research&apos;,
+      commonName: &apos;example.com&apos;
+    };
+
+// generation from JWK
+jscu.keyUtil.x509.fromJwk(
+  publicJwk,
+  privateJwk,
+  &apos;pem&apos;,
+  {
+    signature: &apos;ecdsa-with-sha256&apos;, // signature algorithm
+    days: 365, // expired in days
+    issuer: name, // issuer
+    subject: name // assume that issuer = subject, i.e., self-signed certificate
+  },
+  &apos;pem&apos; // output signature is in PEM. DER-encoded signature is available with &apos;der&apos;.
+).then( (cert) =&gt; {
+  // now you get the certificate in PEM string
+});</code>
+</code></pre>
+<p>For <code>signature</code>, <code>rsassaPss</code> (RSA-PSS) and <code>sha*WithRSAEncryption</code> (RSASSA-PKCS1-v1_5) are available as well. When <code>rsassaPss</code> is specified, <code>saltLength</code> and <code>hash</code> are required as its params. </p>
+<h2 id="extract-jwk-from-x-509-certificate">Extract JWK from X.509 certificate</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">const crtsample = &apos;-----BEGIN CERTIFICATE-----...&apos;; 
+const jwkey = jscu.keyUtil.x509.toJwk(crtsample, &apos;pem&apos;);
+// now you get JWK public key from PEM-formatted certificate     </code>
+</code></pre>
+<h1 id="notes">Notes</h1><p>One of the listed APIs/libraries is automatically chosen and leveraged for each implemented function, and unified interfaces are provided for browsers and Node.js.</p>
+<ul>
+<li>ECDSA and ECDH:<ul>
+<li>WebCrypto API for browsers</li>
+<li>NodeCrypto for Node.js </li>
+<li><a href="https://github.com/indutny/elliptic">elliptic</a> for browsers</li>
+</ul>
+</li>
+<li>RSA-PSS, RSASSA-PKCS1-v1_5, RSA-OAEP (RSA-PSSS does not work in IE and Edge)<ul>
+<li>WebCrypto API for browsers</li>
+<li>NodeCrypto for Node.js</li>
+</ul>
+</li>
+<li>Key format conversion:<ul>
+<li>WebCrypto API for browsers</li>
+<li><a href="https://github.com/indutny/asn1.js">asn1.js</a> for browsers and Node.js</li>
+</ul>
+</li>
+<li>X.509 generation from JWK, and extraction of JWK from X.509 (may not work in IE due to RSA)<ul>
+<li>WebCrypto API for browsers</li>
+<li>NodeCrypto for Node.js</li>
+<li><a href="https://github.com/indutny/elliptic">elliptic</a> for browsers</li>
+</ul>
+</li>
+<li>AES: (may not work in IE)<ul>
+<li>WebCrypto API for browsers</li>
+<li>NodeCrypto for Node.js</li>
+</ul>
+</li>
+<li>Random, hash, HKDF, HMAC, JWK Thumbprint (SHA-512/SHA-1 does not work in IE, SHA-1 doesn&apos;t in Edge)<ul>
+<li>WebCrypto API for browsers</li>
+<li>MsCrypto for IE</li>
+<li>NodeCrypto for Node.js</li>
+</ul>
+</li>
+</ul>
+<h1 id="license">License</h1><p>Licensed under the MIT license, see <code>LICENSE</code> file.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

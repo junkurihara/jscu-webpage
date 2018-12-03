@@ -1,0 +1,486 @@
+[
+  {
+    "name": "assertAlgorithms",
+    "filePath": "packages/js-crypto-aes/src/aes.js",
+    "lines": [
+      {
+        "lineNumber": 9,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 10,
+        "line": " * Check if the given algorithm spec is valid."
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param name"
+      },
+      {
+        "lineNumber": 12,
+        "line": " * @param iv"
+      },
+      {
+        "lineNumber": 13,
+        "line": " * @param tagLength"
+      },
+      {
+        "lineNumber": 14,
+        "line": " */"
+      },
+      {
+        "lineNumber": 15,
+        "line": "function assertAlgorithms({name, iv, tagLength}){"
+      }
+    ],
+    "codeParams": [
+      "*"
+    ],
+    "docParams": [
+      "name",
+      "iv",
+      "tagLength"
+    ]
+  },
+  {
+    "name": "encrypt",
+    "filePath": "packages/js-crypto-aes/src/aes.js",
+    "lines": [
+      {
+        "lineNumber": 28,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 29,
+        "line": " * Encrypt with AES"
+      },
+      {
+        "lineNumber": 30,
+        "line": " * @param msg"
+      },
+      {
+        "lineNumber": 31,
+        "line": " * @param key"
+      },
+      {
+        "lineNumber": 32,
+        "line": " * @param name"
+      },
+      {
+        "lineNumber": 33,
+        "line": " * @param iv"
+      },
+      {
+        "lineNumber": 34,
+        "line": " * @param additionalData"
+      },
+      {
+        "lineNumber": 35,
+        "line": " * @param tagLength"
+      },
+      {
+        "lineNumber": 36,
+        "line": " * @return {Promise<Uint8Array>}"
+      },
+      {
+        "lineNumber": 37,
+        "line": " */"
+      },
+      {
+        "lineNumber": 38,
+        "line": "export async function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
+      }
+    ],
+    "codeParams": [
+      "msg",
+      "key",
+      "*"
+    ],
+    "docParams": [
+      "msg",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength"
+    ]
+  },
+  {
+    "name": "decrypt",
+    "filePath": "packages/js-crypto-aes/src/aes.js",
+    "lines": [
+      {
+        "lineNumber": 74,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 75,
+        "line": " * Decrypt with AES"
+      },
+      {
+        "lineNumber": 76,
+        "line": " * @param data"
+      },
+      {
+        "lineNumber": 77,
+        "line": " * @param key"
+      },
+      {
+        "lineNumber": 78,
+        "line": " * @param name"
+      },
+      {
+        "lineNumber": 79,
+        "line": " * @param iv"
+      },
+      {
+        "lineNumber": 80,
+        "line": " * @param additionalData"
+      },
+      {
+        "lineNumber": 81,
+        "line": " * @param tagLength"
+      },
+      {
+        "lineNumber": 82,
+        "line": " * @return {Promise<Uint8Array>}"
+      },
+      {
+        "lineNumber": 83,
+        "line": " */"
+      },
+      {
+        "lineNumber": 84,
+        "line": "export async function decrypt(data, key, {name='AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
+      }
+    ],
+    "codeParams": [
+      "data",
+      "key",
+      "*"
+    ],
+    "docParams": [
+      "data",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength"
+    ]
+  },
+  {
+    "name": "compute",
+    "filePath": "packages/js-crypto-hash/src/hash.js",
+    "lines": [
+      {
+        "lineNumber": 9,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 10,
+        "line": " * Compute Hash"
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param hash"
+      },
+      {
+        "lineNumber": 12,
+        "line": " * @param msg"
+      },
+      {
+        "lineNumber": 13,
+        "line": " * @return {Promise<Uint8Array>}"
+      },
+      {
+        "lineNumber": 14,
+        "line": " */"
+      },
+      {
+        "lineNumber": 15,
+        "line": "export async function compute(msg, hash = 'SHA-256') {"
+      }
+    ],
+    "codeParams": [
+      "msg",
+      "hash"
+    ],
+    "docParams": [
+      "hash",
+      "msg"
+    ]
+  },
+  {
+    "name": "fromJwk",
+    "filePath": "packages/js-crypto-key-utils/src/asn1enc.js",
+    "lines": [
+      {
+        "lineNumber": 14,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * Convert jwk to spki/pkcs8 in string or binary format."
+      },
+      {
+        "lineNumber": 16,
+        "line": " * @param jwkey"
+      },
+      {
+        "lineNumber": 17,
+        "line": " * @param outputPublic {boolean} : derive public key from private key when true"
+      },
+      {
+        "lineNumber": 18,
+        "line": " * @param format {string} : 'pem' or 'der'"
+      },
+      {
+        "lineNumber": 19,
+        "line": " * @param compact {boolean} : 'true' or 'false' for EC public key compressed representation in der/pem"
+      },
+      {
+        "lineNumber": 20,
+        "line": " * @param passphrase"
+      },
+      {
+        "lineNumber": 21,
+        "line": " * @param encOptions"
+      },
+      {
+        "lineNumber": 22,
+        "line": " * @return {Uint8Array}"
+      },
+      {
+        "lineNumber": 23,
+        "line": " */"
+      },
+      {
+        "lineNumber": 24,
+        "line": "export async function fromJwk(jwkey, format, {outputPublic, compact=false, passphrase = '', encOptions}){"
+      }
+    ],
+    "codeParams": [
+      "jwkey",
+      "format",
+      "*"
+    ],
+    "docParams": [
+      "jwkey",
+      "outputPublic",
+      "format",
+      "compact",
+      "passphrase",
+      "encOptions"
+    ]
+  },
+  {
+    "name": "toJwk",
+    "filePath": "packages/js-crypto-key-utils/src/asn1enc.js",
+    "lines": [
+      {
+        "lineNumber": 52,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * Convert spki/pkcs8 key in string or binary format to jwk."
+      },
+      {
+        "lineNumber": 54,
+        "line": " * @param key"
+      },
+      {
+        "lineNumber": 55,
+        "line": " * @param format"
+      },
+      {
+        "lineNumber": 56,
+        "line": " * @param outputPublic {boolean} (optional)"
+      },
+      {
+        "lineNumber": 57,
+        "line": " * @param passphrase"
+      },
+      {
+        "lineNumber": 58,
+        "line": " * @return {*|void}"
+      },
+      {
+        "lineNumber": 59,
+        "line": " */"
+      },
+      {
+        "lineNumber": 60,
+        "line": "export async function toJwk(key, format, {outputPublic, passphrase}){"
+      }
+    ],
+    "codeParams": [
+      "key",
+      "format",
+      "*"
+    ],
+    "docParams": [
+      "key",
+      "format",
+      "outputPublic",
+      "passphrase"
+    ]
+  },
+  {
+    "name": "fromJwk",
+    "filePath": "packages/js-crypto-key-utils/src/octenc.js",
+    "lines": [
+      {
+        "lineNumber": 11,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 12,
+        "line": " * Convert JWK EC public/private keys to octet form"
+      },
+      {
+        "lineNumber": 13,
+        "line": " * compressed form of ec public key: https://tools.ietf.org/html/rfc5480"
+      },
+      {
+        "lineNumber": 14,
+        "line": " * @param jwkey"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * @param outputPublic {boolean} (optional)"
+      },
+      {
+        "lineNumber": 16,
+        "line": " * @param outputFormat"
+      },
+      {
+        "lineNumber": 17,
+        "line": " * @param compact"
+      },
+      {
+        "lineNumber": 18,
+        "line": " * @return {*}"
+      },
+      {
+        "lineNumber": 19,
+        "line": " */"
+      },
+      {
+        "lineNumber": 20,
+        "line": "export function fromJwk(jwkey, {outputPublic, outputFormat='binary', compact=false}){"
+      }
+    ],
+    "codeParams": [
+      "jwkey",
+      "*"
+    ],
+    "docParams": [
+      "jwkey",
+      "outputPublic",
+      "outputFormat",
+      "compact"
+    ]
+  },
+  {
+    "name": "toJwk",
+    "filePath": "packages/js-crypto-key-utils/src/octenc.js",
+    "lines": [
+      {
+        "lineNumber": 53,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 54,
+        "line": " * Convert Octet form of EC public/private keys to JWK"
+      },
+      {
+        "lineNumber": 55,
+        "line": " * @param octkey"
+      },
+      {
+        "lineNumber": 56,
+        "line": " * @param outputPublic {boolean} (optional)"
+      },
+      {
+        "lineNumber": 57,
+        "line": " * @param namedCurve"
+      },
+      {
+        "lineNumber": 58,
+        "line": " * @return {{kty: string, crv: *, x, y}}"
+      },
+      {
+        "lineNumber": 59,
+        "line": " */"
+      },
+      {
+        "lineNumber": 60,
+        "line": "export function toJwk(octkey, namedCurve, {outputPublic}){"
+      }
+    ],
+    "codeParams": [
+      "octkey",
+      "namedCurve",
+      "*"
+    ],
+    "docParams": [
+      "octkey",
+      "outputPublic",
+      "namedCurve"
+    ]
+  },
+  {
+    "name": "sign",
+    "filePath": "packages/js-crypto-utils/src/pkc.js",
+    "lines": [
+      {
+        "lineNumber": 39,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 40,
+        "line": " * Sign message with given private key in jwk"
+      },
+      {
+        "lineNumber": 41,
+        "line": " * @param privateKey"
+      },
+      {
+        "lineNumber": 42,
+        "line": " * @param msg"
+      },
+      {
+        "lineNumber": 43,
+        "line": " * @param hash"
+      },
+      {
+        "lineNumber": 44,
+        "line": " * @param options"
+      },
+      {
+        "lineNumber": 45,
+        "line": " * @return {Promise<ArrayBuffer>}"
+      },
+      {
+        "lineNumber": 46,
+        "line": " */"
+      },
+      {
+        "lineNumber": 47,
+        "line": "export async function sign(msg, privateKey, hash = 'SHA-256', options = {}){"
+      }
+    ],
+    "codeParams": [
+      "msg",
+      "privateKey",
+      "hash",
+      "options"
+    ],
+    "docParams": [
+      "privateKey",
+      "msg",
+      "hash",
+      "options"
+    ]
+  }
+]

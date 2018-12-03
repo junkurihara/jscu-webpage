@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">packages/js-crypto-key-utils/src/asn1rsa.js | jscu</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A Universal Cryptographic Library for JavaScript"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="jscu"><meta property="twitter:description" content="A Universal Cryptographic Library for JavaScript"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/junkurihara/jscu"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCrypto">getWebCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMsCrypto">getMsCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCrypto">getWebCrypto</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCrypto">getWebCrypto</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJWK">fromJWK</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJWK">toJWK</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwkTo">fromJwkTo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwkFrom">toJwkFrom</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-octKeyObjFromJwk">octKeyObjFromJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-octKeyObjToJwk">octKeyObjToJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOid">getAlgorithmFromOid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOidStrict">getAlgorithmFromOidStrict</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decryptEncryptedPrivateKeyInfo">decryptEncryptedPrivateKeyInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encryptEncryptedPrivateKeyInfo">encryptEncryptedPrivateKeyInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getJwkThumbprint">getJwkThumbprint</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-appendLeadingZeros">appendLeadingZeros</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1KeyType">getAsn1KeyType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getJwkType">getJwkType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSec1KeyType">getSec1KeyType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isAsn1Encrypted">isAsn1Encrypted</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isAsn1Public">isAsn1Public</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pruneLeadingZeros">pruneLeadingZeros</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EncryptedPrivateKeyInfo">EncryptedPrivateKeyInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyStructure">KeyStructure</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OneAsymmetricKey">OneAsymmetricKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PBEParameter">PBEParameter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PBES2ESParams">PBES2ESParams</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PBES2Params">PBES2Params</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PBKDF2Params">PBKDF2Params</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SubjectPublicKeyInfo">SubjectPublicKeyInfo</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-pbkdf-src">js-crypto-pbkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pbkdf1">pbkdf1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-random-src">js-crypto-random/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomAsciiString">getRandomAsciiString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomBytes">getRandomBytes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-rsa-src">js-crypto-rsa/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-emeOaepDecode">emeOaepDecode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-emeOaepEncode">emeOaepEncode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-utils-src">js-crypto-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSignature">getSignature</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getKeyFromOid">getKeyFromOid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-key-utils/src/asn1rsa.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * asn1rsa.js
+ */
+
+import asn from &apos;asn1.js&apos;;
+import jseu from &apos;js-encoding-utils&apos;;
+import BufferMod from &apos;buffer&apos;;
+const Buffer = BufferMod.Buffer;
+import params from &apos;./params.js&apos;;
+import {appendLeadingZeros, pruneLeadingZeros} from &apos;./util&apos;;
+
+export function fromJwk(jwk, type){
+
+  const publicKeyAlgorithmOid = params.publicKeyAlgorithms[&apos;RSA&apos;].oid;
+  // Parameters is always null Ox0500 in ASN.1 as shown in the Section 2.3.1 https://tools.ietf.org/html/rfc3279
+  const parameters = Buffer.from([0x05, 0x00]);
+  const algorithm = { algorithm: publicKeyAlgorithmOid, parameters };
+
+  // to append leading zeros (pruned when making JWK) in order to make binary of intended bit length
+  // https://tools.ietf.org/html/rfc7518#section-6.3
+  const modulusBytes = jseu.encoder.decodeBase64Url(jwk.n);
+  const nLen = modulusBytes.length;
+  const modulusLength = (nLen % 128 === 0) ? nLen : nLen + (128 - (nLen % 128));
+
+  const modulus = new asn.bignum(appendLeadingZeros(modulusBytes, modulusLength)); // JWA RFC
+  const publicExponent = new asn.bignum(jseu.encoder.decodeBase64Url(jwk.e));
+
+  const decoded = {};
+  if(type === &apos;public&apos;){ // SPKI
+    decoded.subjectPublicKey = {
+      unused: 0,
+      data: RSAPublicKey.encode({ modulus, publicExponent  }, &apos;der&apos;)
+    };
+    decoded.algorithm = algorithm;
+  }
+  else if (type === &apos;private&apos;) { // PKCS8
+    decoded.version = 0;  // no public key presents for v2 (0)
+    decoded.privateKeyAlgorithm = algorithm;
+    decoded.privateKey = RSAPrivateKey.encode({
+      version: 0,
+      modulus,
+      publicExponent,
+      privateExponent: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.d), modulusLength)),
+      prime1: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.p), modulusLength)),
+      prime2: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.q), modulusLength)),
+      exponent1: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.dp), modulusLength)),
+      exponent2: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.dq), modulusLength)),
+      coefficient: new asn.bignum( appendLeadingZeros(jseu.encoder.decodeBase64Url(jwk.qi), modulusLength))
+    }, &apos;der&apos;);
+  }
+  return decoded;
+}
+
+/**
+ * Convert RSA spki/pkcs8 public/private keys to JWK
+ * @param decoded
+ * @param type
+ * @return {*}
+ */
+export function toJwk(decoded, type){
+
+  if (type === &apos;public&apos;){ // SPKI
+    // algorithm.algorithm.parameters is always null Ox0500 in ASN.1
+    // as shown in the Section 2.3.1 https://tools.ietf.org/html/rfc3279
+
+    // overwrite nested binary object as parsed object
+    decoded.subjectPublicKey.data = RSAPublicKey.decode(decoded.subjectPublicKey.data, &apos;der&apos;);
+    let modulus = decoded.subjectPublicKey.data.modulus;
+    let publicExponent = decoded.subjectPublicKey.data.publicExponent;
+
+    // convert n and e from BN
+    // modulus n
+    const nLen = modulus.byteLength();
+    const len = (nLen % 128 === 0) ? nLen : nLen + (128 - (nLen % 128));
+    modulus = new Uint8Array(modulus.toArray(&apos;be&apos;, len));
+
+    // // publicExponent e;
+    publicExponent = new Uint8Array(publicExponent.toArray(&apos;be&apos;, publicExponent.byteLength()));
+
+    return {
+      kty: &apos;RSA&apos;,
+      n: jseu.encoder.encodeBase64Url(pruneLeadingZeros(modulus)), // prune leading zeros https://tools.ietf.org/html/rfc7518#section-6.3
+      e: jseu.encoder.encodeBase64Url(pruneLeadingZeros(publicExponent))
+    };
+  }
+  else if (type === &apos;private&apos;){ // PKCS8
+    // privateKeyAlgorithm.algorithm.parameters is always null Ox0500 in ASN.1
+    // as shown in the Section 2.3.1 https://tools.ietf.org/html/rfc3279
+
+    // overwrite nested binary object as parsed object
+    decoded.privateKey = RSAPrivateKey.decode(decoded.privateKey, &apos;der&apos;);
+
+    const privateKeyElems = {};
+    privateKeyElems.modulus = decoded.privateKey.modulus;
+
+
+    // calculate key length from modulus n
+    const nLen = privateKeyElems.modulus.byteLength();
+    const len = (nLen % 128 === 0) ? nLen : nLen + (128 - (nLen % 128)); // this is actual key length, e.g., 256 bytes
+
+
+    // convert BN to Uint8Array
+    privateKeyElems.modulus = new Uint8Array(privateKeyElems.modulus.toArray(&apos;be&apos;, len)); // n of length len
+    privateKeyElems.publicExponent = new Uint8Array(
+      decoded.privateKey.publicExponent.toArray( &apos;be&apos;, decoded.privateKey.publicExponent.byteLength() )
+    ); // e of arbitrary small length
+    privateKeyElems.privateExponent = new Uint8Array(decoded.privateKey.privateExponent.toArray(&apos;be&apos;, len)); // d of length len
+
+    const keys = [&apos;prime1&apos;, &apos;prime2&apos;, &apos;exponent1&apos;, &apos;exponent2&apos;, &apos;coefficient&apos;]; // elements of length len/2
+    keys.forEach( (key) =&gt; {
+      privateKeyElems[key] = new Uint8Array(decoded.privateKey[key].toArray(&apos;be&apos;, (len&gt;&gt;1) ));
+    });
+
+    // prune leading zeros JWW RSA private key: https://tools.ietf.org/html/rfc7517
+    return {
+      kty: &apos;RSA&apos;,
+      n: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.modulus)),
+      e: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.publicExponent)),
+      d: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.privateExponent)),
+      p: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.prime1)),
+      q: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.prime2)),
+      dp: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.exponent1)),
+      dq: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.exponent2)),
+      qi: jseu.encoder.encodeBase64Url(pruneLeadingZeros(privateKeyElems.coefficient))
+    };
+  }
+}
+
+
+///////////
+// https://tools.ietf.org/html/rfc3447
+const RSAPublicKey = asn.define(&apos;RSAPublicKey&apos;, function() {
+  this.seq().obj(
+    this.key(&apos;modulus&apos;).int(), // n
+    this.key(&apos;publicExponent&apos;).int() // e
+  );
+});
+
+const RSAPrivateKey = asn.define(&apos;RSAPrivateKey&apos;, function(){
+  this.seq().obj(
+    this.key(&apos;version&apos;).int(), // 0
+    this.key(&apos;modulus&apos;).int(), // n
+    this.key(&apos;publicExponent&apos;).int(), // e
+    this.key(&apos;privateExponent&apos;).int(), // d
+    this.key(&apos;prime1&apos;).int(), // p
+    this.key(&apos;prime2&apos;).int(), // q
+    this.key(&apos;exponent1&apos;).int(), // d mod (p-1)
+    this.key(&apos;exponent2&apos;).int(), // d mod (q-1)
+    this.key(&apos;coefficient&apos;).int(), // (inverse of q) mod p
+    this.key(&apos;otherPrimeInfos&apos;).optional().use(OtherPrimeInfos)
+  );
+});
+
+const OtherPrimeInfos = asn.define(&apos;OtherPrimeInfos&apos;, function(){
+  this.seqof(OtherPrimeInfo);
+});
+
+const OtherPrimeInfo = asn.define(&apos;OtherPrimeInfo&apos;, function(){
+  this.seq().obj(
+    this.key(&apos;prime&apos;).int(),
+    this.key(&apos;exponent&apos;).int(),
+    this.key(&apos;coefficient&apos;).int()
+  );
+});</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

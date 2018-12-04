@@ -7,6 +7,12 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber15",
     "",
     "test"
@@ -31,13 +37,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/convertRSA.spec.js.html#lineNumber31",
+    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
+    "test-file/packages/js-crypto-key-utils/test/convertRSA.spec.js.html#lineNumber31",
     "",
     "test"
   ],
@@ -109,13 +115,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
+    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
     "",
     "test"
   ],
@@ -295,13 +301,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
     " JWK key pair is correctly generated",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
+    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
     " JWK key pair is correctly generated",
     "test"
   ],
@@ -483,6 +489,18 @@ window.esdocSearchIndex = [
     "",
     "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber140",
     " Transform X509 Self Signed RSASSA-PKCS1-v1_5 PEM to JWK, and verify it",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber33",
+    " Unsupported Cipher in decryption",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber23",
+    " Unsupported Cipher in encryption",
     "test"
   ],
   [
@@ -1227,6 +1245,12 @@ window.esdocSearchIndex = [
     "packages/js-crypto-aes/test/gcm.spec.js",
     "test-file/packages/js-crypto-aes/test/gcm.spec.js.html",
     "packages/js-crypto-aes/test/gcm.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-aes/test/misc.spec.js",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html",
+    "packages/js-crypto-aes/test/misc.spec.js",
     "testFile"
   ],
   [

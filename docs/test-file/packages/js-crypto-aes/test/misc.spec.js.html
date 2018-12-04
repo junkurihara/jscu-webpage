@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">packages/js-crypto-aes/src/webapi.js | jscu</title>
+  <title data-ice="title">packages/js-crypto-aes/test/misc.spec.js | jscu</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -146,134 +146,50 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-aes/src/webapi.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * webapi.js
- */
+<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-aes/test/misc.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {getTestEnv} from &apos;./prepare.js&apos;;
+const env = getTestEnv();
+const aes = env.library;
+const envName = env.envName;
 
-import params from &apos;./params.js&apos;;
+import random from &apos;js-crypto-random&apos;;
+import chai from &apos;chai&apos;;
+// const should = chai.should();
+const expect = chai.expect;
 
-/**
- * Encrypt data through AES of WebCrypto API.
- * @param {Uint8Array} msg - Plaintext message to be encrypted.
- * @param {Uint8Array} key - Byte array of symmetric key.
- * @param {String} name - Name of AES algorithm like &apos;AES-GCM&apos;.
- * @param {Uint8Array} [iv] - Byte array of initial vector if required.
- * @param {Uint8Array} [additionalData] - Byte array of additional data if required.
- * @param {Number} [tagLength] - Authentication tag length if required.
- * @param {Object} webCrypto - WebCrypto object, i.e., window.crypto.subtle or window.msCrypto.subtle
- * @return {Promise&lt;Uint8Array&gt;} - Encrypted data byte array.
- * @throws {Error} - Throws if UnsupportedCipher.
- */
-export async function encrypt(msg, key, {name = &apos;AES-GCM&apos;, iv, additionalData, tagLength}, webCrypto) {
-  if (Object.keys(params.ciphers).indexOf(name) &lt; 0) throw new Error(&apos;UnsupportedCipher&apos;);
 
-  const encryptionConfig = setCipherParams({name, iv, additionalData, tagLength});
+describe(`${envName}: Miscellaneous Test`, () =&gt; {
+  const keyLength = [16, 32]; // 24 bytes (192 bits) AES key is not supported in Chrome at this point
+  let msg;
+  let iv;
+  before( async () =&gt; {
+    msg = new Uint8Array(1024);
+    iv = new Uint8Array(12);
+    for(let i = 0; i &lt; 1024; i++) msg[i] = 0xFF &amp; i;
+    for(let i = 0; i &lt; 12; i++) iv[i] = 0xFF &amp; i;
+  });
 
-  if (typeof window.msCrypto === &apos;undefined&apos;) {
-    // modern browsers
-    const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
-    const data = await webCrypto.encrypt(encryptionConfig, sessionKeyObj, msg);
-    return new Uint8Array(data);
-  }
-  else {
-    const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
-    const encryptedObj = await msEncrypt(encryptionConfig, sessionKeyObj, msg, webCrypto);
+  it(&apos;Unsupported Cipher in encryption&apos;, async () =&gt; {
+    await Promise.all( keyLength.map( async (keyLen) =&gt; {
+      const key = await random.getRandomBytes(keyLen);
+      let fail = false;
+      await aes.encrypt(msg, key, {name: &apos;AES-UNSUPPORT&apos;, iv, tagLength: 16})
+        .catch( () =&gt; { fail = true; });
+      expect(fail).to.be.true;
+    }));
+  });
 
-    if (name === &apos;AES-GCM&apos;) {
-      const data = new Uint8Array(encryptedObj.ciphertext.byteLength + encryptedObj.tag.byteLength);
-      data.set(new Uint8Array(encryptedObj.ciphertext));
-      data.set(new Uint8Array(encryptedObj.tag), encryptedObj.ciphertext.byteLength);
-      return data;
-    } else return new Uint8Array(encryptedObj);
-  }
-}
+  it(&apos;Unsupported Cipher in decryption&apos;, async () =&gt; {
+    await Promise.all( keyLength.map( async (keyLen) =&gt; {
+      const key = await random.getRandomBytes(keyLen);
+      let fail = false;
+      const encrypted = await aes.encrypt(msg, key, {name: &apos;AES-GCM&apos;, iv, tagLength: 16});
+      await aes.decrypt(encrypted, key, {name: &apos;AES-UNSUPPORT&apos;, iv, tagLength: 16})
+        .catch( () =&gt; { fail = true; });
+      expect(fail).to.be.true;
+    }));
+  });
 
-/**
- * Decrypt data through AES of WebCrypto API.
- * @param {Uint8Array} data - Encrypted message to be decrypted.
- * @param {Uint8Array} key - Byte array of symmetric key.
- * @param {String} name - Name of AES algorithm like &apos;AES-GCM&apos;.
- * @param {Uint8Array} [iv] - Byte array of initial vector if required.
- * @param {Uint8Array} [additionalData] - Byte array of additional data if required.
- * @param {Number} [tagLength] - Authentication tag length if required.
- * @param {Object} webCrypto - WebCrypto object, i.e., window.crypto.subtle or window.msCrypto.subtle
- * @return {Promise&lt;Uint8Array&gt;} - Decrypted plaintext message.
- * @throws {Error} - Throws if UnsupportedCipher or DecryptionFailure.
- */
-export async function decrypt(data, key, {name=&apos;AES-GCM&apos;, iv, additionalData, tagLength}, webCrypto) {
-  if (Object.keys(params.ciphers).indexOf(name) &lt; 0) throw new Error(&apos;UnsupportedCipher&apos;);
-
-  const decryptionConfig = setCipherParams({name, iv, additionalData, tagLength});
-
-  if (!window.msCrypto) {
-    // modern browsers
-    const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
-    const msg = await webCrypto.decrypt(decryptionConfig, sessionKeyObj, data).catch((e) =&gt; {
-      throw new Error(`DecryptionFailure: ${e.message}`);
-    });
-    return new Uint8Array(msg);
-  }
-  else {
-    const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
-    if (name === &apos;AES-GCM&apos;) {
-      const ciphertext = data.slice(0, data.length - tagLength);
-      const tag = data.slice(data.length - tagLength, data.length);
-      const msg = await msDecrypt(Object.assign(decryptionConfig, {tag}), sessionKeyObj, ciphertext, webCrypto).catch((e) =&gt; {
-        throw new Error(`DecryptionFailure: ${e.message}`);
-      });
-      return new Uint8Array(msg);
-    } else{
-      const msg = await msDecrypt(decryptionConfig, sessionKeyObj, data, webCrypto).catch((e) =&gt; {
-        throw new Error(`DecryptionFailure: ${e.message}`);
-      });
-      return new Uint8Array(msg);
-    }
-  }
-}
-
-/**
- * Set params for encryption algorithms.
- * @param {String} name - Name of AES algorithm like &apos;AES-GCM&apos;.
- * @param {Uint8Array} [iv] - Byte array of initial vector if required.
- * @param {Uint8Array} [additionalData] - Byte array of additional data if required.
- * @param {Number} [tagLength] - Authentication tag length if required.
- */
-const setCipherParams = ({name, iv, additionalData, tagLength}) =&gt; {
-  const alg = {};
-
-  switch(name){
-  case &apos;AES-GCM&apos;: {
-    Object.assign(alg, {name, iv, tagLength: tagLength * 8});
-    Object.assign(alg, (additionalData.length &gt; 0) ? {additionalData} : {});
-    break;
-  }
-  case &apos;AES-CBC&apos;: {
-    alg.name = name;
-    alg.iv = iv;
-    break;
-  }
-  default: break;
-  }
-
-  return alg;
-};
-
-// function definitions for IE
-const msImportKey = (type, key, alg, ext, use, webCrypto) =&gt; new Promise ( (resolve, reject) =&gt; {
-  const op = webCrypto.importKey(type, key, alg, ext, use);
-  op.oncomplete = (evt) =&gt; { resolve(evt.target.result); };
-  op.onerror = () =&gt; { reject(&apos;KeyImportingFailed&apos;); };
-});
-const msEncrypt = (alg, key, msg, webCrypto) =&gt; new Promise ( (resolve, reject) =&gt; {
-  const op = webCrypto.encrypt(alg, key, msg);
-  op.oncomplete = (evt) =&gt; { resolve(evt.target.result); };
-  op.onerror = () =&gt; { reject(&apos;EncryptionFailure&apos;); };
-});
-const msDecrypt = (alg, key, data, webCrypto) =&gt; new Promise ( (resolve, reject) =&gt; {
-  const op = webCrypto.decrypt(alg, key, data);
-  op.oncomplete = (evt) =&gt; { resolve(evt.target.result); };
-  op.onerror = () =&gt; { reject(&apos;DecryptionFailure&apos;); };
 });</code></pre>
 
 </div>

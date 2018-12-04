@@ -13,22 +13,26 @@
       },
       {
         "lineNumber": 11,
-        "line": " * @param name"
+        "line": " * @param {String} name - Name of the specified algorithm like 'AES-GCM'."
       },
       {
         "lineNumber": 12,
-        "line": " * @param iv"
+        "line": " * @param {Uint8Array} iv - IV byte array if required"
       },
       {
         "lineNumber": 13,
-        "line": " * @param tagLength"
+        "line": " * @param {Number} tagLength - Authentication tag length if required"
       },
       {
         "lineNumber": 14,
-        "line": " */"
+        "line": " * @throws {Error} - Throws if UnsupportedAlgorithm, InvalidArguments, InvalidIVLength, or InvalidTagLength."
       },
       {
         "lineNumber": 15,
+        "line": " */"
+      },
+      {
+        "lineNumber": 16,
         "line": "function assertAlgorithms({name, iv, tagLength}){"
       }
     ],
@@ -46,47 +50,51 @@
     "filePath": "packages/js-crypto-aes/src/aes.js",
     "lines": [
       {
-        "lineNumber": 28,
+        "lineNumber": 29,
         "line": "/**"
       },
       {
-        "lineNumber": 29,
-        "line": " * Encrypt with AES"
-      },
-      {
         "lineNumber": 30,
-        "line": " * @param msg"
+        "line": " * Encrypt data with AES"
       },
       {
         "lineNumber": 31,
-        "line": " * @param key"
+        "line": " * @param {Uint8Array} msg - Message to be encrypted."
       },
       {
         "lineNumber": 32,
-        "line": " * @param name"
+        "line": " * @param {Uint8Array} key - The symmetric key used to encrypt the message."
       },
       {
         "lineNumber": 33,
-        "line": " * @param iv"
+        "line": " * @param {String} [name = 'AES-GCM'] - Name of the specified algorithm like 'AES-GCM'."
       },
       {
         "lineNumber": 34,
-        "line": " * @param additionalData"
+        "line": " * @param {Uint8Array} [iv] - Byte array of the initial vector if required."
       },
       {
         "lineNumber": 35,
-        "line": " * @param tagLength"
+        "line": " * @param {Uint8Array} [additionalData = new Uint8Array([])] - Byte array of additional data if required."
       },
       {
         "lineNumber": 36,
-        "line": " * @return {Promise<Uint8Array>}"
+        "line": " * @param {Number} [tagLength = params.ciphers[name].tagLength] - Authentication tag length if required."
       },
       {
         "lineNumber": 37,
-        "line": " */"
+        "line": " * @return {Promise<Uint8Array>} - Encrypted message."
       },
       {
         "lineNumber": 38,
+        "line": " * @throws {Error} - Throws if InvalidArguments, FaildToEncryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto)."
+      },
+      {
+        "lineNumber": 39,
+        "line": " */"
+      },
+      {
+        "lineNumber": 40,
         "line": "export async function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
       }
     ],
@@ -109,47 +117,51 @@
     "filePath": "packages/js-crypto-aes/src/aes.js",
     "lines": [
       {
-        "lineNumber": 74,
+        "lineNumber": 70,
         "line": "/**"
       },
       {
+        "lineNumber": 71,
+        "line": " * Decrypt data with AES"
+      },
+      {
+        "lineNumber": 72,
+        "line": " * @param {Uint8Array} data - Byte array of encrypted data."
+      },
+      {
+        "lineNumber": 73,
+        "line": " * @param {Uint8Array} key - Byte array of symmetric key to be used for decryption."
+      },
+      {
+        "lineNumber": 74,
+        "line": " * @param {String} [name = 'AES-GCM'] - Name of the specified algorithm like 'AES-GCM'."
+      },
+      {
         "lineNumber": 75,
-        "line": " * Decrypt with AES"
+        "line": " * @param {Uint8Array} [iv] - Byte array of the initial vector if required."
       },
       {
         "lineNumber": 76,
-        "line": " * @param data"
+        "line": " * @param {Uint8Array} [additionalData = new Uint8Array([])] - Byte array of additional data if required."
       },
       {
         "lineNumber": 77,
-        "line": " * @param key"
+        "line": " * @param {Number} [tagLength = params.ciphers[name].tagLength] - Authentication tag length if required."
       },
       {
         "lineNumber": 78,
-        "line": " * @param name"
+        "line": " * @return {Promise<Uint8Array>} - Decrypted plaintext message."
       },
       {
         "lineNumber": 79,
-        "line": " * @param iv"
+        "line": " * @throws {Error} - Throws if InvalidArguments, FaildToDecryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto)."
       },
       {
         "lineNumber": 80,
-        "line": " * @param additionalData"
-      },
-      {
-        "lineNumber": 81,
-        "line": " * @param tagLength"
-      },
-      {
-        "lineNumber": 82,
-        "line": " * @return {Promise<Uint8Array>}"
-      },
-      {
-        "lineNumber": 83,
         "line": " */"
       },
       {
-        "lineNumber": 84,
+        "lineNumber": 81,
         "line": "export async function decrypt(data, key, {name='AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
       }
     ],
@@ -161,6 +173,345 @@
     "docParams": [
       "data",
       "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength"
+    ]
+  },
+  {
+    "name": "encrypt",
+    "filePath": "packages/js-crypto-aes/src/nodeapi.js",
+    "lines": [
+      {
+        "lineNumber": 6,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * Encrypt plaintext message via AES Node.js crypto API"
+      },
+      {
+        "lineNumber": 8,
+        "line": " * @param {Uint8Array} msg - Plaintext message to be encrypted."
+      },
+      {
+        "lineNumber": 9,
+        "line": " * @param {Uint8Array} key - Byte array of symmetric key."
+      },
+      {
+        "lineNumber": 10,
+        "line": " * @param {String} name - Name of AES algorithm like 'AES-GCM'."
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param {Uint8Array} [iv] - Byte array of initial vector if required."
+      },
+      {
+        "lineNumber": 12,
+        "line": " * @param {Uint8Array} [additionalData] - Byte array of additional data if required."
+      },
+      {
+        "lineNumber": 13,
+        "line": " * @param {Number} [tagLength] - Authentication tag length if required."
+      },
+      {
+        "lineNumber": 14,
+        "line": " * @param {Object} nodeCrypto - NodeCrypto object, i.e., require(crypto) in Node.js."
+      },
+      {
+        "lineNumber": 15,
+        "line": " * @return {Uint8Array} - Encrypted message byte array."
+      },
+      {
+        "lineNumber": 16,
+        "line": " * @throws {Error} - Throws error if UnsupportedCipher."
+      },
+      {
+        "lineNumber": 17,
+        "line": " */"
+      },
+      {
+        "lineNumber": 18,
+        "line": "export function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData, tagLength}, nodeCrypto){"
+      }
+    ],
+    "codeParams": [
+      "msg",
+      "key",
+      "*",
+      "nodeCrypto"
+    ],
+    "docParams": [
+      "msg",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength",
+      "nodeCrypto"
+    ]
+  },
+  {
+    "name": "decrypt",
+    "filePath": "packages/js-crypto-aes/src/nodeapi.js",
+    "lines": [
+      {
+        "lineNumber": 52,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * Decrypt data through AES Node.js crypto API."
+      },
+      {
+        "lineNumber": 54,
+        "line": " * @param {Uint8Array} data - Encrypted message to be decrypted."
+      },
+      {
+        "lineNumber": 55,
+        "line": " * @param {Uint8Array} key - Byte array of symmetric key."
+      },
+      {
+        "lineNumber": 56,
+        "line": " * @param {String} name - Name of AES algorithm like 'AES-GCM'."
+      },
+      {
+        "lineNumber": 57,
+        "line": " * @param {Uint8Array} [iv] - Byte array of initial vector if required."
+      },
+      {
+        "lineNumber": 58,
+        "line": " * @param {Uint8Array} [additionalData] - Byte array of additional data if required."
+      },
+      {
+        "lineNumber": 59,
+        "line": " * @param {Number} [tagLength] - Authentication tag length if required."
+      },
+      {
+        "lineNumber": 60,
+        "line": " * @param {Object} nodeCrypto - NodeCrypto object, i.e., require(crypto) in Node.js."
+      },
+      {
+        "lineNumber": 61,
+        "line": " * @return {Uint8Array} - Decrypted message byte array."
+      },
+      {
+        "lineNumber": 62,
+        "line": " * @throws {Error} - Throws error if UnsupportedCipher or DecryptionFailure."
+      },
+      {
+        "lineNumber": 63,
+        "line": " */"
+      },
+      {
+        "lineNumber": 64,
+        "line": "export function decrypt(data, key, {name='AES-GCM', iv, additionalData, tagLength}, nodeCrypto) {"
+      }
+    ],
+    "codeParams": [
+      "data",
+      "key",
+      "*",
+      "nodeCrypto"
+    ],
+    "docParams": [
+      "data",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength",
+      "nodeCrypto"
+    ]
+  },
+  {
+    "name": "encrypt",
+    "filePath": "packages/js-crypto-aes/src/webapi.js",
+    "lines": [
+      {
+        "lineNumber": 6,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * Encrypt data through AES of WebCrypto API."
+      },
+      {
+        "lineNumber": 8,
+        "line": " * @param {Uint8Array} msg - Plaintext message to be encrypted."
+      },
+      {
+        "lineNumber": 9,
+        "line": " * @param {Uint8Array} key - Byte array of symmetric key."
+      },
+      {
+        "lineNumber": 10,
+        "line": " * @param {String} name - Name of AES algorithm like 'AES-GCM'."
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param {Uint8Array} [iv] - Byte array of initial vector if required."
+      },
+      {
+        "lineNumber": 12,
+        "line": " * @param {Uint8Array} [additionalData] - Byte array of additional data if required."
+      },
+      {
+        "lineNumber": 13,
+        "line": " * @param {Number} [tagLength] - Authentication tag length if required."
+      },
+      {
+        "lineNumber": 14,
+        "line": " * @param {Object} webCrypto - WebCrypto object, i.e., window.crypto.subtle or window.msCrypto.subtle"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * @return {Promise<Uint8Array>} - Encrypted data byte array."
+      },
+      {
+        "lineNumber": 16,
+        "line": " * @throws {Error} - Throws if UnsupportedCipher."
+      },
+      {
+        "lineNumber": 17,
+        "line": " */"
+      },
+      {
+        "lineNumber": 18,
+        "line": "export async function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData, tagLength}, webCrypto) {"
+      }
+    ],
+    "codeParams": [
+      "msg",
+      "key",
+      "*",
+      "webCrypto"
+    ],
+    "docParams": [
+      "msg",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength",
+      "webCrypto"
+    ]
+  },
+  {
+    "name": "decrypt",
+    "filePath": "packages/js-crypto-aes/src/webapi.js",
+    "lines": [
+      {
+        "lineNumber": 42,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 43,
+        "line": " * Decrypt data through AES of WebCrypto API."
+      },
+      {
+        "lineNumber": 44,
+        "line": " * @param {Uint8Array} data - Encrypted message to be decrypted."
+      },
+      {
+        "lineNumber": 45,
+        "line": " * @param {Uint8Array} key - Byte array of symmetric key."
+      },
+      {
+        "lineNumber": 46,
+        "line": " * @param {String} name - Name of AES algorithm like 'AES-GCM'."
+      },
+      {
+        "lineNumber": 47,
+        "line": " * @param {Uint8Array} [iv] - Byte array of initial vector if required."
+      },
+      {
+        "lineNumber": 48,
+        "line": " * @param {Uint8Array} [additionalData] - Byte array of additional data if required."
+      },
+      {
+        "lineNumber": 49,
+        "line": " * @param {Number} [tagLength] - Authentication tag length if required."
+      },
+      {
+        "lineNumber": 50,
+        "line": " * @param {Object} webCrypto - WebCrypto object, i.e., window.crypto.subtle or window.msCrypto.subtle"
+      },
+      {
+        "lineNumber": 51,
+        "line": " * @return {Promise<Uint8Array>} - Decrypted plaintext message."
+      },
+      {
+        "lineNumber": 52,
+        "line": " * @throws {Error} - Throws if UnsupportedCipher or DecryptionFailure."
+      },
+      {
+        "lineNumber": 53,
+        "line": " */"
+      },
+      {
+        "lineNumber": 54,
+        "line": "export async function decrypt(data, key, {name='AES-GCM', iv, additionalData, tagLength}, webCrypto) {"
+      }
+    ],
+    "codeParams": [
+      "data",
+      "key",
+      "*",
+      "webCrypto"
+    ],
+    "docParams": [
+      "data",
+      "key",
+      "name",
+      "iv",
+      "additionalData",
+      "tagLength",
+      "webCrypto"
+    ]
+  },
+  {
+    "name": "setCipherParams",
+    "filePath": "packages/js-crypto-aes/src/webapi.js",
+    "lines": [
+      {
+        "lineNumber": 85,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 86,
+        "line": " * Set params for encryption algorithms."
+      },
+      {
+        "lineNumber": 87,
+        "line": " * @param {String} name - Name of AES algorithm like 'AES-GCM'."
+      },
+      {
+        "lineNumber": 88,
+        "line": " * @param {Uint8Array} [iv] - Byte array of initial vector if required."
+      },
+      {
+        "lineNumber": 89,
+        "line": " * @param {Uint8Array} [additionalData] - Byte array of additional data if required."
+      },
+      {
+        "lineNumber": 90,
+        "line": " * @param {Number} [tagLength] - Authentication tag length if required."
+      },
+      {
+        "lineNumber": 91,
+        "line": " */"
+      },
+      {
+        "lineNumber": 92,
+        "line": "const setCipherParams = ({name, iv, additionalData, tagLength}) => {"
+      }
+    ],
+    "codeParams": [
+      "*"
+    ],
+    "docParams": [
       "name",
       "iv",
       "additionalData",

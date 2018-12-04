@@ -171,13 +171,13 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, key: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, additionalData: <span>*</span>, tagLength: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Decrypt with AES</p>
+        <div data-ice="description"><p>Decrypt data with AES</p>
 </div>
       </div>
     </td>
@@ -200,13 +200,13 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, key: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, additionalData: <span>*</span>, tagLength: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Encrypt with AES</p>
+        <div data-ice="description"><p>Encrypt data with AES</p>
 </div>
       </div>
     </td>
@@ -229,13 +229,14 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, key: <span>*</span>, objectPattern2: {&quot;name&quot;: <span>*</span>, &quot;iv&quot;: <span>*</span>, &quot;additionalData&quot;: <span>*</span>, &quot;tagLength&quot;: <span>*</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>): <span>Uint8Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Decrypt data through AES Node.js crypto API.</p>
+</div>
       </div>
     </td>
     <td>
@@ -257,13 +258,14 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, key: <span>*</span>, objectPattern2: {&quot;name&quot;: <span>*</span>, &quot;iv&quot;: <span>*</span>, &quot;additionalData&quot;: <span>*</span>, &quot;tagLength&quot;: <span>*</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>): <span>Uint8Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Encrypt plaintext message via AES Node.js crypto API</p>
+</div>
       </div>
     </td>
     <td>
@@ -285,13 +287,14 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getNodeCrypto">getNodeCrypto</a></span></span><span class="code" data-ice="signature">(): <span>undefined</span> | <span>Object</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Obtain require(crypto) in Node.js environment.</p>
+</div>
       </div>
     </td>
     <td>
@@ -313,13 +316,13 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span><span class="code" data-ice="signature">(): <span>undefined</span> | <span>Object</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>util.js</p>
+        <div data-ice="description"><p>Obtain window.crypto.subtle or window.msCrypto.subtle object in browser environments.</p>
 </div>
       </div>
     </td>
@@ -342,13 +345,14 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, key: <span>*</span>, objectPattern2: {&quot;name&quot;: <span>*</span>, &quot;iv&quot;: <span>*</span>, &quot;additionalData&quot;: <span>*</span>, &quot;tagLength&quot;: <span>*</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Decrypt data through AES of WebCrypto API.</p>
+</div>
       </div>
     </td>
     <td>
@@ -370,13 +374,13 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, key: <span>*</span>, objectPattern2: {&quot;name&quot;: <span>*</span>, &quot;iv&quot;: <span>*</span>, &quot;additionalData&quot;: <span>*</span>, &quot;tagLength&quot;: <span>*</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>webapi.js</p>
+        <div data-ice="description"><p>Encrypt data through AES of WebCrypto API.</p>
 </div>
       </div>
     </td>

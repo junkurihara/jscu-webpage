@@ -149,7 +149,7 @@
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h2 id="jscu--a-universal-cryptographic-library-for-javascript">jscu: A Universal Cryptographic Library for JavaScript</h2><p><a href="https://circleci.com/gh/junkurihara/jscu"><img src="https://circleci.com/gh/junkurihara/jscu.svg?style=svg" alt="CircleCI"></a>
 <a href="https://coveralls.io/github/junkurihara/jscu?branch=develop"><img src="https://coveralls.io/repos/github/junkurihara/jscu/badge.svg?branch=develop" alt="Coverage Status"></a>
 <a href="https://david-dm.org/junkurihara/jscu"><img src="https://david-dm.org/junkurihara/jscu.svg" alt="Dependencies"></a>
-<a href="https://codeclimate.com/github/junkurihara/jscu/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e20cff0e8e062363a13/maintainability" alt="Maintainability"></a>
+<a href="https://codeclimate.com/github/junkurihara/jscu/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e20cff0e8e062363a13/maintainability.svg" alt="Maintainability"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
 <blockquote>
 <p><strong>WARNING</strong>: At this time this solution should be considered suitable for research and experimentation, further code and security review is needed before utilization in a production application.</p>
@@ -163,7 +163,7 @@
 <li>First execute <code>yarn flow:version</code> and bump a version of each package that has been modified on <code>develop</code> branch. Here we note that for each updated package, the updated tag would be committed (not pushed), and hence we should almost finalize the release operation at least for each package. This simultaneously update the repo version specified in the root <code>package.json</code> without committing.</li>
 <li>Add final changes for release at the level of GitHub repo. Then, commit changes and then execute <code>yarn release:start</code> to start release process on a release branch. Here we note the release version will be the updated Git repo version.</li>
 <li>To finalize the release operation, execute <code>yarn release:finish</code> to merge the release branch to <code>master</code>, and then merge <code>master</code> to <code>develop</code>. It will also tag the <code>master</code> branch with the updated Git repo version, i.e., the root package (<code>packages/js-crypto-utils</code>) version.</li>
-<li>Execute <code>yarn release:finish</code> and push all branches and the generated tag of Git repo version to GitHub.</li>
+<li>Execute <code>yarn release:push</code> and push all branches and the generated tag of Git repo version to GitHub.</li>
 </ol>
 </li>
 </ul>

@@ -1,7 +1,7 @@
 {
-  "coverage": "30.1%",
-  "expectCount": 186,
-  "actualCount": 56,
+  "coverage": "32.62%",
+  "expectCount": 187,
+  "actualCount": 61,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -10,27 +10,21 @@
     },
     "packages/js-crypto-aes/src/nodeapi.js": {
       "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        7,
-        41
-      ]
+      "actualCount": 2,
+      "undocumentLines": []
     },
     "packages/js-crypto-aes/src/util.js": {
       "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        13
-      ]
+      "actualCount": 2,
+      "undocumentLines": []
     },
     "packages/js-crypto-aes/src/webapi.js": {
-      "expectCount": 5,
-      "actualCount": 1,
+      "expectCount": 6,
+      "actualCount": 3,
       "undocumentLines": [
-        37,
-        77,
-        82,
-        87
+        114,
+        119,
+        124
       ]
     },
     "packages/js-crypto-ec/src/asn1enc.js": {

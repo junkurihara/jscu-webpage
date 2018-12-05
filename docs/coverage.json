@@ -1,7 +1,7 @@
 {
-  "coverage": "42.77%",
-  "expectCount": 180,
-  "actualCount": 77,
+  "coverage": "51.64%",
+  "expectCount": 182,
+  "actualCount": 94,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -213,53 +213,35 @@
     },
     "packages/js-crypto-rsa/src/nodeapi.js": {
       "expectCount": 5,
-      "actualCount": 0,
-      "undocumentLines": [
-        12,
-        37,
-        47,
-        58,
-        74
-      ]
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "packages/js-crypto-rsa/src/oaep.js": {
-      "expectCount": 5,
-      "actualCount": 1,
-      "undocumentLines": [
-        28,
-        71,
-        134,
-        193
-      ]
-    },
-    "packages/js-crypto-rsa/src/pss.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        24
-      ]
-    },
-    "packages/js-crypto-rsa/src/rsa.js": {
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
     },
+    "packages/js-crypto-rsa/src/pss.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "packages/js-crypto-rsa/src/rsa.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
     "packages/js-crypto-rsa/src/webapi.js": {
       "expectCount": 12,
-      "actualCount": 0,
+      "actualCount": 5,
       "undocumentLines": [
-        7,
-        34,
-        50,
-        66,
-        82,
-        99,
-        104,
-        114,
-        126,
-        132,
-        138,
-        143
+        149,
+        154,
+        164,
+        176,
+        182,
+        188,
+        193
       ]
     },
     "packages/js-crypto-utils/src/pkc.js": {

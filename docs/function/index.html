@@ -184,13 +184,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;label&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;mLen&quot;: <span>*</span>, &quot;cLen&quot;: <span>*</span>})</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, label: <span>Uint8Array</span>, hash: <span>String</span>, mLen: <span>Number</span>, cLen: <span>Number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Check OAEP length</p>
+</div>
       </div>
     </td>
     <td>
@@ -212,13 +213,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;saltLength&quot;: <span>*</span>})</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, hash: <span>String</span>, saltLength: <span>Number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Check PSS Length.</p>
+</div>
       </div>
     </td>
     <td>
@@ -471,13 +473,14 @@
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Decryption via NodeCrypto.</p>
+</div>
       </div>
     </td>
     <td>
@@ -499,13 +502,14 @@
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA-OAEP Decryption.</p>
+</div>
       </div>
     </td>
     <td>
@@ -527,13 +531,14 @@
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Decryption via WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -758,13 +763,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepDecode">emeOaepDecode</a></span></span><span class="code" data-ice="signature">(em: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepDecode">emeOaepDecode</a></span></span><span class="code" data-ice="signature">(em: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>OAEP Decoder</p>
+</div>
       </div>
     </td>
     <td>
@@ -786,13 +792,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepEncode">emeOaepEncode</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepEncode">emeOaepEncode</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>OAEP Encoder</p>
+</div>
       </div>
     </td>
     <td>
@@ -958,13 +965,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Encryption via NodeCrypto.</p>
+</div>
       </div>
     </td>
     <td>
@@ -986,13 +994,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA-OAEP Encryption</p>
+</div>
       </div>
     </td>
     <td>
@@ -1014,13 +1023,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Encryption via WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1417,13 +1427,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, nodeCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1445,13 +1456,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>*</span>, publicExponent: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1473,13 +1485,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, webCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2332,13 +2345,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2360,13 +2374,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2388,13 +2403,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2764,13 +2780,15 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>/**
+Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2792,13 +2810,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2820,13 +2839,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2953,18 +2973,19 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
     
     
     
-    <span class="code" data-ice="name">checkLength</span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;label&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;mLen&quot;: <span>*</span>, &quot;cLen&quot;: <span>*</span>})</span>
+    <span class="code" data-ice="name">checkLength</span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, label: <span>Uint8Array</span>, hash: <span>String</span>, mLen: <span>Number</span>, cLen: <span>Number</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkLength} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber28">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkLength} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber38">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Check OAEP length</p>
+</div>
 
   
 
@@ -2978,15 +2999,45 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">mode</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>&apos;encrypt&apos; or &apos;decrypt&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">objectPattern1</td>
-      <td data-ice="type" class="code">{&quot;k&quot;: <span>*</span>, &quot;label&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;mLen&quot;: <span>*</span>, &quot;cLen&quot;: <span>*</span>}</td>
-      <td data-ice="appendix"><ul><li>default: {&quot;k&quot;:null,&quot;label&quot;:null,&quot;hash&quot;:null,&quot;mLen&quot;:null,&quot;cLen&quot;:null}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">k</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Octet length of modulus length, i.e., n.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">label</td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>OAEP label.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">hash</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash function.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">mLen</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Octet length of message to be encrypted.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">cLen</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>the length of ciphertext</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -2999,7 +3050,19 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if LabelTooLong, MessageTooLong, DecryptionError or InvalidMode.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -3018,18 +3081,19 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
     
     
     
-    <span class="code" data-ice="name">checkLength</span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;saltLength&quot;: <span>*</span>})</span>
+    <span class="code" data-ice="name">checkLength</span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, hash: <span>String</span>, saltLength: <span>Number</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/pss.js.html#lineNumber24">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/pss.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkLength} from &apos;<span><a href="file/packages/js-crypto-rsa/src/pss.js.html#lineNumber24">jscu/packages/js-crypto-rsa/src/pss.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkLength} from &apos;<span><a href="file/packages/js-crypto-rsa/src/pss.js.html#lineNumber32">jscu/packages/js-crypto-rsa/src/pss.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Check PSS Length.</p>
+</div>
 
   
 
@@ -3043,15 +3107,31 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">mode</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>&apos;sign&apos; or &apos;verify&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">objectPattern1</td>
-      <td data-ice="type" class="code">{&quot;k&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;saltLength&quot;: <span>*</span>}</td>
-      <td data-ice="appendix"><ul><li>default: {&quot;k&quot;:null,&quot;hash&quot;:null,&quot;saltLength&quot;:null}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">k</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Octet length of modulus length, i.e., n.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">hash</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash function.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">saltLength</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Length of salt.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3064,7 +3144,19 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if Inconsistent, EncodingError, or InvalidMode.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -3919,18 +4011,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber74">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber122">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber74">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber122">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA Decryption via NodeCrypto.</p>
+</div>
 
   
 
@@ -3944,34 +4037,38 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">data</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>encrypted message byte array.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">nodeCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>NodeCrypto object.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3983,8 +4080,9 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Decrypted message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -3996,7 +4094,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NotPrivateKeyForRSADecrypt.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -4015,18 +4125,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber209">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber205">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber209">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber205">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA-OAEP Decryption.</p>
+</div>
 
   
 
@@ -4040,27 +4151,33 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">data</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of encrypted message to be decrypted.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: new Uint8Array([])</li></ul></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4072,8 +4189,9 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>*</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Decrypted message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -4085,7 +4203,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedEnvironment.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -4104,18 +4234,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber130">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber82">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber130">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA Decryption via WebAPI.</p>
+</div>
 
   
 
@@ -4129,34 +4260,38 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>encrypted message byte array.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">webCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>WebCryptoSubtle object.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4168,8 +4303,9 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Decrypted message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -4181,7 +4317,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>if RSA-OAEP label is specified in IE.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -4809,18 +4957,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">emeOaepDecode</span><span class="code" data-ice="signature">(em: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
+    <span class="code" data-ice="name">emeOaepDecode</span><span class="code" data-ice="signature">(em: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber134">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber161">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {emeOaepDecode} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber134">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {emeOaepDecode} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber161">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>OAEP Decoder</p>
+</div>
 
   
 
@@ -4834,28 +4983,31 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">em</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>OAEP encoded message.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">k</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Number</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Octet length of modulus length, i.e., n.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash function.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4867,8 +5019,9 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>OAEP decoded message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -4880,7 +5033,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if DecryptionError.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -4899,18 +5064,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">emeOaepEncode</span><span class="code" data-ice="signature">(msg: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
+    <span class="code" data-ice="name">emeOaepEncode</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber71">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber89">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {emeOaepEncode} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber71">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {emeOaepEncode} from &apos;<span><a href="file/packages/js-crypto-rsa/src/oaep.js.html#lineNumber89">jscu/packages/js-crypto-rsa/src/oaep.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>OAEP Encoder</p>
+</div>
 
   
 
@@ -4924,28 +5090,31 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Message.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">k</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Number</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Octet length of modulus length, i.e., n.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash function.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4957,8 +5126,9 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>OAEP encoded message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -5521,18 +5691,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber96">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber58">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber96">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA Encryption via NodeCrypto.</p>
+</div>
 
   
 
@@ -5546,34 +5717,38 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message to be encrypted</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Public key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">nodeCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>NodeCrypto object.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -5585,8 +5760,9 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Encrypted message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -5598,7 +5774,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NotPublicKeyForRSAEncrypt.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -5617,18 +5805,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber165">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber169">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber165">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber169">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA-OAEP Encryption</p>
+</div>
 
   
 
@@ -5642,123 +5831,147 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message to be encrypted.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Public/Private key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>*</span>&gt;</td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-encrypt">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    <span data-ice="async">async</span>
-    
-    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber66">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber66">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">label</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: new Uint8Array([])</li></ul></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Encrypted message.</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedEnvironment.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-encrypt">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    <span data-ice="async">async</span>
+    
+    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber104">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber104">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>RSA Encryption via WebAPI.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">msg</td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Byte array of message to be encrypted</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">publicJwk</td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Public key in JWK format.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">hash</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">label</td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>RSA-OAEP label.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">webCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>WebCryptoSubtle object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -5770,8 +5983,9 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Encrypted message.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -5783,7 +5997,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>if RSA-OAEP label is specified in IE.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -6937,18 +7163,19 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, nodeCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber12">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber19">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
 
   
 
@@ -6962,22 +7189,24 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">modulusLength</td>
-      <td data-ice="type" class="code"><span>number</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 2048</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Modulus length in bits, i.e., n.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicExponent</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Public exponent, i.e, e.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">nodeCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>NodeCrypto object.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -6989,7 +7218,7 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType">{&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</td>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></td>
           
         </tr>
       </tbody>
@@ -7002,7 +7231,19 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if KeyGenerationFailedNode.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -7021,18 +7262,19 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>*</span>, publicExponent: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber19">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber20">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
 
   
 
@@ -7046,99 +7288,118 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">modulusLength</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">publicExponent</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>void</span>&gt;</td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-generateKey">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    <span data-ice="async">async</span>
-    
-    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, webCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber7">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber7">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">modulusLength</td>
-      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="type" class="code"><span>Number</span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: 2048</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Modulus length in bits, i.e., n.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicExponent</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: new Uint8Array([0x01, 0x00, 0x01])</li></ul></td>
+      <td data-ice="description"><p>Public exponent, i.e, e.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedEnvironment.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-generateKey">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    <span data-ice="async">async</span>
+    
+    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber14">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {generateKey} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber14">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">modulusLength</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Modulus length in bits, i.e., n.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">publicExponent</td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Public exponent, i.e, e.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">webCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>WebCryptoSubtle object, i.e., window.crypto.subtle or window.msCrypto.subtle.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -7150,7 +7411,7 @@ For both: outputPublic (optional) : boolean. derived key type. from private key,
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType">{&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</td>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></td>
           
         </tr>
       </tbody>
@@ -9548,18 +9809,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber37">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber54">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber37">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber54">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
 
   
 
@@ -9573,35 +9835,38 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message to be signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code">{&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {&quot;name&quot;:&quot;RSA-PSS&quot;,&quot;saltLength&quot;:192}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">nodeCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>NodeCrypto object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -9613,8 +9878,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Byte array of raw signature.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -9626,7 +9892,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NotPublicKeyForRSASign.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -9645,18 +9923,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber74">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber60">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber74">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
 
   
 
@@ -9670,27 +9949,35 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message to be signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}</li></ul></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.
+  For RSA-PSS, algorithm.name = &apos;RSA-PSS&apos; and algorithm.saltLength: Number must be specified.
+  For RSASSA-PKCS1-v1_5, algorithm.name = &apos;RSASSA-PKCS1-v1_5&apos; must be specified.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -9702,8 +9989,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>*</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Byte array of raw signature.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -9715,7 +10003,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedEnvironment.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -9734,18 +10034,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber34">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber34">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber51">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
 
   
 
@@ -9759,35 +10060,38 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message to be signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code">{&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {&quot;name&quot;:&quot;RSA-PSS&quot;,&quot;saltLength&quot;:192}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">webCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>WebCryptoSubtle object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -9799,8 +10103,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Byte array of raw signature.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -9812,7 +10117,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>if RSA-PSS in IE.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -10984,18 +11301,20 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber47">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber76">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber47">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/nodeapi.js.html#lineNumber76">jscu/packages/js-crypto-rsa/src/nodeapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>/**
+Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
 
   
 
@@ -11009,41 +11328,45 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">signature</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of raw signature.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>public key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code">{&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {&quot;name&quot;:&quot;RSA-PSS&quot;,&quot;saltLength&quot;:192}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">nodeCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>NodeCrypto object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -11055,8 +11378,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>boolean</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Result of verification.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -11068,7 +11392,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NotPublicKeyForRSAVerify.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -11087,18 +11423,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber113">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber112">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber113">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/rsa.js.html#lineNumber112">jscu/packages/js-crypto-rsa/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
 
   
 
@@ -11112,33 +11449,42 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">signature</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of raw signature.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>public key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}</li></ul></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.
+  For RSA-PSS, algorithm.name = &apos;RSA-PSS&apos; and algorithm.saltLength: Number must be specified.
+  For RSASSA-PKCS1-v1_5, algorithm.name = &apos;RSASSA-PKCS1-v1_5&apos; must be specified.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -11150,8 +11496,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>*</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>boolean</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Result of verification.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -11163,7 +11510,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if InvalidSignatureFormat, or UnsupportedEnvironment.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -11182,18 +11541,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber78">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber50">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-rsa/src/webapi.js.html#lineNumber78">jscu/packages/js-crypto-rsa/src/webapi.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
 
   
 
@@ -11207,41 +11567,45 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of message signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">signature</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Byte array of raw signature.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>public key for signing in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: SHA-256</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code">{&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {&quot;name&quot;:&quot;RSA-PSS&quot;,&quot;saltLength&quot;:192}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Object to specify algorithm parameters.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">webCrypto</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>WebCryptoSubtle object</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -11253,8 +11617,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>boolean</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Result of verification.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -11266,7 +11631,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>if RSA-PSS in IE.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 

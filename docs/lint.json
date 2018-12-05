@@ -739,6 +739,120 @@
     ]
   },
   {
+    "name": "checkLength",
+    "filePath": "packages/js-crypto-rsa/src/oaep.js",
+    "lines": [
+      {
+        "lineNumber": 27,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 28,
+        "line": " * Check OAEP length"
+      },
+      {
+        "lineNumber": 29,
+        "line": " * @param {String} mode - 'encrypt' or 'decrypt'"
+      },
+      {
+        "lineNumber": 30,
+        "line": " * @param {Number} k - Octet length of modulus length, i.e., n."
+      },
+      {
+        "lineNumber": 31,
+        "line": " * @param {Uint8Array} label - OAEP label."
+      },
+      {
+        "lineNumber": 32,
+        "line": " * @param {String} hash - Name of hash function."
+      },
+      {
+        "lineNumber": 33,
+        "line": " * @param {Number} mLen - Octet length of message to be encrypted."
+      },
+      {
+        "lineNumber": 34,
+        "line": " * @param {Number} cLen - the length of ciphertext"
+      },
+      {
+        "lineNumber": 35,
+        "line": " * @throws {Error} - Throws if LabelTooLong, MessageTooLong, DecryptionError or InvalidMode."
+      },
+      {
+        "lineNumber": 36,
+        "line": " */"
+      },
+      {
+        "lineNumber": 37,
+        "line": "export function checkLength(mode, {k, label, hash, mLen, cLen}){"
+      }
+    ],
+    "codeParams": [
+      "mode",
+      "*"
+    ],
+    "docParams": [
+      "mode",
+      "k",
+      "label",
+      "hash",
+      "mLen",
+      "cLen"
+    ]
+  },
+  {
+    "name": "checkLength",
+    "filePath": "packages/js-crypto-rsa/src/pss.js",
+    "lines": [
+      {
+        "lineNumber": 23,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 24,
+        "line": " * Check PSS Length."
+      },
+      {
+        "lineNumber": 25,
+        "line": " * @param {String} mode - 'sign' or 'verify'"
+      },
+      {
+        "lineNumber": 26,
+        "line": " * @param {Number} k - Octet length of modulus length, i.e., n."
+      },
+      {
+        "lineNumber": 27,
+        "line": " * @param {String} hash - Name of hash function."
+      },
+      {
+        "lineNumber": 28,
+        "line": " * @param {Number} saltLength - Length of salt."
+      },
+      {
+        "lineNumber": 29,
+        "line": " * @throws {Error} - Throws if Inconsistent, EncodingError, or InvalidMode."
+      },
+      {
+        "lineNumber": 30,
+        "line": " */"
+      },
+      {
+        "lineNumber": 31,
+        "line": "export function checkLength(mode, {k, hash, saltLength}){"
+      }
+    ],
+    "codeParams": [
+      "mode",
+      "*"
+    ],
+    "docParams": [
+      "mode",
+      "k",
+      "hash",
+      "saltLength"
+    ]
+  },
+  {
     "name": "sign",
     "filePath": "packages/js-crypto-utils/src/pkc.js",
     "lines": [

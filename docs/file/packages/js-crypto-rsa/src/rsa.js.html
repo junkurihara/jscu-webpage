@@ -151,234 +151,222 @@ import {checkLength as checkPssLength} from &apos;./pss.js&apos;;
 import jseu from &apos;js-encoding-utils&apos;;
 
 /**
- *
- * @param modulusLength
- * @param publicExponent
- * @return {Promise&lt;void&gt;}
+ * Generate RSA public/private key pair.
+ * @param {Number} [modulusLength=2048] - Modulus length in bits, i.e., n.
+ * @param {Uint8Array} [publicExponent=new Uint8Array([0x01, 0x00, 0x01])] - Public exponent, i.e, e.
+ * @return {Promise&lt;{publicKey: JsonWebKey, privateKey: JsonWebKey}&gt;}
+ * @throws {Error} - Throws if UnsupportedEnvironment.
  */
 export async function generateKey(modulusLength = 2048, publicExponent = new Uint8Array([0x01, 0x00, 0x01])){
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
-  let native = true;
   let errMsg;
   let keyPair = {};
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.generateKey === &apos;function&apos; &amp;&amp; typeof webCrypto.exportKey === &apos;function&apos;) { // for web API
-    keyPair = await webapi.generateKey(modulusLength, publicExponent, webCrypto)
-      .catch((e) =&gt; {
-        errMsg = e.message;
-        native = false;
-      });
+    keyPair = await webapi.generateKey(modulusLength, publicExponent, webCrypto).catch((e) =&gt; {
+      errMsg = e.message;
+    });
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos; ) { // for node
-    try{
-      keyPair = await nodeapi.generateKey(modulusLength, publicExponent, nodeCrypto);
-    } catch(e) {
+    keyPair = await nodeapi.generateKey(modulusLength, publicExponent, nodeCrypto).catch( (e) =&gt; {
       errMsg = e.message;
-      native = false;
-    }
-  } else native = false;
+    });
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;);
 
-  if (native === false){ // fallback to purejs implementation
-    throw new Error(`UnsupportedEnvironment: ${errMsg}`);
-    // try{
-    //   keyPair = await purejs.generateKey(namedCurve);
-    // } catch (e) { throw new Error(&apos;UnsupportedEnvironment&apos;);}
-  }
+  if (errMsg) throw new Error(`UnsupportedEnvironment: ${errMsg}`); // TODO: fallback to purejs implementation
 
   return keyPair;
 }
 
 /**
- *
- * @param msg
- * @param privateJwk
- * @param hash
- * @param algorithm
- * @return {Promise&lt;*&gt;}
+ * RSA Signing parameter check.
+ * @param {Uint8Array} msg - Byte array of message to be signed.
+ * @param {JsonWebKey} jwkey - Private/Public key for signing/verifying in JWK format.
+ * @param {String} hash - Name of hash algorithm like &apos;SHA-256&apos;.
+ * @param {Object} algorithm - Object to specify algorithm parameters.
+ * @param {String} mode - &apos;sign&apos; or &apos;verify&apos; for PSS parameter check.
+ * @return {boolean} - Always true unless thrown.
+ * @throws {Error} - Throws if InvalidAlgorithm, UnsupportedHash, InvalidMessageFormat or InvalidJwkRsaKey
  */
-export async function sign(msg, privateJwk, hash = &apos;SHA-256&apos;, algorithm) {
-  if (typeof algorithm === &apos;undefined&apos;) algorithm = {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize};
-
-  // assertion
+function assertSignVerify(msg, jwkey, hash, algorithm, mode){
   if (algorithm.name !== &apos;RSA-PSS&apos; &amp;&amp; algorithm.name !== &apos;RSASSA-PKCS1-v1_5&apos;) throw new Error(&apos;InvalidAlgorithm&apos;);
   if (Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHash&apos;);
   if (!(msg instanceof Uint8Array)) throw new Error(&apos;InvalidMessageFormat&apos;);
-  if (privateJwk.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
+  if (jwkey.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
   if (algorithm.name === &apos;RSA-PSS&apos;){
-    checkPssLength(&apos;sign&apos;, {k: jseu.encoder.decodeBase64Url(privateJwk.n).length, hash, saltLength: algorithm.saltLength});
+    checkPssLength(mode, {k: jseu.encoder.decodeBase64Url(jwkey.n).length, hash, saltLength: algorithm.saltLength});
   }
+  return true;
+}
+
+/**
+ * RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5.
+ * @param {Uint8Array} msg - Byte array of message to be signed.
+ * @param {JsonWebKey} privateJwk - Private key for signing in JWK format.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;.
+ * @param {Object} [algorithm={name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}] - Object to specify algorithm parameters.
+ *   For RSA-PSS, algorithm.name = &apos;RSA-PSS&apos; and algorithm.saltLength: Number must be specified.
+ *   For RSASSA-PKCS1-v1_5, algorithm.name = &apos;RSASSA-PKCS1-v1_5&apos; must be specified.
+ * @return {Promise&lt;Uint8Array&gt;} - Byte array of raw signature.
+ * @throws {Error} - Throws if UnsupportedEnvironment.
+ */
+export async function sign(msg, privateJwk, hash = &apos;SHA-256&apos;, algorithm = {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}) {
+  // assertion
+  assertSignVerify(msg, privateJwk, hash, algorithm, &apos;sign&apos;);
 
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
-  let native = true;
   let errMsg;
   let signature;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.sign === &apos;function&apos;) { // for web API
-    signature = await webapi.sign(msg, privateJwk, hash, algorithm, webCrypto)
-      .catch((e) =&gt; {
-        errMsg = e.message;
-        native = false;
-      });
+    signature = await webapi.sign(msg, privateJwk, hash, algorithm, webCrypto).catch((e) =&gt; {
+      errMsg = e.message;
+    });
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos; ) { // for node
-    try {
-      signature = await nodeapi.sign(msg, privateJwk, hash, algorithm, nodeCrypto);
-    } catch(e) {
+    signature = await nodeapi.sign(msg, privateJwk, hash, algorithm, nodeCrypto).catch( (e) =&gt; {
       errMsg = e.message;
-      native = false;
-    }
-  } else native = false;
+    });
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;);
 
-  if (native === false){ // fallback to purejs implementation
-    throw new Error(`UnsupportedEnvironment: ${errMsg}`);
-    // try{
-    //   signature = await purejs.sign(msg, privateJwk, hash, algorithm, signatureFormat);
-    // } catch (e) { throw new Error(&apos;UnsupportedEnvironment&apos;);}
-  }
+  if (errMsg) throw new Error(`UnsupportedEnvironment: ${errMsg}`); // TODO: fallback to purejs implementation
+
   return signature;
 
 }
 
 /**
- *
- * @param msg
- * @param signature
- * @param publicJwk
- * @param hash
- * @param algorithm
- * @return {Promise&lt;*&gt;}
+ * Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5.
+ * @param {Uint8Array} msg - Byte array of message signed.
+ * @param {Uint8Array} signature - Byte array of raw signature.
+ * @param {JsonWebKey} publicJwk - public key for signing in JWK format.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;.
+ * @param {Object} [algorithm={name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}] - Object to specify algorithm parameters.
+ *   For RSA-PSS, algorithm.name = &apos;RSA-PSS&apos; and algorithm.saltLength: Number must be specified.
+ *   For RSASSA-PKCS1-v1_5, algorithm.name = &apos;RSASSA-PKCS1-v1_5&apos; must be specified.
+ * @return {Promise&lt;boolean&gt;} - Result of verification.
+ * @throws {Error} - Throws if InvalidSignatureFormat, or UnsupportedEnvironment.
  */
-export async function verify(msg, signature, publicJwk, hash = &apos;SHA-256&apos;, algorithm) {
-  if (typeof algorithm === &apos;undefined&apos;) algorithm = {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize};
-
+export async function verify(msg, signature, publicJwk, hash = &apos;SHA-256&apos;, algorithm = {name: &apos;RSA-PSS&apos;, saltLength: params.hashes[hash].hashSize}) {
   // assertion
-  if (algorithm.name !== &apos;RSA-PSS&apos; &amp;&amp; algorithm.name !== &apos;RSASSA-PKCS1-v1_5&apos;) throw new Error(&apos;InvalidAlgorithm&apos;);
-  if (Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHash&apos;);
+  assertSignVerify(msg, publicJwk, hash, algorithm, &apos;verify&apos;);
   if (!(signature instanceof Uint8Array)) throw new Error(&apos;InvalidSignatureFormat&apos;);
-  if (!(msg instanceof Uint8Array)) throw new Error(&apos;InvalidMessageFormat&apos;);
-  if (publicJwk.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
-  if (algorithm.name === &apos;RSA-PSS&apos;){
-    checkPssLength(&apos;verify&apos;, {k: jseu.encoder.decodeBase64Url(publicJwk.n).length, hash, saltLength: algorithm.saltLength});
-  }
 
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
-  let native = true;
   let errMsg;
   let valid;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.verify === &apos;function&apos;) { // for web API
-    valid = await webapi.verify(msg, signature, publicJwk, hash, algorithm, webCrypto)
-      .catch((e) =&gt; {
-        errMsg = e.message;
-        native = false;
-      });
+    valid = await webapi.verify(msg, signature, publicJwk, hash, algorithm, webCrypto).catch((e) =&gt; {
+      errMsg = e.message;
+    });
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos;) { // for node
-    try {
-      valid = await nodeapi.verify(msg, signature, publicJwk, hash, algorithm, nodeCrypto);
-    } catch(e) {
+    valid = await nodeapi.verify(msg, signature, publicJwk, hash, algorithm, nodeCrypto).catch( (e) =&gt; {
       errMsg = e.message;
-      native = false;
-    }
-  } else native = false;
+    });
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;);
 
-  if (native === false){ // fallback to purejs implementation
-    throw new Error(`UnsupportedEnvironment: ${errMsg}`);
-    // try{
-    //   signature = await purejs.verify(msg, signature, publicJwk, hash, algorithm);
-    // } catch (e) { throw new Error(&apos;UnsupportedEnvironment&apos;);}
-  }
+  if (errMsg) throw new Error(`UnsupportedEnvironment: ${errMsg}`); // TODO: fallback to purejs implementation
+
   return valid;
 }
 
 /**
- *
- * @param msg
- * @param publicJwk
- * @param hash
- * @param label
- * @return {Promise&lt;*&gt;}
+ * RSA Encryption/Decryption Parameter Check.
+ * @param {Uint8Array} data - message or encrypted message byte array.
+ * @param {JsonWebKey} jwkey - Public/Private key in JWK format.
+ * @param {String} hash - Name of hash algorithm like &apos;SHA-256&apos;
+ * @param {Uint8Array} label - RSA-OAEP label.
+ * @param {String} mode - &apos;encrypt&apos; or &apos;decrypt&apos;
+ * @return {boolean} - Always true, otherwise thrown.
+ * @throws {Error} - Throws if UnsuppotedHash, InvalidMessageFormat, InvalidLabelFormat or InvalidJwkRsaKey.
+ */
+function assertEncryptDecrypt(data, jwkey, hash, label, mode){
+  if (Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHash&apos;);
+  if (!(data instanceof Uint8Array)) throw new Error(&apos;InvalidMessageFormat&apos;);
+  if (!(label instanceof Uint8Array)) throw new Error(&apos;InvalidLabelFormat&apos;);
+  if (jwkey.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
+  checkOaepLength(mode,
+    Object.assign({ k: jseu.encoder.decodeBase64Url(jwkey.n).length, label, hash},
+      (mode === &apos;encrypt&apos;) ? {mLen: data.length, cLen: 0} : {mLen: 0, cLen: data.length} )
+  );
+
+  return true;
+}
+/**
+ * RSA-OAEP Encryption
+ * @param {Uint8Array} msg - Byte array of message to be encrypted.
+ * @param {JsonWebKey} publicJwk - Public/Private key in JWK format.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;
+ * @param {Uint8Array} [label=new Uint8Array([])] - RSA-OAEP label.
+ * @return {Promise&lt;Uint8Array&gt;} - Encrypted message.
+ * @throws {Error} - Throws if UnsupportedEnvironment.
  */
 export async function encrypt(msg, publicJwk, hash = &apos;SHA-256&apos;, label = new Uint8Array([])){
   // assertion
-  if (Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHash&apos;);
-  if (!(msg instanceof Uint8Array)) throw new Error(&apos;InvalidMessageFormat&apos;);
-  if (!(label instanceof Uint8Array)) throw new Error(&apos;InvalidLabelFormat&apos;);
-  if (publicJwk.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
-  checkOaepLength(&apos;encrypt&apos;, {k: jseu.encoder.decodeBase64Url(publicJwk.n).length, label, hash, mLen: msg.length});
+  assertEncryptDecrypt(msg, publicJwk, hash, label, &apos;encrypt&apos;);
 
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
-  let native = true;
   let errMsg;
   let encrypted;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.encrypt === &apos;function&apos;) { // for web API
-    encrypted = await webapi.encrypt(msg, publicJwk, hash, label, webCrypto)
-      .catch((e) =&gt; {
-        errMsg = e.message;
-        native = false;
-      });
+    encrypted = await webapi.encrypt(msg, publicJwk, hash, label, webCrypto).catch((e) =&gt; {
+      errMsg = e.message;
+    });
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos;) { // for node
     try {
       encrypted = nodeapi.encrypt(msg, publicJwk, hash, label, nodeCrypto);
     } catch(e) {
       errMsg = e.message;
-      native = false;
     }
-  } else native = false;
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;); // TODO: fallback to pure js implementation
 
-  if (native === false){ // fallback to purejs implementation
-    throw new Error(`UnsupportedEnvironment: ${errMsg}`);
-  }
+  if (errMsg) throw new Error(`UnsupportedEnvironment: ${errMsg}`);
+
   return encrypted;
 }
 
 /**
- *
- * @param data
- * @param privateJwk
- * @param hash
- * @param label
- * @return {Promise&lt;*&gt;}
+ * RSA-OAEP Decryption.
+ * @param {Uint8Array} data - Byte array of encrypted message to be decrypted.
+ * @param {JsonWebKey} privateJwk - Private key in JWK format.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;
+ * @param {Uint8Array} [label=new Uint8Array([])] - RSA-OAEP label.
+ * @return {Promise&lt;Uint8Array&gt;} - Decrypted message.
+ * @throws {Error} - Throws if UnsupportedEnvironment.
  */
 export async function decrypt(data, privateJwk, hash = &apos;SHA-256&apos;, label = new Uint8Array([])){
   // assertion
-  if (Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHash&apos;);
-  if (!(data instanceof Uint8Array)) throw new Error(&apos;InvalidMessageFormat&apos;);
-  if (!(label instanceof Uint8Array)) throw new Error(&apos;InvalidLabelFormat&apos;);
-  if (privateJwk.kty !== &apos;RSA&apos;) throw new Error(&apos;InvalidJwkRsaKey&apos;);
-  checkOaepLength(&apos;decrypt&apos;, {k: jseu.encoder.decodeBase64Url(privateJwk.n).length, label, hash, cLen: data.length});
+  assertEncryptDecrypt(data, privateJwk, hash, label, &apos;decrypt&apos;);
 
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
-  let native = true;
   let errMsg;
   let decrypted;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.decrypt === &apos;function&apos;) { // for web API
-    decrypted = await webapi.decrypt(data, privateJwk, hash, label, webCrypto)
-      .catch((e) =&gt; {
-        errMsg = e.message;
-        native = false;
-      });
+    decrypted = await webapi.decrypt(data, privateJwk, hash, label, webCrypto).catch((e) =&gt; {
+      errMsg = e.message;
+    });
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos;) { // for node
     try {
       decrypted = nodeapi.decrypt(data, privateJwk, hash, label, nodeCrypto);
     } catch(e) {
       errMsg = e.message;
-      native = false;
     }
-  } else native = false;
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;);
 
-  if (native === false){ // fallback to purejs implementation
-    throw new Error(`UnsupportedEnvironment: ${errMsg}`);
-  }
+  // TODO: fallback to purejs implementation
+  if (errMsg) throw new Error(`UnsupportedEnvironment: ${errMsg}`);
+
   return decrypted;
 }
 </code></pre>

@@ -367,7 +367,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber65",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber66",
     " Message is successfully signed and verified with generated JWK pairs with DER signature",
     "test"
   ],
@@ -379,19 +379,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber89",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber92",
     " PBKDF1 with password buffer",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber75",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber77",
     " PBKDF1 with password string",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber61",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber62",
     " PBKDF2 with password buffer",
     "test"
   ],

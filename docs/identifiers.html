@@ -2265,13 +2265,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Decryption via NodeCrypto.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2293,13 +2294,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Encryption via NodeCrypto.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2321,13 +2323,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, nodeCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, nodeCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2349,13 +2352,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2377,13 +2381,15 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, nodeCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, nodeCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>/**
+Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2405,41 +2411,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;label&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;mLen&quot;: <span>*</span>, &quot;cLen&quot;: <span>*</span>})</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, label: <span>Uint8Array</span>, hash: <span>String</span>, mLen: <span>Number</span>, cLen: <span>Number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-function">F</span>
-          <span data-ice="async">async</span>
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepDecode">emeOaepDecode</a></span></span><span class="code" data-ice="signature">(em: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
+        <div data-ice="description"><p>Check OAEP length</p>
+</div>
       </div>
     </td>
     <td>
@@ -2461,41 +2440,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepEncode">emeOaepEncode</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, label: <span>*</span>, k: <span>*</span>, hash: <span>string</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepDecode">emeOaepDecode</a></span></span><span class="code" data-ice="signature">(em: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-function">F</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>*</span>, objectPattern1: {&quot;k&quot;: <span>*</span>, &quot;hash&quot;: <span>*</span>, &quot;saltLength&quot;: <span>*</span>})</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
+        <div data-ice="description"><p>OAEP Decoder</p>
+</div>
       </div>
     </td>
     <td>
@@ -2517,13 +2469,43 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-emeOaepEncode">emeOaepEncode</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, label: <span>Uint8Array</span>, k: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
+        <div data-ice="description"><p>OAEP Encoder</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-checkLength">checkLength</a></span></span><span class="code" data-ice="signature">(mode: <span>String</span>, k: <span>Number</span>, hash: <span>String</span>, saltLength: <span>Number</span>)</span>
+        </p>
+      </div>
+      <div>
         
+        
+        <div data-ice="description"><p>Check PSS Length.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2545,13 +2527,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, label: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA-OAEP Decryption.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2573,13 +2556,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>*</span>, publicExponent: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA-OAEP Encryption</p>
+</div>
       </div>
     </td>
     <td>
@@ -2601,13 +2585,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2629,13 +2614,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>*</span>, algorithm: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2657,13 +2643,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2685,13 +2672,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, label: <span>*</span>, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Decryption via WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2713,13 +2701,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>number</span>, publicExponent: <span>*</span>, webCrypto: <span>*</span>): {&quot;publicKey&quot;: <span>*</span>, &quot;privateKey&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, label: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>RSA Encryption via WebAPI.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2741,13 +2730,14 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, privateJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(modulusLength: <span>Number</span>, publicExponent: <span>Uint8Array</span>, webCrypto: <span>Object</span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Generate RSA public/private key pair.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2769,13 +2759,43 @@ compressed form of ec public key: <a href="https://tools.ietf.org/html/rfc5480">
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, signature: <span>*</span>, publicJwk: <span>*</span>, hash: <span>string</span>, algorithm: {&quot;name&quot;: <span>string</span>, &quot;saltLength&quot;: <span>number</span>}, webCrypto: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
+        <div data-ice="description"><p>RSA signing via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, signature: <span>Uint8Array</span>, publicJwk: <span>JsonWebKey</span>, hash: <span>String</span>, algorithm: <span>Object</span>, webCrypto: <span>Object</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
+        </p>
+      </div>
+      <div>
         
+        
+        <div data-ice="description"><p>Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in WebAPI.</p>
+</div>
       </div>
     </td>
     <td>

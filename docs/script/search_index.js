@@ -19,7 +19,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber15",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber13",
     "",
     "test"
   ],
@@ -31,13 +43,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
+    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
+    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
     "",
     "test"
   ],
@@ -103,6 +121,12 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-utils/test/api.sign.spec.js.html#lineNumber6",
     "",
     "test"
@@ -110,12 +134,6 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/packages/js-x509-utils/test/x509.ec.spec.js.html#lineNumber27",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
     "",
     "test"
   ],
@@ -223,7 +241,25 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber22",
+    " HKDF is done with automatic salt generation in PureJS Environment",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber21",
+    " HMAC successfully generates and verify a MAC",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber22",
+    " HMAC successfully generates and verify a MAC in PureJS environment",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber33",
     " HMAC successfully generates unique MAC for unique key",
     "test"
   ],
@@ -231,6 +267,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber22",
     " Hash should be generated for each hash algorithms",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber24",
+    " Hash should be generated for each hash algorithms in Pure JS for webcrypto",
     "test"
   ],
   [
@@ -247,7 +289,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber36",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber48",
     " If msg is overwritten, it can be detected via MAC",
     "test"
   ],
@@ -906,45 +948,15 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "jscu/packages/js-crypto-hash/src/util.js~getmscrypto",
+    "jscu/packages/js-crypto-env/src/index.js~getmscrypto",
     "function/index.html#static-function-getMsCrypto",
-    "<span>getMsCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hash/src/util.js</span>",
+    "<span>getMsCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-env/src/index.js</span>",
     "function"
   ],
   [
-    "jscu/packages/js-crypto-aes/src/util.js~getnodecrypto",
+    "jscu/packages/js-crypto-env/src/index.js~getnodecrypto",
     "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-ec/src/util.js~getnodecrypto",
-    "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-ec/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-hash/src/util.js~getnodecrypto",
-    "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hash/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-hmac/src/util.js~getnodecrypto",
-    "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hmac/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-random/src/util.js~getnodecrypto",
-    "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-rsa/src/util.js~getnodecrypto",
-    "function/index.html#static-function-getNodeCrypto",
-    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-rsa/src/util.js</span>",
+    "<span>getNodeCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-env/src/index.js</span>",
     "function"
   ],
   [
@@ -960,6 +972,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "jscu/packages/js-crypto-env/src/index.js~getrootwebcryptoall",
+    "function/index.html#static-function-getRootWebCryptoAll",
+    "<span>getRootWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-env/src/index.js</span>",
+    "function"
+  ],
+  [
     "jscu/packages/js-crypto-key-utils/src/util.js~getsec1keytype",
     "function/index.html#static-function-getSec1KeyType",
     "<span>getSec1KeyType</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-key-utils/src/util.js</span>",
@@ -972,45 +990,15 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "jscu/packages/js-crypto-ec/src/util.js~getwebcrypto",
+    "jscu/packages/js-crypto-env/src/index.js~getwebcrypto",
     "function/index.html#static-function-getWebCrypto",
-    "<span>getWebCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-ec/src/util.js</span>",
+    "<span>getWebCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-env/src/index.js</span>",
     "function"
   ],
   [
-    "jscu/packages/js-crypto-hash/src/util.js~getwebcrypto",
-    "function/index.html#static-function-getWebCrypto",
-    "<span>getWebCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hash/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-hkdf/src/util.js~getwebcrypto",
-    "function/index.html#static-function-getWebCrypto",
-    "<span>getWebCrypto</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hkdf/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-aes/src/util.js~getwebcryptoall",
+    "jscu/packages/js-crypto-env/src/index.js~getwebcryptoall",
     "function/index.html#static-function-getWebCryptoAll",
-    "<span>getWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-hmac/src/util.js~getwebcryptoall",
-    "function/index.html#static-function-getWebCryptoAll",
-    "<span>getWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hmac/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-random/src/util.js~getwebcryptoall",
-    "function/index.html#static-function-getWebCryptoAll",
-    "<span>getWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/util.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-rsa/src/util.js~getwebcryptoall",
-    "function/index.html#static-function-getWebCryptoAll",
-    "<span>getWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-rsa/src/util.js</span>",
+    "<span>getWebCryptoAll</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-env/src/index.js</span>",
     "function"
   ],
   [
@@ -1200,6 +1188,18 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "",
+    "test-file/packages/js-crypto-env/test/env.spec.js.html#lineNumber8",
+    "Common env test",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-env/test/env.spec.js.html#lineNumber10",
+    "Common env test Common env test",
+    "test"
+  ],
+  [
     "packages/js-crypto-aes/src/aes.js",
     "file/packages/js-crypto-aes/src/aes.js.html",
     "packages/js-crypto-aes/src/aes.js",
@@ -1221,12 +1221,6 @@ window.esdocSearchIndex = [
     "packages/js-crypto-aes/src/params.js",
     "file/packages/js-crypto-aes/src/params.js.html",
     "packages/js-crypto-aes/src/params.js",
-    "file"
-  ],
-  [
-    "packages/js-crypto-aes/src/util.js",
-    "file/packages/js-crypto-aes/src/util.js.html",
-    "packages/js-crypto-aes/src/util.js",
     "file"
   ],
   [
@@ -1290,12 +1284,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/js-crypto-ec/src/util.js",
-    "file/packages/js-crypto-ec/src/util.js.html",
-    "packages/js-crypto-ec/src/util.js",
-    "file"
-  ],
-  [
     "packages/js-crypto-ec/src/webapi.js",
     "file/packages/js-crypto-ec/src/webapi.js.html",
     "packages/js-crypto-ec/src/webapi.js",
@@ -1305,6 +1293,18 @@ window.esdocSearchIndex = [
     "packages/js-crypto-ec/test/ec.spec.js",
     "test-file/packages/js-crypto-ec/test/ec.spec.js.html",
     "packages/js-crypto-ec/test/ec.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-env/src/index.js",
+    "file/packages/js-crypto-env/src/index.js.html",
+    "packages/js-crypto-env/src/index.js",
+    "file"
+  ],
+  [
+    "packages/js-crypto-env/test/env.spec.js",
+    "test-file/packages/js-crypto-env/test/env.spec.js.html",
+    "packages/js-crypto-env/test/env.spec.js",
     "testFile"
   ],
   [
@@ -1326,15 +1326,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/js-crypto-hash/src/util.js",
-    "file/packages/js-crypto-hash/src/util.js.html",
-    "packages/js-crypto-hash/src/util.js",
-    "file"
-  ],
-  [
     "packages/js-crypto-hash/test/hash.spec.js",
     "test-file/packages/js-crypto-hash/test/hash.spec.js.html",
     "packages/js-crypto-hash/test/hash.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-hash/test/purejs.spec.js",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html",
+    "packages/js-crypto-hash/test/purejs.spec.js",
     "testFile"
   ],
   [
@@ -1356,15 +1356,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/js-crypto-hkdf/src/util.js",
-    "file/packages/js-crypto-hkdf/src/util.js.html",
-    "packages/js-crypto-hkdf/src/util.js",
-    "file"
-  ],
-  [
     "packages/js-crypto-hkdf/test/hkdf.spec.js",
     "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html",
     "packages/js-crypto-hkdf/test/hkdf.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-hkdf/test/purejs.spec.js",
+    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html",
+    "packages/js-crypto-hkdf/test/purejs.spec.js",
     "testFile"
   ],
   [
@@ -1386,15 +1386,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/js-crypto-hmac/src/util.js",
-    "file/packages/js-crypto-hmac/src/util.js.html",
-    "packages/js-crypto-hmac/src/util.js",
-    "file"
-  ],
-  [
     "packages/js-crypto-hmac/test/hmac.spec.js",
     "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html",
     "packages/js-crypto-hmac/test/hmac.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-hmac/test/purejs.spec.js",
+    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html",
+    "packages/js-crypto-hmac/test/purejs.spec.js",
     "testFile"
   ],
   [
@@ -1680,12 +1680,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/js-crypto-random/src/util.js",
-    "file/packages/js-crypto-random/src/util.js.html",
-    "packages/js-crypto-random/src/util.js",
-    "file"
-  ],
-  [
     "packages/js-crypto-random/test/random.spec.js",
     "test-file/packages/js-crypto-random/test/random.spec.js.html",
     "packages/js-crypto-random/test/random.spec.js",
@@ -1725,12 +1719,6 @@ window.esdocSearchIndex = [
     "packages/js-crypto-rsa/src/rsa.js",
     "file/packages/js-crypto-rsa/src/rsa.js.html",
     "packages/js-crypto-rsa/src/rsa.js",
-    "file"
-  ],
-  [
-    "packages/js-crypto-rsa/src/util.js",
-    "file/packages/js-crypto-rsa/src/util.js.html",
-    "packages/js-crypto-rsa/src/util.js",
     "file"
   ],
   [

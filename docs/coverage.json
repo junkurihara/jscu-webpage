@@ -1,7 +1,7 @@
 {
-  "coverage": "32.62%",
-  "expectCount": 187,
-  "actualCount": 61,
+  "coverage": "42.77%",
+  "expectCount": 180,
+  "actualCount": 77,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -13,29 +13,22 @@
       "actualCount": 2,
       "undocumentLines": []
     },
-    "packages/js-crypto-aes/src/util.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
-    },
     "packages/js-crypto-aes/src/webapi.js": {
       "expectCount": 6,
       "actualCount": 3,
       "undocumentLines": [
-        114,
-        119,
-        124
+        106,
+        111,
+        116
       ]
     },
     "packages/js-crypto-ec/src/asn1enc.js": {
       "expectCount": 5,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
         8,
         9,
-        11,
-        23,
-        36
+        48
       ]
     },
     "packages/js-crypto-ec/src/ec.js": {
@@ -45,80 +38,40 @@
     },
     "packages/js-crypto-ec/src/nodeapi.js": {
       "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        10,
-        26,
-        37,
-        48
-      ]
+      "actualCount": 4,
+      "undocumentLines": []
     },
     "packages/js-crypto-ec/src/purejs.js": {
       "expectCount": 5,
-      "actualCount": 0,
-      "undocumentLines": [
-        12,
-        14,
-        37,
-        64,
-        88
-      ]
-    },
-    "packages/js-crypto-ec/src/util.js": {
-      "expectCount": 2,
-      "actualCount": 1,
+      "actualCount": 4,
       "undocumentLines": [
         12
       ]
     },
     "packages/js-crypto-ec/src/webapi.js": {
       "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        8,
-        26,
-        35,
-        44
-      ]
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "packages/js-crypto-env/src/index.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "packages/js-crypto-hash/src/hash.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        75
-      ]
-    },
-    "packages/js-crypto-hash/src/util.js": {
-      "expectCount": 3,
-      "actualCount": 1,
-      "undocumentLines": [
-        12,
-        17
-      ]
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
     },
     "packages/js-crypto-hkdf/src/hkdf.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
     },
-    "packages/js-crypto-hkdf/src/util.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
     "packages/js-crypto-hmac/src/hmac.js": {
       "expectCount": 3,
-      "actualCount": 2,
-      "undocumentLines": [
-        71
-      ]
-    },
-    "packages/js-crypto-hmac/src/util.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        13
-      ]
+      "actualCount": 3,
+      "undocumentLines": []
     },
     "packages/js-crypto-key-utils/src/asn1def.js": {
       "expectCount": 10,
@@ -248,23 +201,15 @@
     },
     "packages/js-crypto-pbkdf/src/pbkdf.js": {
       "expectCount": 4,
-      "actualCount": 2,
+      "actualCount": 3,
       "undocumentLines": [
-        54,
-        86
+        56
       ]
     },
     "packages/js-crypto-random/src/random.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
-    },
-    "packages/js-crypto-random/src/util.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        13
-      ]
     },
     "packages/js-crypto-rsa/src/nodeapi.js": {
       "expectCount": 5,
@@ -298,13 +243,6 @@
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
-    },
-    "packages/js-crypto-rsa/src/util.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        13
-      ]
     },
     "packages/js-crypto-rsa/src/webapi.js": {
       "expectCount": 12,

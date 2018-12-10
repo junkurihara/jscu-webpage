@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">packages/js-crypto-key-utils/test/convertRSA.spec.js | jscu</title>
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Typedef | jscu</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -147,110 +147,1013 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-key-utils/test/convertRSA.spec.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {getTestEnv} from &apos;./prepare.js&apos;;
-const env = getTestEnv();
-const keyutils = env.library;
-const envName = env.envName;
+<div class="content" data-ice="content"><h1 data-ice="title">Typedef</h1>
+<div data-ice="summaries"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnEncryptOptionsWithPassphrase">AsnEncryptOptionsWithPassphrase</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span><span class="code" data-ice="signature">: <span>&apos;pem&apos;</span> | <span>&apos;der&apos;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnObject">AsnObject</a></span></span><span class="code" data-ice="signature">: <span>Entity</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span><span class="code" data-ice="signature">: <span>Uint8Array</span> | <span>Buffer</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-JwkExportOptionsInternal">JwkExportOptionsInternal</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-JwkThumbpirntFormat">JwkThumbpirntFormat</a></span></span><span class="code" data-ice="signature">: <span>&apos;binary&apos;</span> | <span>&apos;hex&apos;</span> | <span>&apos;base64&apos;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-KeyExportOptions">KeyExportOptions</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-OctetEC">OctetEC</a></span></span><span class="code" data-ice="signature">: <span>Uint8Array</span> | <span>Buffer</span> | <span>String</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-OctetFormat">OctetFormat</a></span></span><span class="code" data-ice="signature">: <span>&apos;string&apos;</span> | <span>&apos;binary&apos;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span><span class="code" data-ice="signature">: <span>String</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-PublicOrPrivate">PublicOrPrivate</a></span></span><span class="code" data-ice="signature">: <span>&apos;public&apos;</span> | <span>&apos;private&apos;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASignAlgorithm">RSASignAlgorithm</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
-import sampleRSA from &apos;./rsa_sample.js&apos;;
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-AsnEncryptOptionsWithPassphrase">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">AsnEncryptOptionsWithPassphrase</span><span class="code" data-ice="signature">: <span>Object</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
 
-import jseu from &apos;js-encoding-utils&apos;;
+  
+  
+  
+  
 
-import chai from &apos;chai&apos;;
-// const should = chai.should();
-const expect = chai.expect;
+  
 
-function objectSort(obj){
-  const keys = Object.keys(obj).sort();
-  const map = {};
-  keys.forEach((key) =&gt; { map[key] = obj[key]; });
-  return map;
-}
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">passphrase</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>(Re-)generate encrypted der/pem with the given passphrase</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">algorithm</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;pbes2&apos;</li></ul></td>
+      <td data-ice="description"><p>&apos;pbes2&apos; (default), &apos;pbeWithMD5AndDES-CBC&apos; or &apos;pbeWithSHA1AndDES&apos;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">prf</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;hmacWithSHA256</li></ul></td>
+      <td data-ice="description"><p>&apos;hmacWithSHA256&apos; (default), &apos;hmacWithSHA384&apos;, &apos;hmacWithSHA512&apos; or &apos;hmacWithSHA1&apos; when if algorithm = &apos;pbes2&apos;.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">iterationCount</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default:  2048</li></ul></td>
+      <td data-ice="description"><p>Iteration count for PBKDF 1/2.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">cipher</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;aes256-cbc&apos;</li></ul></td>
+      <td data-ice="description"><p>&apos;aes256-cbc&apos; (default), &apos;aes128-cbc&apos; or &apos;des-ede3-cbc&apos;.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
 
-function prune(jwk){
-  delete jwk.ext;
-  delete jwk.alg;
-  delete jwk.key_ops;
-  return jwk;
-}
+  
 
+  
 
+  
 
-const bits = [&apos;2048&apos;, &apos;4096&apos;];
-describe(`${envName}: RSA Key conversion from/to JWK test.`, () =&gt; {
-  before(async () =&gt; {
-  });
+  
 
-  it(&apos;JWK RSA should be successfully converted from PEM&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;pem&apos;, sampleRSA[bitLen].publicKey.pem);
-      const jwkpub = await publicKey.export(&apos;jwk&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;pem&apos;, sampleRSA[bitLen].privateKey.pem);
-      const jwkpri = await privateKey.export(&apos;jwk&apos;);
+  
 
+  
 
-      return (JSON.stringify(objectSort(jwkpub)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].publicKey.jwk))))
-        &amp;&amp; (JSON.stringify(objectSort(jwkpri)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].privateKey.jwk))));
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
+  
 
-  it(&apos;PEM RSA should be successfully converted from JWK&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].publicKey.jwk);
-      const pempub = await publicKey.export(&apos;pem&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].privateKey.jwk);
-      const pempri = await privateKey.export(&apos;pem&apos;);
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-AsnFormat">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">AsnFormat</span><span class="code" data-ice="signature">: <span>&apos;pem&apos;</span> | <span>&apos;der&apos;</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
 
-      return (pempub === sampleRSA[bitLen].publicKey.pem) &amp;&amp; (pempri === sampleRSA[bitLen].privateKey.pem);
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
+  
+  
+  
+  
 
-  it(&apos;JWK RSA should be successfully converted from DER&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      const derpub = jseu.formatter.pemToBin(sampleRSA[bitLen].publicKey.pem);
-      const derpri = jseu.formatter.pemToBin(sampleRSA[bitLen].privateKey.pem);
+  
 
-      // public key
-      const publicKey = new keyutils.Key(&apos;der&apos;, derpub);
-      const jwkpub = await publicKey.export(&apos;jwk&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;der&apos;, derpri);
-      const jwkpri = await privateKey.export(&apos;jwk&apos;);
+  <div data-ice="properties">
+</div>
 
-      return (JSON.stringify(objectSort(jwkpub)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].publicKey.jwk))))
-        &amp;&amp; (JSON.stringify(objectSort(jwkpri)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].privateKey.jwk))));
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
+  
 
-  it(&apos;DER RSA should be successfully converted from JWK&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].publicKey.jwk);
-      const derpub = await publicKey.export(&apos;der&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].privateKey.jwk);
-      const derpri = await privateKey.export(&apos;der&apos;);
+  
 
-      return (derpub.toString() === jseu.formatter.pemToBin(sampleRSA[bitLen].publicKey.pem).toString())
-        &amp;&amp; (derpri.toString() === jseu.formatter.pemToBin(sampleRSA[bitLen].privateKey.pem).toString());
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
+  
 
-});</code></pre>
+  
 
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-AsnObject">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">AsnObject</span><span class="code" data-ice="signature">: <span>Entity</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-DER">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">DER</span><span class="code" data-ice="signature">: <span>Uint8Array</span> | <span>Buffer</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-JwkExportOptionsInternal">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">JwkExportOptionsInternal</span><span class="code" data-ice="signature">: <span>Object</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">namedCurve</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Name of curve used for EC keys.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">outputPublic</td>
+      <td data-ice="type" class="code"><span>boolean</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Export public key even from private key if true.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">passphrase</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Encrypt private key if this is given.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-JwkThumbpirntFormat">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">JwkThumbpirntFormat</span><span class="code" data-ice="signature">: <span>&apos;binary&apos;</span> | <span>&apos;hex&apos;</span> | <span>&apos;base64&apos;</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-KeyExportOptions">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">KeyExportOptions</span><span class="code" data-ice="signature">: <span>Object</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">outputPublic</td>
+      <td data-ice="type" class="code"><span>boolean</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Derive public key from private key if true.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">compact</td>
+      <td data-ice="type" class="code"><span>boolean</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Generate compressed EC public key when format = &apos;der&apos;, &apos;pem&apos; or &apos;oct&apos;, only for EC key if true.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">output</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-OctetFormat">OctetFormat</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;binary&apos;</li></ul></td>
+      <td data-ice="description"><p>Active only for OctetEC key. &apos;binary&apos; or &apos;string&apos;. Default value would be &apos;binary&apos;.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">encryptParams</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-AsnEncryptOptionsWithPassphrase">AsnEncryptOptionsWithPassphrase</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Generate encrypted der/pem private key when format = &apos;der&apos; or &apos;pem&apos;.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-OctetEC">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">OctetEC</span><span class="code" data-ice="signature">: <span>Uint8Array</span> | <span>Buffer</span> | <span>String</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-OctetFormat">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">OctetFormat</span><span class="code" data-ice="signature">: <span>&apos;string&apos;</span> | <span>&apos;binary&apos;</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-PEM">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">PEM</span><span class="code" data-ice="signature">: <span>String</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-PublicOrPrivate">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">PublicOrPrivate</span><span class="code" data-ice="signature">: <span>&apos;public&apos;</span> | <span>&apos;private&apos;</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-RSASignAlgorithm">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">RSASignAlgorithm</span><span class="code" data-ice="signature">: <span>Object</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/js-crypto-rsa/src/typedef.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">name</td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;RSA-PSS&apos;</li></ul></td>
+      <td data-ice="description"><p>&apos;RSA-PSS&apos; or  &apos;RSASSA-PKCS1-v1_5&apos;.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">saltLength</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>For RSA-PSS, this must be specified.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

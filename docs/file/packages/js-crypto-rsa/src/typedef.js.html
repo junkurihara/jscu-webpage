@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">packages/js-crypto-key-utils/test/convertRSA.spec.js | jscu</title>
+  <title data-ice="title">packages/js-crypto-rsa/src/typedef.js | jscu</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -147,109 +147,12 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-key-utils/test/convertRSA.spec.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {getTestEnv} from &apos;./prepare.js&apos;;
-const env = getTestEnv();
-const keyutils = env.library;
-const envName = env.envName;
-
-import sampleRSA from &apos;./rsa_sample.js&apos;;
-
-import jseu from &apos;js-encoding-utils&apos;;
-
-import chai from &apos;chai&apos;;
-// const should = chai.should();
-const expect = chai.expect;
-
-function objectSort(obj){
-  const keys = Object.keys(obj).sort();
-  const map = {};
-  keys.forEach((key) =&gt; { map[key] = obj[key]; });
-  return map;
-}
-
-function prune(jwk){
-  delete jwk.ext;
-  delete jwk.alg;
-  delete jwk.key_ops;
-  return jwk;
-}
-
-
-
-const bits = [&apos;2048&apos;, &apos;4096&apos;];
-describe(`${envName}: RSA Key conversion from/to JWK test.`, () =&gt; {
-  before(async () =&gt; {
-  });
-
-  it(&apos;JWK RSA should be successfully converted from PEM&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;pem&apos;, sampleRSA[bitLen].publicKey.pem);
-      const jwkpub = await publicKey.export(&apos;jwk&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;pem&apos;, sampleRSA[bitLen].privateKey.pem);
-      const jwkpri = await privateKey.export(&apos;jwk&apos;);
-
-
-      return (JSON.stringify(objectSort(jwkpub)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].publicKey.jwk))))
-        &amp;&amp; (JSON.stringify(objectSort(jwkpri)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].privateKey.jwk))));
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
-
-  it(&apos;PEM RSA should be successfully converted from JWK&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].publicKey.jwk);
-      const pempub = await publicKey.export(&apos;pem&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].privateKey.jwk);
-      const pempri = await privateKey.export(&apos;pem&apos;);
-
-      return (pempub === sampleRSA[bitLen].publicKey.pem) &amp;&amp; (pempri === sampleRSA[bitLen].privateKey.pem);
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
-
-  it(&apos;JWK RSA should be successfully converted from DER&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      const derpub = jseu.formatter.pemToBin(sampleRSA[bitLen].publicKey.pem);
-      const derpri = jseu.formatter.pemToBin(sampleRSA[bitLen].privateKey.pem);
-
-      // public key
-      const publicKey = new keyutils.Key(&apos;der&apos;, derpub);
-      const jwkpub = await publicKey.export(&apos;jwk&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;der&apos;, derpri);
-      const jwkpri = await privateKey.export(&apos;jwk&apos;);
-
-      return (JSON.stringify(objectSort(jwkpub)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].publicKey.jwk))))
-        &amp;&amp; (JSON.stringify(objectSort(jwkpri)) === JSON.stringify(objectSort(prune(sampleRSA[bitLen].privateKey.jwk))));
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
-
-  it(&apos;DER RSA should be successfully converted from JWK&apos;, async () =&gt; {
-    const array = await Promise.all(bits.map( async (bitLen) =&gt; {
-      // public key
-      const publicKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].publicKey.jwk);
-      const derpub = await publicKey.export(&apos;der&apos;);
-      // private key
-      const privateKey = new keyutils.Key(&apos;jwk&apos;, sampleRSA[bitLen].privateKey.jwk);
-      const derpri = await privateKey.export(&apos;der&apos;);
-
-      return (derpub.toString() === jseu.formatter.pemToBin(sampleRSA[bitLen].publicKey.pem).toString())
-        &amp;&amp; (derpri.toString() === jseu.formatter.pemToBin(sampleRSA[bitLen].privateKey.pem).toString());
-    }));
-    console.log(array);
-    expect( array.every( (a) =&gt; a)).to.be.true;
-  });
-
-});</code></pre>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-rsa/src/typedef.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @typedef {Object} RSASignAlgorithm - Object to specify algorithm parameters for RSA sign and verify functions.
+ * @property {String} [name=&apos;RSA-PSS&apos;] - &apos;RSA-PSS&apos; or  &apos;RSASSA-PKCS1-v1_5&apos;.
+ * @property {Number} [saltLength] - For RSA-PSS, this must be specified.
+ */</code></pre>
 
 </div>
 

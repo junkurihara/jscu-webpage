@@ -1,7 +1,7 @@
 {
-  "coverage": "51.64%",
-  "expectCount": 182,
-  "actualCount": 94,
+  "coverage": "71.11%",
+  "expectCount": 180,
+  "actualCount": 128,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -75,28 +75,15 @@
     },
     "packages/js-crypto-key-utils/src/asn1def.js": {
       "expectCount": 10,
-      "actualCount": 0,
+      "actualCount": 9,
       "undocumentLines": [
-        8,
-        17,
-        27,
-        36,
-        46,
-        53,
-        71,
-        87,
-        105,
-        112
+        46
       ]
     },
     "packages/js-crypto-key-utils/src/asn1ec.js": {
       "expectCount": 5,
-      "actualCount": 2,
-      "undocumentLines": [
-        78,
-        85,
-        94
-      ]
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "packages/js-crypto-key-utils/src/asn1enc.js": {
       "expectCount": 3,
@@ -107,14 +94,13 @@
     },
     "packages/js-crypto-key-utils/src/asn1rsa.js": {
       "expectCount": 7,
-      "actualCount": 1,
+      "actualCount": 2,
       "undocumentLines": [
         8,
-        12,
-        132,
-        139,
-        154,
-        158
+        138,
+        145,
+        160,
+        164
       ]
     },
     "packages/js-crypto-key-utils/src/converter.js": {
@@ -124,36 +110,21 @@
     },
     "packages/js-crypto-key-utils/src/key.js": {
       "expectCount": 24,
-      "actualCount": 5,
+      "actualCount": 18,
       "undocumentLines": [
-        24,
-        25,
-        26,
         27,
-        48,
-        49,
-        52,
-        56,
-        67,
-        75,
-        193,
-        199,
-        207,
-        211,
-        213,
-        215,
-        217,
-        219,
-        221
+        28,
+        29,
+        30,
+        57,
+        60
       ]
     },
     "packages/js-crypto-key-utils/src/octenc.js": {
-      "expectCount": 5,
+      "expectCount": 3,
       "actualCount": 2,
       "undocumentLines": [
-        9,
-        100,
-        108
+        9
       ]
     },
     "packages/js-crypto-key-utils/src/params.js": {
@@ -166,18 +137,16 @@
     },
     "packages/js-crypto-key-utils/src/rfc8018.js": {
       "expectCount": 10,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
         14,
         15,
-        18,
-        40,
-        64,
-        93,
-        134,
-        186,
-        224,
-        258
+        76,
+        105,
+        146,
+        198,
+        236,
+        270
       ]
     },
     "packages/js-crypto-key-utils/src/thumbprint.js": {
@@ -189,15 +158,8 @@
     },
     "packages/js-crypto-key-utils/src/util.js": {
       "expectCount": 7,
-      "actualCount": 1,
-      "undocumentLines": [
-        21,
-        27,
-        38,
-        57,
-        73,
-        88
-      ]
+      "actualCount": 7,
+      "undocumentLines": []
     },
     "packages/js-crypto-pbkdf/src/pbkdf.js": {
       "expectCount": 4,

@@ -1014,18 +1014,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "jscu/packages/js-crypto-key-utils/src/octenc.js~octkeyobjfromjwk",
-    "function/index.html#static-function-octKeyObjFromJwk",
-    "<span>octKeyObjFromJwk</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-key-utils/src/octenc.js</span>",
-    "function"
-  ],
-  [
-    "jscu/packages/js-crypto-key-utils/src/octenc.js~octkeyobjtojwk",
-    "function/index.html#static-function-octKeyObjToJwk",
-    "<span>octKeyObjToJwk</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-key-utils/src/octenc.js</span>",
-    "function"
-  ],
-  [
     "jscu/packages/js-x509-utils/src/x509.js~parse",
     "function/index.html#static-function-parse",
     "<span>parse</span> <span class=\"search-result-import-path\">jscu/packages/js-x509-utils/src/x509.js</span>",
@@ -1602,6 +1590,78 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/js-crypto-key-utils/src/typedef.js",
+    "file/packages/js-crypto-key-utils/src/typedef.js.html",
+    "packages/js-crypto-key-utils/src/typedef.js",
+    "file"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~asnencryptoptionswithpassphrase",
+    "typedef/index.html#static-typedef-AsnEncryptOptionsWithPassphrase",
+    "packages/js-crypto-key-utils/src/typedef.js~AsnEncryptOptionsWithPassphrase",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~asnformat",
+    "typedef/index.html#static-typedef-AsnFormat",
+    "packages/js-crypto-key-utils/src/typedef.js~AsnFormat",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~asnobject",
+    "typedef/index.html#static-typedef-AsnObject",
+    "packages/js-crypto-key-utils/src/typedef.js~AsnObject",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~der",
+    "typedef/index.html#static-typedef-DER",
+    "packages/js-crypto-key-utils/src/typedef.js~DER",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~jwkexportoptionsinternal",
+    "typedef/index.html#static-typedef-JwkExportOptionsInternal",
+    "packages/js-crypto-key-utils/src/typedef.js~JwkExportOptionsInternal",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~jwkthumbpirntformat",
+    "typedef/index.html#static-typedef-JwkThumbpirntFormat",
+    "packages/js-crypto-key-utils/src/typedef.js~JwkThumbpirntFormat",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~keyexportoptions",
+    "typedef/index.html#static-typedef-KeyExportOptions",
+    "packages/js-crypto-key-utils/src/typedef.js~KeyExportOptions",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~octetec",
+    "typedef/index.html#static-typedef-OctetEC",
+    "packages/js-crypto-key-utils/src/typedef.js~OctetEC",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~octetformat",
+    "typedef/index.html#static-typedef-OctetFormat",
+    "packages/js-crypto-key-utils/src/typedef.js~OctetFormat",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~pem",
+    "typedef/index.html#static-typedef-PEM",
+    "packages/js-crypto-key-utils/src/typedef.js~PEM",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-key-utils/src/typedef.js~publicorprivate",
+    "typedef/index.html#static-typedef-PublicOrPrivate",
+    "packages/js-crypto-key-utils/src/typedef.js~PublicOrPrivate",
+    "typedef"
+  ],
+  [
     "packages/js-crypto-key-utils/src/util.js",
     "file/packages/js-crypto-key-utils/src/util.js.html",
     "packages/js-crypto-key-utils/src/util.js",
@@ -1720,6 +1780,18 @@ window.esdocSearchIndex = [
     "file/packages/js-crypto-rsa/src/rsa.js.html",
     "packages/js-crypto-rsa/src/rsa.js",
     "file"
+  ],
+  [
+    "packages/js-crypto-rsa/src/typedef.js",
+    "file/packages/js-crypto-rsa/src/typedef.js.html",
+    "packages/js-crypto-rsa/src/typedef.js",
+    "file"
+  ],
+  [
+    "packages/js-crypto-rsa/src/typedef.js~rsasignalgorithm",
+    "typedef/index.html#static-typedef-RSASignAlgorithm",
+    "packages/js-crypto-rsa/src/typedef.js~RSASignAlgorithm",
+    "typedef"
   ],
   [
     "packages/js-crypto-rsa/src/webapi.js",

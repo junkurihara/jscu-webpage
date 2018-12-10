@@ -807,59 +807,5 @@
       "hash",
       "saltLength"
     ]
-  },
-  {
-    "name": "sign",
-    "filePath": "packages/js-crypto-utils/src/pkc.js",
-    "lines": [
-      {
-        "lineNumber": 39,
-        "line": "/**"
-      },
-      {
-        "lineNumber": 40,
-        "line": " * Sign message with given private key in jwk"
-      },
-      {
-        "lineNumber": 41,
-        "line": " * @param privateKey"
-      },
-      {
-        "lineNumber": 42,
-        "line": " * @param msg"
-      },
-      {
-        "lineNumber": 43,
-        "line": " * @param hash"
-      },
-      {
-        "lineNumber": 44,
-        "line": " * @param options"
-      },
-      {
-        "lineNumber": 45,
-        "line": " * @return {Promise<ArrayBuffer>}"
-      },
-      {
-        "lineNumber": 46,
-        "line": " */"
-      },
-      {
-        "lineNumber": 47,
-        "line": "export async function sign(msg, privateKey, hash = 'SHA-256', options = {}){"
-      }
-    ],
-    "codeParams": [
-      "msg",
-      "privateKey",
-      "hash",
-      "options"
-    ],
-    "docParams": [
-      "privateKey",
-      "msg",
-      "hash",
-      "options"
-    ]
   }
 ]

@@ -135,6 +135,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
@@ -143,6 +151,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -369,13 +384,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(pssParams: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(pssParams: <span>Buffer</span> | <span>Uint8Array</span>): {hashForMgf: <span>string</span>, saltLength: <span>number</span>, mgf: <span>string</span>, hash: <span>string</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Parse encoded RSA-PSS parameters represented in Uint8Array.</p>
+</div>
       </div>
     </td>
     <td>
@@ -571,7 +587,7 @@
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateKey: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -862,13 +878,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(options: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Encode RSA-PSS parsed params to ASN.1 Uint8Array binary</p>
+</div>
       </div>
     </td>
     <td>
@@ -1064,7 +1081,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicKey: <span>*</span>, options: <span>*</span>): <span>Promise</span><{data: <span="">Uint8Array, salt: <span>Uint8Array</span>, iv: <span>Uint8Array</span>}&gt;</{data:></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -1266,13 +1283,13 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span><span class="code" data-ice="signature">(publicJwk: <span>*</span>, privateJwk: <span>*</span>, format: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span><span class="code" data-ice="signature">(publicJwk: <span>JsonWebKey</span>, privateJwk: <span>JsonWebKey</span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>, options: <span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-DER">DER</a></span>|<span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Convert jwk to X509 pem</p>
+        <div data-ice="description"><p>Convert public key in JWK format to X.509 PEM or DER object.</p>
 </div>
       </div>
     </td>
@@ -1527,7 +1544,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(keyType: <span>*</span>, options: <span>*</span>): <span>Promise</span><{publickey: <span="">*, privateKey: <span>*</span>}&gt;</{publickey:></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(keyType: <span>&apos;EC&apos;</span> | <span>&apos;RSA&apos;</span>, options: <span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span> | <span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
@@ -1641,13 +1658,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, signatureAlgorithm: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, signatureAlgorithm: <span>String</span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>Number</span>}&gt;</{data:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Sign encoded tbsCertificate with given signature algorithm under the JWK private key.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1728,14 +1746,13 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getKeyFromOid">getKeyFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getKeyFromOid">getKeyFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span><span>string</span><span>[]</span></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>util.js</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -1931,13 +1948,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getSignature">getSignature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, algorithm: <span>*</span>, hash: <span>*</span>, saltLength: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getSignature">getSignature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, algorithm: <span>String</span>, pssParams: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>number</span>}&gt;</{data:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Sign TBSCertificate under the issuer&apos;s RSA private key in JWK format.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2075,7 +2093,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): {tbsCertificate: <span>*</span>, signatureValue: <span>*</span>, signatureAlgorithm: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-DER">DER</a></span> | <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): {tbsCertificate: <span>Uint8Array</span>, signatureValue: <span>Uint8Array</span>, signatureAlgorithm: <span>String</span>}</span>
         </p>
       </div>
       <div>
@@ -2394,7 +2412,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(privateKey: <span>*</span>, msg: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>ArrayBuffer</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -2539,13 +2557,13 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span> | <span><a href="typedef/index.html#static-typedef-DER">DER</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): <span>Promise</span>&lt;<span>JsonWebKey</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Convert X.509 certificate to JWK</p>
+        <div data-ice="description"><p>Convert X.509 certificate to a JWK object.</p>
 </div>
       </div>
     </td>
@@ -2830,13 +2848,13 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, sig: <span>*</span>, publicKey: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, sig: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Verify message with given public key in jwk</p>
+        <div data-ice="description"><p>Verify message with given public key</p>
 </div>
       </div>
     </td>
@@ -3538,18 +3556,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     
     
-    <span class="code" data-ice="name">decodeRsassaPssParams</span><span class="code" data-ice="signature">(pssParams: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">decodeRsassaPssParams</span><span class="code" data-ice="signature">(pssParams: <span>Buffer</span> | <span>Uint8Array</span>): {hashForMgf: <span>string</span>, saltLength: <span>number</span>, mgf: <span>string</span>, hash: <span>string</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decodeRsassaPssParams} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber50">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decodeRsassaPssParams} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber68">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Parse encoded RSA-PSS parameters represented in Uint8Array.</p>
+</div>
 
   
 
@@ -3563,9 +3582,10 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">pssParams</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Buffer</span> | <span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Extracted RSA-PSS parameter byte sequence.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -3577,7 +3597,7 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          <td class="return-type code" data-ice="returnType">{hashForMgf: <span>string</span>, saltLength: <span>number</span>, mgf: <span>string</span>, hash: <span>string</span>}</td>
           
         </tr>
       </tbody>
@@ -3590,7 +3610,19 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if InvalidCertificateFormat.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -4326,15 +4358,15 @@ Specification is given in RFC5869 <span><a href="https://tools.ietf.org/html/rfc
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>*</span>, privateKey: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+    <span class="code" data-ice="name">decrypt</span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber137">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber141">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber137">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {decrypt} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber141">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Decryption with public key algorithm. in case of ECDH
@@ -4353,21 +4385,25 @@ Session key is derived from HKDF and the data itself will be decrypted by symmet
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">data</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Encrypted message body, i.e., PKCCiphertextObject.data.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateKey</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key object</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>Decryption Options.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -4380,7 +4416,8 @@ Session key is derived from HKDF and the data itself will be decrypted by symmet
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
-          
+          <td class="return-desc" data-ice="returnDescription"><p>Decrypted message byte array.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -4392,7 +4429,19 @@ Session key is derived from HKDF and the data itself will be decrypted by symmet
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NonKeyObject, MissingPublicKeyForECDH, or UnsupportedKeyType.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -5222,18 +5271,19 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     
     
-    <span class="code" data-ice="name">encodeRsassaPssParams</span><span class="code" data-ice="signature">(options: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">encodeRsassaPssParams</span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encodeRsassaPssParams} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber26">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encodeRsassaPssParams} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber38">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Encode RSA-PSS parsed params to ASN.1 Uint8Array binary</p>
+</div>
 
   
 
@@ -5247,9 +5297,10 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>RSA-PSS params as a parsed object.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -5261,8 +5312,9 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Encoded RSA-PSS object.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -6010,15 +6062,15 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>*</span>, publicKey: <span>*</span>, options: <span>*</span>): <span>Promise</span><{data: <span="">Uint8Array, salt: <span>Uint8Array</span>, iv: <span>Uint8Array</span>}&gt;</{data:></span>
+    <span class="code" data-ice="name">encrypt</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber107">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber110">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber107">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {encrypt} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber110">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Encryption with public key algorithm. in case of ECDH.
@@ -6037,21 +6089,25 @@ Session key is derived from HKDF and the data itself will be encrypted by symmet
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Plaintext message to be encrypted.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicKey</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Public key object.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>Encryption options.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -6063,8 +6119,9 @@ Session key is derived from HKDF and the data itself will be encrypted by symmet
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span><{data: <span="">Uint8Array, salt: <span>Uint8Array</span>, iv: <span>Uint8Array</span>}&gt;</{data:></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Encrypted message object.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -6076,7 +6133,19 @@ Session key is derived from HKDF and the data itself will be encrypted by symmet
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NonKeyObject, MissingOrInvalidPrivateKeyForECDH, or UnsupportedKeyType.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -6637,18 +6706,18 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">fromJwk</span><span class="code" data-ice="signature">(publicJwk: <span>*</span>, privateJwk: <span>*</span>, format: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
+    <span class="code" data-ice="name">fromJwk</span><span class="code" data-ice="signature">(publicJwk: <span>JsonWebKey</span>, privateJwk: <span>JsonWebKey</span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>, options: <span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-DER">DER</a></span>|<span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber25">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber26">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fromJwk} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber25">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {fromJwk} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber26">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>Convert jwk to X509 pem</p>
+  <div data-ice="description"><p>Convert public key in JWK format to X.509 PEM or DER object.</p>
 </div>
 
   
@@ -6663,27 +6732,33 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>A public key object in JWK format to be encoded and signed to X.509</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>A private key object in JWK format by which would be used to sign the public key.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">format</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;pem&apos;</li></ul></td>
+      <td data-ice="description"><p>Output format of X.509 certificate, &apos;pem&apos; or &apos;der&apos;</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>X.509 encoding options</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -6695,8 +6770,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>*</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-DER">DER</a></span>|<span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Generated X.509 public key certificate in intended format.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -6708,7 +6784,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if InvalidFormatSpecification or UnsupportedKeyType.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -7445,7 +7533,7 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(keyType: <span>*</span>, options: <span>*</span>): <span>Promise</span><{publickey: <span="">*, privateKey: <span>*</span>}&gt;</{publickey:></span>
+    <span class="code" data-ice="name">generateKey</span><span class="code" data-ice="signature">(keyType: <span>&apos;EC&apos;</span> | <span>&apos;RSA&apos;</span>, options: <span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span> | <span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
     <span class="right-info">
       
       
@@ -7471,15 +7559,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">keyType</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>&apos;EC&apos;</span> | <span>&apos;RSA&apos;</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;EC&apos;</li></ul></td>
+      <td data-ice="description"><p>Type of public/private key.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span> | <span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>Key generation options.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -7491,8 +7583,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span><{publickey: <span="">*, privateKey: <span>*</span>}&gt;</{publickey:></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Generated key pair in JWK format.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -7770,18 +7863,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">getAsn1Signature</span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, signatureAlgorithm: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">getAsn1Signature</span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, signatureAlgorithm: <span>String</span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>Number</span>}&gt;</{data:></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/ec.js.html#lineNumber10">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/ec.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAsn1Signature} from &apos;<span><a href="file/packages/js-x509-utils/src/ec.js.html#lineNumber10">jscu/packages/js-x509-utils/src/ec.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAsn1Signature} from &apos;<span><a href="file/packages/js-x509-utils/src/ec.js.html#lineNumber17">jscu/packages/js-x509-utils/src/ec.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Sign encoded tbsCertificate with given signature algorithm under the JWK private key.</p>
+</div>
 
   
 
@@ -7795,21 +7889,24 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">encodedTbsCertificate</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>TBS Certificate encoded to Uint8Array.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key object in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">signatureAlgorithm</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Signature algorithm name like &apos;ecdsa-with-sha256&apos;.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -7821,8 +7918,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType">{&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{data: <span="">Buffer, unused: <span>Number</span>}&gt;</{data:></td>
+          <td class="return-desc" data-ice="returnDescription"><p>ASN.1 encoded signature.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -8030,19 +8128,18 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     
     
-    <span class="code" data-ice="name">getKeyFromOid</span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>)</span>
+    <span class="code" data-ice="name">getKeyFromOid</span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span><span>string</span><span>[]</span></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/util.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/util.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getKeyFromOid} from &apos;<span><a href="file/packages/js-x509-utils/src/util.js.html#lineNumber5">jscu/packages/js-x509-utils/src/util.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getKeyFromOid} from &apos;<span><a href="file/packages/js-x509-utils/src/util.js.html#lineNumber11">jscu/packages/js-x509-utils/src/util.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>util.js</p>
-</div>
+  
 
   
 
@@ -8056,22 +8153,37 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">oid</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>ASN.1 object identifier.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">dict</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>dictionary to be searched.</p>
+</td>
     </tr>
 </tbody>
   </table>
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><span>string</span><span>[]</span></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Returns array of keys that match the oid.</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -8519,18 +8631,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">getSignature</span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, algorithm: <span>*</span>, hash: <span>*</span>, saltLength: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+    <span class="code" data-ice="name">getSignature</span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, algorithm: <span>String</span>, pssParams: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>number</span>}&gt;</{data:></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber15">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber22">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getSignature} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber15">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getSignature} from &apos;<span><a href="file/packages/js-x509-utils/src/rsa.js.html#lineNumber22">jscu/packages/js-x509-utils/src/rsa.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Sign TBSCertificate under the issuer&apos;s RSA private key in JWK format.</p>
+</div>
 
   
 
@@ -8544,33 +8657,31 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">encodedTbsCertificate</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Message body to be signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">privateJwk</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>JsonWebKey</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>A RSA signing key in JWK format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">algorithm</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Name of signing algorithm like &apos;sha256WithRSAEncryption&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">saltLength</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">pssParams</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Effective only for RSASSA-PSS.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -8582,8 +8693,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType">{&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span><{data: <span="">Buffer, unused: <span>number</span>}&gt;</{data:></td>
+          <td class="return-desc" data-ice="returnDescription"><p>ASN.1 parsed signature object.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -8891,15 +9003,15 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     
     
-    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): {tbsCertificate: <span>*</span>, signatureValue: <span>*</span>, signatureAlgorithm: <span>*</span>}</span>
+    <span class="code" data-ice="name">parse</span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-DER">DER</a></span> | <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): {tbsCertificate: <span>Uint8Array</span>, signatureValue: <span>Uint8Array</span>, signatureAlgorithm: <span>String</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber123">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {parse} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber123">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {parse} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber125">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Parse X.509 certificate and return DER-encoded TBSCertificate and DER encoded signature</p>
@@ -8917,15 +9029,17 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">certX509</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span> | <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>X.509 public key certificate in DER or PEM format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">format</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>&apos;der&apos; or &apos;pem&apos;</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -8937,8 +9051,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType">{tbsCertificate: <span>*</span>, signatureValue: <span>*</span>, signatureAlgorithm: <span>*</span>}</td>
-          
+          <td class="return-type code" data-ice="returnType">{tbsCertificate: <span>Uint8Array</span>, signatureValue: <span>Uint8Array</span>, signatureAlgorithm: <span>String</span>}</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Parsed object.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -8950,7 +9065,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedSignatureAlgorithm or InvalidFormatSpecification.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -10055,15 +10182,15 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(privateKey: <span>*</span>, msg: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>ArrayBuffer</span>&gt;</span>
+    <span class="code" data-ice="name">sign</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber48">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {sign} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber49">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Sign message with given private key in jwk</p>
@@ -10080,28 +10207,34 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">privateKey</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="name" class="code" data-depth="0">msg</td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Message byte array to be signed.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="name" class="code" data-depth="0">privateKey</td>
+      <td data-ice="type" class="code"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Private key object for signing.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>Signing options.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -10113,8 +10246,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>ArrayBuffer</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Signature byte array.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -10126,7 +10260,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NonKeyObject or UnsupportedKeyType.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -10514,18 +10660,18 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">toJwk</span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+    <span class="code" data-ice="name">toJwk</span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span> | <span><a href="typedef/index.html#static-typedef-DER">DER</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): <span>Promise</span>&lt;<span>JsonWebKey</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber102">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber103">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {toJwk} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber102">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {toJwk} from &apos;<span><a href="file/packages/js-x509-utils/src/x509.js.html#lineNumber103">jscu/packages/js-x509-utils/src/x509.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>Convert X.509 certificate to JWK</p>
+  <div data-ice="description"><p>Convert X.509 certificate to a JWK object.</p>
 </div>
 
   
@@ -10540,15 +10686,17 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">certX509</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span> | <span><a href="typedef/index.html#static-typedef-DER">DER</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>X.509 public key certificate in DER or PEM format.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">format</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>&apos;der&apos; or &apos;pem&apos;</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -10560,8 +10708,9 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>void</span>&gt;</td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>JsonWebKey</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Extracted key object in JWK format.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -10573,7 +10722,19 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if InvalidFormatSpecification.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -11620,18 +11781,18 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>*</span>, sig: <span>*</span>, publicKey: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
+    <span class="code" data-ice="name">verify</span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, sig: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber77">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber79">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber77">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {verify} from &apos;<span><a href="file/packages/js-crypto-utils/src/pkc.js.html#lineNumber79">jscu/packages/js-crypto-utils/src/pkc.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>Verify message with given public key in jwk</p>
+  <div data-ice="description"><p>Verify message with given public key</p>
 </div>
 
   
@@ -11646,33 +11807,40 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">msg</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>A plaintext message to be verified.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">sig</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Uint8Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Signature byte array.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">publicKey</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Public key object for verification.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">hash</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span>String</span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: &apos;SHA-256&apos;</li></ul></td>
+      <td data-ice="description"><p>Name of hash algorithm like &apos;SHA-256&apos;.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: {}</li></ul></td>
+      <td data-ice="description"><p>Signing options.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -11685,7 +11853,8 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>boolean</span>&gt;</td>
-          
+          <td class="return-desc" data-ice="returnDescription"><p>Result of verification.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -11697,7 +11866,19 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if NonKeyObject or UnsupportedKeyType.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 

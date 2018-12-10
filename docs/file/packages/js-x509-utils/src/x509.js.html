@@ -135,6 +135,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
@@ -143,6 +151,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -165,12 +180,13 @@ import BufferMod from &apos;buffer&apos;;
 const Buffer = BufferMod.Buffer;
 
 /**
- * Convert jwk to X509 pem
- * @param publicJwk
- * @param privateJwk
- * @param format
- * @param options
- * @return {Promise&lt;*&gt;}
+ * Convert public key in JWK format to X.509 PEM or DER object.
+ * @param {JsonWebKey} publicJwk - A public key object in JWK format to be encoded and signed to X.509
+ * @param {JsonWebKey} privateJwk - A private key object in JWK format by which would be used to sign the public key.
+ * @param {AsnFormat} [format=&apos;pem&apos;] - Output format of X.509 certificate, &apos;pem&apos; or &apos;der&apos;
+ * @param {X509EncodingOptions} [options={}] - X.509 encoding options
+ * @return {Promise&lt;DER|PEM&gt;} - Generated X.509 public key certificate in intended format.
+ * @throws {Error} - Throws if InvalidFormatSpecification or UnsupportedKeyType.
  */
 export async function fromJwk(publicJwk, privateJwk, format = &apos;pem&apos;, options = {}) {
   // default values
@@ -180,9 +196,10 @@ export async function fromJwk(publicJwk, privateJwk, format = &apos;pem&apos;, o
   if (typeof options.subject === &apos;undefined&apos;) options.subject = {organizationName: &apos;Self&apos;};
 
   // default params for RSA-PSS
-  if (typeof options.saltLength === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.saltLength = 20;
-  if (typeof options.hash === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.hash = &apos;SHA-1&apos;;
-  if (typeof options.explicit === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.explicit = true;
+  if (typeof options.pssParams === &apos;undefined&apos;) options.pssParams = {};
+  if (typeof options.pssParams.saltLength === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.pssParams.saltLength = 20;
+  if (typeof options.pssParams.hash === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.pssParams.hash = &apos;SHA-1&apos;;
+  if (typeof options.pssParams.explicit === &apos;undefined&apos; &amp;&amp; options.signature === &apos;rsassaPss&apos;) options.pssParams.explicit = true;
 
   ///////////////////////////////
   // elements of TBSCertificate
@@ -197,7 +214,7 @@ export async function fromJwk(publicJwk, privateJwk, format = &apos;pem&apos;, o
   // TODO: throw exception if private jwk keytype doesn&apos;t match signatureAlgorithm
   const signature = { algorithm: params.signatureAlgorithms[options.signature].oid };
   if (options.signature === &apos;rsassaPss&apos;) {
-    signature.parameters = rsa.encodeRsassaPssParams(options);
+    signature.parameters = rsa.encodeRsassaPssParams(options.pssParams);
   } else signature.parameters = Buffer.from(params.ans1null);
 
   const issuer = {type: &apos;rdnSequence&apos;, value: setRDNSequence(options.issuer)};
@@ -225,7 +242,7 @@ export async function fromJwk(publicJwk, privateJwk, format = &apos;pem&apos;, o
     signatureValue = await ecdsa.getAsn1Signature(encodedTbsCertificate, privateJwk, options.signature);
   } else if (privateJwk.kty === &apos;RSA&apos;) {
     signatureValue = await rsa.getSignature(
-      encodedTbsCertificate, privateJwk, options.signature, options.hash, options.saltLength
+      encodedTbsCertificate, privateJwk, options.signature, options.pssParams
     );
   } else throw new Error (&apos;UnsupportedKeyType&apos;);
 
@@ -238,16 +255,15 @@ export async function fromJwk(publicJwk, privateJwk, format = &apos;pem&apos;, o
   else if (format === &apos;der&apos;) {
     return certBin;
   }
-  else {
-    throw new Error(&apos;InvalidFormatSpecification&apos;);
-  }
+  else throw new Error(&apos;InvalidFormatSpecification&apos;);
 }
 
 /**
- * Convert X.509 certificate to JWK
- * @param certX509
- * @param format
- * @return {Promise&lt;void&gt;}
+ * Convert X.509 certificate to a JWK object.
+ * @param {PEM|DER} certX509 - X.509 public key certificate in DER or PEM format.
+ * @param {AsnFormat} format - &apos;der&apos; or &apos;pem&apos;
+ * @return {Promise&lt;JsonWebKey&gt;} - Extracted key object in JWK format.
+ * @throws {Error} - Throws if InvalidFormatSpecification.
  */
 export async function toJwk(certX509, format = &apos;pem&apos;){
   let x509bin;
@@ -266,9 +282,10 @@ export async function toJwk(certX509, format = &apos;pem&apos;){
 
 /**
  * Parse X.509 certificate and return DER-encoded TBSCertificate and DER encoded signature
- * @param certX509
- * @param format
- * @return {{tbsCertificate: *, signatureValue: *, signatureAlgorithm: *}}
+ * @param {DER|PEM} certX509 - X.509 public key certificate in DER or PEM format.
+ * @param {AsnFormat} format - &apos;der&apos; or &apos;pem&apos;
+ * @return {{tbsCertificate: Uint8Array, signatureValue: Uint8Array, signatureAlgorithm: String}} - Parsed object.
+ * @throws {Error} - Throws if UnsupportedSignatureAlgorithm or InvalidFormatSpecification.
  */
 export function parse(certX509, format = &apos;pem&apos;){
 
@@ -305,8 +322,9 @@ export function parse(certX509, format = &apos;pem&apos;){
 
 /**
  * Set RDN sequence for issuer and subject fields
- * @param options
+ * @param {Object} options - RDN Sequence
  * @return {{type: *, value: *}[][]}
+ * @throws {Error} - throws if InvalidOptionSpecification or InvalidCountryNameCode.
  */
 function setRDNSequence(options) {
   const encodedArray = Object.keys(options).map((k) =&gt; {

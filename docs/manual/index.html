@@ -110,20 +110,21 @@ Additionally, this library provides random, hash, AES, HMAC, HKDF, and PBKDF fun
 <p><strong>NOTE</strong>: If you would use only few modules and employ neither <code>Key</code> nor <code>pkc</code>, we highly recommend use our independent modules since those independent ones are relatively small and this library would be overkill. </p>
 <h1 id="installation">Installation</h1><p>At your project directory, do either one of the following.</p>
 <ul>
-<li><p>From npm/yarn:</p>
-<pre><code class="lang-shell"><code class="source-code prettyprint">$ npm install --save js-crypto-utils // npm
-$ yarn add js-crypt-utils // yarn</code>
+<li>From npm/yarn:<pre><code class="lang-shell"><code class="source-code prettyprint">$ npm install --save js-crypto-utils // npm
+$ yarn add js-crypto-utils // yarn</code>
 </code></pre>
 </li>
-<li><p>From GitHub:</p>
-<pre><code class="lang-shell"><code class="source-code prettyprint">$ git clone https://github.com/junkurihara/jscu.git</code>
+<li>From GitHub:<pre><code class="lang-shell"><code class="source-code prettyprint">$ git clone https://github.com/junkurihara/jscu.git
+$ cd js-crypto-utils/packages/js-crypto-utils
+&amp; yarn build</code>
 </code></pre>
 </li>
 </ul>
 <p>Then you should import the package as follows.</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">import jscu from &apos;js-crypto-utils&apos;; // for npm
-import jscu from &apos;js-crypto-utils/dist/index.js&apos;; // for npm/github</code>
+<pre><code class="lang-shell"><code class="source-code prettyprint">import jscu from &apos;js-crypto-utils&apos;; // for npm
+import jscu from &apos;path/to/js-crypto-utils/dist/index.js&apos;; // for github</code>
 </code></pre>
+<p>The bundled file is also given as <code>js-crypto-utils/dist/jscu.bundle.js</code> for a use case where the module is imported as a <code>window.jscu</code> object via <code>script</code> tags.</p>
 <h1 id="usage">Usage</h1><p><strong>NOTE:</strong> This library always uses <code>jscu.Key</code> objects as instances of public and private keys, and the <code>Key</code> object can be instantiated from and can export ones in various formats. For the detailed usage of <code>Key</code> object, please refer to <a href="https://github.com/junkurihara/js-crypto-key-utils">another GitHub repo</a>.</p>
 <h2 id="key-generation--sign-and-verify">Key generation, sign and verify</h2><pre><code class="lang-javascript"><code class="source-code prettyprint">// case of ECDSA
 jscu.pkc.generateKey(  // key generation

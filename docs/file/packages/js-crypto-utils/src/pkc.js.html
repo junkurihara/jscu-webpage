@@ -135,6 +135,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
@@ -143,6 +151,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -161,9 +176,9 @@ import params from &apos;./params.js&apos;;
 
 /**
  * Generate key pair in JWK format
- * @param keyType
- * @param options
- * @return {Promise&lt;{publicKey: *, privateKey: *}&gt;}
+ * @param {&apos;EC&apos;|&apos;RSA&apos;} [keyType=&apos;EC&apos;] - Type of public/private key.
+ * @param {ECKeyGenerationOption|RSAKeyGenerationOption} [options={}] - Key generation options.
+ * @return {Promise&lt;{publicKey: JsonWebKey, privateKey: JsonWebKey}&gt;} - Generated key pair in JWK format.
  */
 export async function generateKey(keyType = &apos;EC&apos;, options = {}){
   const localOpt = cloneDeep(options);
@@ -189,11 +204,12 @@ export async function generateKey(keyType = &apos;EC&apos;, options = {}){
 
 /**
  * Sign message with given private key in jwk
- * @param privateKey
- * @param msg
- * @param hash
- * @param options
- * @return {Promise&lt;ArrayBuffer&gt;}
+ * @param {Uint8Array} msg - Message byte array to be signed.
+ * @param {Key} privateKey - Private key object for signing.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;.
+ * @param {RSASigningOption|ECSigningOption} [options={}] - Signing options.
+ * @return {Promise&lt;Uint8Array&gt;} - Signature byte array.
+ * @throws {Error} - Throws if NonKeyObject or UnsupportedKeyType.
  */
 export async function sign(msg, privateKey, hash = &apos;SHA-256&apos;, options = {}){
   if(!(privateKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
@@ -216,13 +232,14 @@ export async function sign(msg, privateKey, hash = &apos;SHA-256&apos;, options 
 }
 
 /**
- * Verify message with given public key in jwk
- * @param msg
- * @param sig
- * @param publicKey
- * @param hash
- * @param options
- * @return {Promise&lt;boolean&gt;}
+ * Verify message with given public key
+ * @param {Uint8Array} msg - A plaintext message to be verified.
+ * @param {Uint8Array} sig - Signature byte array.
+ * @param {Key} publicKey - Public key object for verification.
+ * @param {String} [hash=&apos;SHA-256&apos;] - Name of hash algorithm like &apos;SHA-256&apos;.
+ * @param {RSASigningOption|ECSigningOption} [options={}] - Signing options.
+ * @return {Promise&lt;boolean&gt;} - Result of verification.
+ * @throws {Error} - Throws if NonKeyObject or UnsupportedKeyType.
  */
 export async function verify(msg, sig, publicKey, hash = &apos;SHA-256&apos;, options = {}){
   if(!(publicKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
@@ -249,10 +266,11 @@ export async function verify(msg, sig, publicKey, hash = &apos;SHA-256&apos;, op
 /**
  * Encryption with public key algorithm. in case of ECDH.
  * Session key is derived from HKDF and the data itself will be encrypted by symmetric cipher.
- * @param msg
- * @param publicKey
- * @param options
- * @return {Promise&lt;{data: Uint8Array, salt: Uint8Array, iv: Uint8Array}&gt;}
+ * @param {Uint8Array} msg - Plaintext message to be encrypted.
+ * @param {Key} publicKey - Public key object.
+ * @param {RSAEncryptionOption|ECEncryptionOptions} [options={}] - Encryption options.
+ * @return {Promise&lt;PKCCiphertextObject&gt;} - Encrypted message object.
+ * @throws {Error} - Throws if NonKeyObject, MissingOrInvalidPrivateKeyForECDH, or UnsupportedKeyType.
  */
 export async function encrypt(msg, publicKey, options = {}){
   if(!(publicKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
@@ -279,10 +297,11 @@ export async function encrypt(msg, publicKey, options = {}){
 /**
  * Decryption with public key algorithm. in case of ECDH
  * Session key is derived from HKDF and the data itself will be decrypted by symmetric cipher.
- * @param data
- * @param privateKey
- * @param options
- * @return {Promise&lt;Uint8Array&gt;}
+ * @param {Uint8Array} data - Encrypted message body, i.e., PKCCiphertextObject.data.
+ * @param {Key} privateKey - Private key object
+ * @param {RSAEncryptionOption|ECDecryptionOptions} [options={}] - Decryption Options.
+ * @return {Promise&lt;Uint8Array&gt;} - Decrypted message byte array.
+ * @throws {Error} - Throws if NonKeyObject, MissingPublicKeyForECDH, or UnsupportedKeyType.
  */
 export async function decrypt(data, privateKey, options = {}){
   if(!(privateKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);

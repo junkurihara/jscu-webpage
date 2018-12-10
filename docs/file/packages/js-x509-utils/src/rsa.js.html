@@ -135,6 +135,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
@@ -143,6 +151,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -161,11 +176,18 @@ import rfc5280 from &apos;asn1.js-rfc5280&apos;;
 import BufferMod from &apos;buffer&apos;;
 const Buffer = BufferMod.Buffer;
 
-
-export async function getSignature(encodedTbsCertificate, privateJwk, algorithm, hash, saltLength){
+/**
+ * Sign TBSCertificate under the issuer&apos;s RSA private key in JWK format.
+ * @param {Uint8Array} encodedTbsCertificate - Message body to be signed.
+ * @param {JsonWebKey} privateJwk - A RSA signing key in JWK format.
+ * @param {String} algorithm - Name of signing algorithm like &apos;sha256WithRSAEncryption&apos;.
+ * @param {RSAPSSObject} [pssParams] - Effective only for RSASSA-PSS.
+ * @returns {Promise&lt;{data: Buffer, unused: number}&gt;} - ASN.1 parsed signature object.
+ */
+export async function getSignature(encodedTbsCertificate, privateJwk, algorithm, pssParams){
   let signature;
   if(algorithm === &apos;rsassaPss&apos;){
-    signature = await rsa.sign( encodedTbsCertificate, privateJwk, hash, { name: &apos;RSA-PSS&apos;, saltLength });
+    signature = await rsa.sign( encodedTbsCertificate, privateJwk, pssParams.hash, { name: &apos;RSA-PSS&apos;, saltLength: pssParams.saltLength });
   }
   else {
     signature = await rsa.sign( encodedTbsCertificate, privateJwk, params.signatureAlgorithms[algorithm].hash, { name: &apos;RSASSA-PKCS1-v1_5&apos; });
@@ -173,6 +195,11 @@ export async function getSignature(encodedTbsCertificate, privateJwk, algorithm,
   return {unused: 0, data: Buffer.from(signature)};
 }
 
+/**
+ * Encode RSA-PSS parsed params to ASN.1 Uint8Array binary
+ * @param {RSAPSSObject} options - RSA-PSS params as a parsed object.
+ * @returns {DER} - Encoded RSA-PSS object.
+ */
 export function encodeRsassaPssParams(options){
   if (options.hash === &apos;SHA-1&apos; &amp;&amp; options.saltLength === 20 &amp;&amp; options.explicit === false) return Buffer.from([0x30, 0x00]);
   else {
@@ -197,6 +224,12 @@ export function encodeRsassaPssParams(options){
 }
 
 
+/**
+ * Parse encoded RSA-PSS parameters represented in Uint8Array.
+ * @param {Buffer|Uint8Array} pssParams - Extracted RSA-PSS parameter byte sequence.
+ * @returns {{hashForMgf: string, saltLength: number, mgf: string, hash: string}}
+ * @throws {Error} - Throws if InvalidCertificateFormat.
+ */
 export function decodeRsassaPssParams(pssParams){
   let returnParams;
   if((new Uint8Array(pssParams)).toString() !== (new Uint8Array([0x30, 0x00]).toString())){

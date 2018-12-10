@@ -1,7 +1,7 @@
 {
-  "coverage": "71.11%",
+  "coverage": "73.33%",
   "expectCount": 180,
-  "actualCount": 128,
+  "actualCount": 132,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -221,22 +221,18 @@
     },
     "packages/js-x509-utils/src/ec.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        8,
-        10
+        8
       ]
     },
     "packages/js-x509-utils/src/rsa.js": {
       "expectCount": 6,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
         9,
         12,
-        15,
-        26,
-        50,
-        85
+        103
       ]
     },
     "packages/js-x509-utils/src/util.js": {
@@ -249,7 +245,7 @@
       "actualCount": 4,
       "undocumentLines": [
         15,
-        180
+        183
       ]
     }
   }

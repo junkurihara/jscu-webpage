@@ -135,6 +135,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-x509-utils-src">js-x509-utils/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span></li>
@@ -143,6 +151,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -3132,7 +3147,7 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>*</span>, privateKey: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -3161,7 +3176,7 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, publicKey: <span>*</span>, options: <span>*</span>): <span>Promise</span><{data: <span="">Uint8Array, salt: <span>Uint8Array</span>, iv: <span>Uint8Array</span>}&gt;</{data:></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, options: <span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -3190,7 +3205,7 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(keyType: <span>*</span>, options: <span>*</span>): <span>Promise</span><{publickey: <span="">*, privateKey: <span>*</span>}&gt;</{publickey:></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span><span class="code" data-ice="signature">(keyType: <span>&apos;EC&apos;</span> | <span>&apos;RSA&apos;</span>, options: <span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span> | <span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span>): <span>Promise</span><{publickey: <span="">JsonWebKey, privateKey: <span>JsonWebKey</span>}&gt;</{publickey:></span>
         </p>
       </div>
       <div>
@@ -3219,7 +3234,7 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(privateKey: <span>*</span>, msg: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>ArrayBuffer</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-sign">sign</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, privateKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -3248,13 +3263,13 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>*</span>, sig: <span>*</span>, publicKey: <span>*</span>, hash: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, sig: <span>Uint8Array</span>, publicKey: <span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span>, hash: <span>String</span>, options: <span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span> | <span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span>): <span>Promise</span>&lt;<span>boolean</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Verify message with given public key in jwk</p>
+        <div data-ice="description"><p>Verify message with given public key</p>
 </div>
       </div>
     </td>
@@ -3319,6 +3334,230 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ECDecryptionOptions">ECDecryptionOptions</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ECEncryptionOptions">ECEncryptionOptions</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ECKeyGenerationOption">ECKeyGenerationOption</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ECSigningOption">ECSigningOption</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-PKCCiphertextObject">PKCCiphertextObject</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAEncryptionOption">RSAEncryptionOption</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAKeyGenerationOption">RSAKeyGenerationOption</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-RSASigningOption">RSASigningOption</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -3343,13 +3582,14 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, signatureAlgorithm: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAsn1Signature">getAsn1Signature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, signatureAlgorithm: <span>String</span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>Number</span>}&gt;</{data:></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Sign encoded tbsCertificate with given signature algorithm under the JWK private key.</p>
+</div>
       </div>
     </td>
     <td>
@@ -3371,13 +3611,14 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(pssParams: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decodeRsassaPssParams">decodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(pssParams: <span>Buffer</span> | <span>Uint8Array</span>): {hashForMgf: <span>string</span>, saltLength: <span>number</span>, mgf: <span>string</span>, hash: <span>string</span>}</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Parse encoded RSA-PSS parameters represented in Uint8Array.</p>
+</div>
       </div>
     </td>
     <td>
@@ -3399,7 +3640,65 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(options: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encodeRsassaPssParams">encodeRsassaPssParams</a></span></span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Encode RSA-PSS parsed params to ASN.1 Uint8Array binary</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getSignature">getSignature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>Uint8Array</span>, privateJwk: <span>JsonWebKey</span>, algorithm: <span>String</span>, pssParams: <span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span>): <span>Promise</span><{data: <span="">Buffer, unused: <span>number</span>}&gt;</{data:></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Sign TBSCertificate under the issuer&apos;s RSA private key in JWK format.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getKeyFromOid">getKeyFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span><span>string</span><span>[]</span></span></span>
         </p>
       </div>
       <div>
@@ -3427,70 +3726,13 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getSignature">getSignature</a></span></span><span class="code" data-ice="signature">(encodedTbsCertificate: <span>*</span>, privateJwk: <span>*</span>, algorithm: <span>*</span>, hash: <span>*</span>, saltLength: <span>*</span>): {&quot;unused&quot;: <span>*</span>, &quot;data&quot;: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span><span class="code" data-ice="signature">(publicJwk: <span>JsonWebKey</span>, privateJwk: <span>JsonWebKey</span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>, options: <span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span>): <span>Promise</span>&lt;<span><a href="typedef/index.html#static-typedef-DER">DER</a></span>|<span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-function">F</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getKeyFromOid">getKeyFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>util.js</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-function">F</span>
-          <span data-ice="async">async</span>
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-fromJwk">fromJwk</a></span></span><span class="code" data-ice="signature">(publicJwk: <span>*</span>, privateJwk: <span>*</span>, format: <span>*</span>, options: <span>*</span>): <span>Promise</span>&lt;<span>*</span>&gt;</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Convert jwk to X509 pem</p>
+        <div data-ice="description"><p>Convert public key in JWK format to X.509 PEM or DER object.</p>
 </div>
       </div>
     </td>
@@ -3513,7 +3755,7 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): {tbsCertificate: <span>*</span>, signatureValue: <span>*</span>, signatureAlgorithm: <span>*</span>}</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-DER">DER</a></span> | <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): {tbsCertificate: <span>Uint8Array</span>, signatureValue: <span>Uint8Array</span>, signatureAlgorithm: <span>String</span>}</span>
         </p>
       </div>
       <div>
@@ -3542,14 +3784,210 @@ Verification of RSA signature via RSA-PSS or RSASSA-PKCS1-v1_5 in Node.js.</p>
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span><span class="code" data-ice="signature">(certX509: <span>*</span>, format: <span>*</span>): <span>Promise</span>&lt;<span>void</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-toJwk">toJwk</a></span></span><span class="code" data-ice="signature">(certX509: <span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span> | <span><a href="typedef/index.html#static-typedef-DER">DER</a></span>, format: <span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span>): <span>Promise</span>&lt;<span>JsonWebKey</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Convert X.509 certificate to JWK</p>
+        <div data-ice="description"><p>Convert X.509 certificate to a JWK object.</p>
 </div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-AsnFormat">AsnFormat</a></span></span><span class="code" data-ice="signature">: <span>&apos;der&apos;</span> | <span>&apos;pem&apos;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-DER">DER</a></span></span><span class="code" data-ice="signature">: <span>Buffer</span> | <span>Uint8Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-PEM">PEM</a></span></span><span class="code" data-ice="signature">: <span>String</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-RSAPSSObject">RSAPSSObject</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-X509EncodingOptions">X509EncodingOptions</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Issuer">X509Issuer</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-X509Subject">X509Subject</a></span></span><span class="code" data-ice="signature">: <span>Object</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
       </div>
     </td>
     <td>

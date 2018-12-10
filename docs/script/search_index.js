@@ -517,19 +517,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber202",
+    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber201",
     " Transform X509 Self Signed RSA-PSS Empty Parameter PEM to JWK, and verify it",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber155",
+    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber154",
     " Transform X509 Self Signed RSA-PSS Explicit Parameter PEM to JWK, and verify it",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber140",
+    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber139",
     " Transform X509 Self Signed RSASSA-PKCS1-v1_5 PEM to JWK, and verify it",
     "test"
   ],
@@ -1830,6 +1830,60 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/js-crypto-utils/src/typedef.js",
+    "file/packages/js-crypto-utils/src/typedef.js.html",
+    "packages/js-crypto-utils/src/typedef.js",
+    "file"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~ecdecryptionoptions",
+    "typedef/index.html#static-typedef-ECDecryptionOptions",
+    "packages/js-crypto-utils/src/typedef.js~ECDecryptionOptions",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~ecencryptionoptions",
+    "typedef/index.html#static-typedef-ECEncryptionOptions",
+    "packages/js-crypto-utils/src/typedef.js~ECEncryptionOptions",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~eckeygenerationoption",
+    "typedef/index.html#static-typedef-ECKeyGenerationOption",
+    "packages/js-crypto-utils/src/typedef.js~ECKeyGenerationOption",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~ecsigningoption",
+    "typedef/index.html#static-typedef-ECSigningOption",
+    "packages/js-crypto-utils/src/typedef.js~ECSigningOption",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~pkcciphertextobject",
+    "typedef/index.html#static-typedef-PKCCiphertextObject",
+    "packages/js-crypto-utils/src/typedef.js~PKCCiphertextObject",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~rsaencryptionoption",
+    "typedef/index.html#static-typedef-RSAEncryptionOption",
+    "packages/js-crypto-utils/src/typedef.js~RSAEncryptionOption",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~rsakeygenerationoption",
+    "typedef/index.html#static-typedef-RSAKeyGenerationOption",
+    "packages/js-crypto-utils/src/typedef.js~RSAKeyGenerationOption",
+    "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/src/typedef.js~rsasigningoption",
+    "typedef/index.html#static-typedef-RSASigningOption",
+    "packages/js-crypto-utils/src/typedef.js~RSASigningOption",
+    "typedef"
+  ],
+  [
     "packages/js-crypto-utils/test/api.encrypt.spec.js",
     "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html",
     "packages/js-crypto-utils/test/api.encrypt.spec.js",
@@ -1870,6 +1924,54 @@ window.esdocSearchIndex = [
     "file/packages/js-x509-utils/src/rsa.js.html",
     "packages/js-x509-utils/src/rsa.js",
     "file"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js",
+    "file/packages/js-x509-utils/src/typedef.js.html",
+    "packages/js-x509-utils/src/typedef.js",
+    "file"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~asnformat",
+    "typedef/index.html#static-typedef-AsnFormat",
+    "packages/js-x509-utils/src/typedef.js~AsnFormat",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~der",
+    "typedef/index.html#static-typedef-DER",
+    "packages/js-x509-utils/src/typedef.js~DER",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~pem",
+    "typedef/index.html#static-typedef-PEM",
+    "packages/js-x509-utils/src/typedef.js~PEM",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~rsapssobject",
+    "typedef/index.html#static-typedef-RSAPSSObject",
+    "packages/js-x509-utils/src/typedef.js~RSAPSSObject",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~x509encodingoptions",
+    "typedef/index.html#static-typedef-X509EncodingOptions",
+    "packages/js-x509-utils/src/typedef.js~X509EncodingOptions",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~x509issuer",
+    "typedef/index.html#static-typedef-X509Issuer",
+    "packages/js-x509-utils/src/typedef.js~X509Issuer",
+    "typedef"
+  ],
+  [
+    "packages/js-x509-utils/src/typedef.js~x509subject",
+    "typedef/index.html#static-typedef-X509Subject",
+    "packages/js-x509-utils/src/typedef.js~X509Subject",
+    "typedef"
   ],
   [
     "packages/js-x509-utils/src/util.js",

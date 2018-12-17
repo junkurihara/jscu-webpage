@@ -56,7 +56,7 @@
 <blockquote>
 <p><strong>WARNING</strong>: At this time this solution should be considered suitable for research and experimentation, further code and security review is needed before utilization in a production application.</p>
 </blockquote>
-<h1 id="overview">Overview</h1><p>This library is being developed to provide unified (and specific) cryptographic APIs for browsers and Node.js. There currently exist various sophisticated cryptographic suites for JavaScript that are implemented as native functions, e.g., WebCrypto API and <code>crypto</code> in Node.js. However, they have different interfaces and are NOT supported at all platforms. For instance, FireFox cannot be fed PKCS8-formatted private key in WebCrypto API but Chrome does. On the other hand, such suites have not been designed to keep compatibility to existing non-Web cryptographic suites like OpenSSL. This can be seen from the fact that WebCrypto API does not support PEM-formatted keys. Hence we (actually I!) need to write ugly codes so as to enable apps to work in various environments. From this observation, we aim that this library provides support functions to fill such gaps among JS cryptographic suites and that between JavaScript and other popular crypto suites.</p>
+<h1 id="overview">Overview</h1><p>This library is being developed to provide unified cryptographic APIs for browsers and Node.js. There currently exist various sophisticated cryptographic suites for JavaScript that are implemented as native functions, e.g., WebCrypto API and <code>crypto</code> in Node.js. However, they have different interfaces and are NOT supported at all platforms. For instance, FireFox cannot be fed PKCS8-formatted private key in WebCrypto API but Chrome does. On the other hand, such suites have not been designed to keep compatibility to existing non-Web cryptographic suites like OpenSSL. This can be seen from the fact that WebCrypto API does not support PEM-formatted keys. Hence we (actually I!) need to write ugly codes so as to enable apps to work in various environments. From this observation, we aim that this library provides support functions to fill such gaps among JS cryptographic suites and that between JavaScript and other popular crypto suites.</p>
 <p>Firstly, this library provides following functions that works in most modern browsers and Node.js.</p>
 <ul>
 <li>ECDSA signing, verification, key generation (P-256/P-384/P-521/P-256K)</li>
@@ -95,16 +95,16 @@ Additionally, this library provides random, hash, AES, HMAC, HKDF, and PBKDF fun
  */</code>
 </code></pre><p>We should note that most of this library&apos;s functions are independently available through NPM and GitHub as modules. In other words, this library is being developed as an integrated wrapper of those independent modules. The independent modules are listed as follows:</p>
 <ul>
-<li><code>Key</code>: <a href="https://github.com/junkurihara/js-crypto-key-utils">https://github.com/junkurihara/js-crypto-key-utils</a></li>
-<li><code>pkc</code> (EC): <a href="https://github.com/junkurihara/js-crypto-ec">https://github.com/junkurihara/js-crypto-ec</a></li>
-<li><code>pkc</code> (RSA): <a href="https://github.com/junkurihara/js-crypto-rsa">https://github.com/junkurihara/js-crypto-rsa</a></li>
-<li><code>x509</code>: <a href="https://github.com/junkurihara/js-x509-utils">https://github.com/junkurihara/js-x509-utils</a></li>
-<li><code>aes</code>: <a href="https://github.com/junkurihara/js-crypto-aes">https://github.com/junkurihara/js-crypto-aes</a></li>
-<li><code>random</code>: <a href="https://github.com/junkurihara/js-crypto-random">https://github.com/junkurihara/js-crypto-random</a></li>
-<li><code>hash</code>: <a href="https://github.com/junkurihara/js-crypto-hash">https://github.com/junkurihara/js-crypto-hash</a></li>
-<li><code>hkdf</code>: <a href="https://github.com/junkurihara/js-crypto-hkdf">https://github.com/junkurihara/js-crypto-hkdf</a></li>
-<li><code>pbkdf</code>: <a href="https://github.com/junkurihara/js-crypto-pbkdf">https://github.com/junkurihara/js-crypto-pbkdf</a></li>
-<li><code>hmac</code>: <a href="https://github.com/junkurihara/js-crypto-hmac">https://github.com/junkurihara/js-crypto-hmac</a></li>
+<li><code>Key</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-key-utils">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-key-utils</a></li>
+<li><code>pkc</code> (EC): <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-ec">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-ec</a></li>
+<li><code>pkc</code> (RSA): <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-rsa">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-rsa</a></li>
+<li><code>x509</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-x509-utils">https://github.com/junkurihara/jscu/tree/develop/packages/js-x509-utils</a></li>
+<li><code>aes</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-aes">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-aes</a></li>
+<li><code>random</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-random">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-random</a></li>
+<li><code>hash</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hash">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hash</a></li>
+<li><code>hkdf</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hkdf">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hkdf</a></li>
+<li><code>pbkdf</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-pbkdf">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-pbkdf</a></li>
+<li><code>hmac</code>: <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hmac">https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hmac</a></li>
 </ul>
 <p>Please refer to the above repos for further information.</p>
 <p><strong>NOTE</strong>: If you would use only few modules and employ neither <code>Key</code> nor <code>pkc</code>, we highly recommend use our independent modules since those independent ones are relatively small and this library would be overkill. </p>

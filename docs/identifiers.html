@@ -1525,13 +1525,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOid">getAlgorithmFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, oidDict: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOid">getAlgorithmFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, oidDict: <span>Object</span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array loosely.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1553,13 +1554,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOidStrict">getAlgorithmFromOidStrict</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOidStrict">getAlgorithmFromOidStrict</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array strictly.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1872,13 +1874,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           <span data-ice="kind-icon" class="kind-variable">V</span>
           
           
-          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-EncryptedPrivateKeyInfo">EncryptedPrivateKeyInfo</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-EncryptedPrivateKeyInfo">EncryptedPrivateKeyInfo</a></span></span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-AsnObject">AsnObject</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>EncryptedPrivateKeyInfo specified in RFC5958 <span><a href="https://tools.ietf.org/html/rfc5958">https://tools.ietf.org/html/rfc5958</a></span>.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2421,7 +2424,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf1">pbkdf1</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf1">pbkdf1</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -2450,7 +2453,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           <span data-ice="kind-icon" class="kind-function">F</span>
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>

@@ -164,13 +164,40 @@
 
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h2 id="jscu--a-universal-cryptographic-library-for-javascript">jscu: A Universal Cryptographic Library for JavaScript</h2><p><a href="https://circleci.com/gh/junkurihara/jscu"><img src="https://circleci.com/gh/junkurihara/jscu.svg?style=svg" alt="CircleCI"></a>
 <a href="https://coveralls.io/github/junkurihara/jscu?branch=develop"><img src="https://coveralls.io/repos/github/junkurihara/jscu/badge.svg?branch=develop" alt="Coverage Status"></a>
-<a href="https://david-dm.org/junkurihara/jscu"><img src="https://david-dm.org/junkurihara/jscu.svg" alt="Dependencies"></a>
 <a href="https://codeclimate.com/github/junkurihara/jscu/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e20cff0e8e062363a13/maintainability.svg" alt="Maintainability"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
 <blockquote>
 <p><strong>WARNING</strong>: At this time this solution should be considered suitable for research and experimentation, further code and security review is needed before utilization in a production application.</p>
 </blockquote>
-<h1 id="introduction">Introduction</h1><p>This repository is a <em>monorepo</em> of a universal cryptographic library for JavaScript called <code>js-crypto-utils</code> (<code>jscu</code>), which is designed so as to work in most modern browsers and Node.js. The detailed explanation would be given in each package repository. The root package is given <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-utils">here</a> (in <code>develop</code> branch), and we should start from there.</p>
+<blockquote>
+<p><strong>NOTE</strong>: This repository is a <em>monorepo</em> of a universal cryptographic library for JavaScript called <code>js-crypto-utils</code> (<code>jscu</code>), which is designed so as to work in most modern browsers and Node.js. The detailed explanation would be given in each package repository. The root package is given <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-utils">here</a> (in <code>develop</code> branch).</p>
+</blockquote>
+<h1 id="introduction-and-overview-of-this-monorepo">Introduction and Overview of this monorepo</h1><p>This project called <code>jscu</code> is being developed to provide unified cryptographic APIs for browsers and Node.js. There currently exist various sophisticated cryptographic suites for JavaScript that are implemented as native functions, e.g., WebCrypto API and <code>crypto</code> in Node.js. However, they have different interfaces and are NOT supported at all platforms. For instance, FireFox cannot be fed PKCS8-formatted private key in WebCrypto API but Chrome does. On the other hand, such suites have not been designed to keep compatibility to existing non-Web cryptographic suites like OpenSSL. This can be seen from the fact that WebCrypto API does not support PEM-formatted keys. Hence we (actually I!) need to write ugly codes so as to enable apps to work in various environments. From this observation, we aim that this library provides support functions to fill such gaps among JS cryptographic suites and that between JavaScript and other popular crypto suites.</p>
+<p>In particular, this library provides unified APIs of the following cryptographic functions that works in most modern browsers and Node.js.</p>
+<ul>
+<li>ECDSA signing, verification, key generation (P-256/P-384/P-521/P-256K)</li>
+<li>RSA-PSS/RSASSA-PKCS1-v1_5 signing, verification, key generation.</li>
+<li>Encryption using ECDH and HKDF.</li>
+<li>Encryption using RSA-OAEP. </li>
+<li>Public/private key format conversion between JWK and PEM/DER (SPKI for public/PKCS8 for private)</li>
+<li>Generation of JWK Thumbprint</li>
+<li>Generation of X.509 public key certificate from JWK and extraction of JWK public key from X.509 public key certificate.</li>
+</ul>
+<p>Additionally, this library provides random, hash, AES, HMAC, HKDF, and PBKDF functions. This implies the <code>jscu</code> is composed of the several subpackages and can be seen as a cryptographic suite like <a href="https://openpgpjs.org/"><code>openpgpjs</code></a>. The root package, <code>js-crypto-utils</code>, of the suite and its subpackages are listed as follows.</p>
+<ul>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypt-utils"><code>crypto-utils</code></a>: Root cryptographic package providing unified APIs.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-x509-utils"><code>x509-utils</code></a>: Subpackage handling X509 certificates.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-key-utils"><code>key-utils</code></a>: Subpackage handling various key formats like PEM, DER, and JWK.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-ec"><code>ec</code></a>: Subpackage providing naive encryption and signing of elliptic curve cryptography.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-rsa"><code>rsa</code></a>: Subpackage providing naive encryption and signing of RSA cryptography. </li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-aes"><code>aes</code></a>: Subpackage for AES encryption.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-random"><code>random</code></a>: Subpackage for cryptographic random generator.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hash"><code>hash</code></a>: Subpackage providing hash functions including SHA-2.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hkdf"><code>hkdf</code></a>: Subpackage providing hash-based key derivation function.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-pbkdf"><code>pbkdf</code></a>: Subpackage providing password-based key derivation function 1 and 2.</li>
+<li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hmac"><code>hmac</code></a>: Subpackage providing hash-based message authentication code.</li>
+</ul>
+<p>The structure of the package is described in the README.md of the root package, and hence we should start from there. But we can use various cryptographic functions not only via the root package, <code>js-crypto-utils</code>, but also by directly importing subpackages of intended functions. We should refer to README.md of each subpackage for detailed usage.</p>
 <h1 id="for-developers">For Developers</h1><p>Usage of this monorepo and procedures for NPM deployment are summarized as follows.</p>
 <ul>
 <li>This monorepo is managed via <a href="https://yarnpkg.com/en/docs/workspaces">Yarn Workspace</a> and <a href="https://github.com/lerna/lerna">Lerna</a>. After cloning this Git repo, just do <code>yarn install</code> at the root of the cloned folder. Then the setup is all done.</li>

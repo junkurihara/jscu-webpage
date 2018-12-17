@@ -1573,13 +1573,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOid">getAlgorithmFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, oidDict: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOid">getAlgorithmFromOid</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, oidDict: <span>Object</span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array loosely.</p>
+</div>
       </div>
     </td>
     <td>
@@ -1601,13 +1602,14 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOidStrict">getAlgorithmFromOidStrict</a></span></span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getAlgorithmFromOidStrict">getAlgorithmFromOidStrict</a></span></span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array strictly.</p>
+</div>
       </div>
     </td>
     <td>
@@ -2122,7 +2124,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf1">pbkdf1</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf1">pbkdf1</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -2151,7 +2153,7 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
           
           <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -7616,18 +7618,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     
     
-    <span class="code" data-ice="name">getAlgorithmFromOid</span><span class="code" data-ice="signature">(oid: <span>*</span>, oidDict: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">getAlgorithmFromOid</span><span class="code" data-ice="signature">(oid: <span>Array</span>, oidDict: <span>Object</span>): <span>Array</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber56">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber62">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAlgorithmFromOid} from &apos;<span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber56">jscu/packages/js-crypto-key-utils/src/params.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAlgorithmFromOid} from &apos;<span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber62">jscu/packages/js-crypto-key-utils/src/params.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array loosely.</p>
+</div>
 
   
 
@@ -7641,15 +7644,17 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">oid</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>ObjectIdentifier.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">oidDict</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Dictionary of ObjectIdentifier.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -7661,8 +7666,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Array of ObjectIdentifier array.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -7693,18 +7699,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     
     
-    <span class="code" data-ice="name">getAlgorithmFromOidStrict</span><span class="code" data-ice="signature">(oid: <span>*</span>, dict: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">getAlgorithmFromOidStrict</span><span class="code" data-ice="signature">(oid: <span>Array</span>, dict: <span>Object</span>): <span>Array</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber73">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAlgorithmFromOidStrict} from &apos;<span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber60">jscu/packages/js-crypto-key-utils/src/params.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getAlgorithmFromOidStrict} from &apos;<span><a href="file/packages/js-crypto-key-utils/src/params.js.html#lineNumber73">jscu/packages/js-crypto-key-utils/src/params.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Get algorithm name from ObjectIdentifier array strictly.</p>
+</div>
 
   
 
@@ -7718,15 +7725,17 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">oid</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Array</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>ObjectIdentifier.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">dict</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Object</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Dictionary of ObjectIdentifier.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -7738,8 +7747,9 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Exactly one ObjectIdentifier.</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -7751,7 +7761,19 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span>Error</span></p></td>
+        <td data-ice="throwDesc"><p>Throws if UnsupportedAlgorithm.</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
@@ -9096,7 +9118,7 @@ Compressed form of EC public key is referred to RFC 5480 <span><a href="https://
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">pbkdf1</span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+    <span class="code" data-ice="name">pbkdf1</span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
@@ -9166,8 +9188,8 @@ Detailed specification is given in RFC8018 Section 5.1 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>{Promise&lt;Uint8Array&gt;}: Derived key.</p>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Derived key.</p>
 </td>
         </tr>
       </tbody>
@@ -9211,7 +9233,7 @@ Detailed specification is given in RFC8018 Section 5.1 <span><a href="https://to
     
     <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">pbkdf2</span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>*</span></span>
+    <span class="code" data-ice="name">pbkdf2</span><span class="code" data-ice="signature">(p: <span>Uint8Array</span> | <span>String</span>, s: <span>Uint8Array</span>, c: <span>Number</span>, dkLen: <span>Number</span>, hash: <span>String</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
     <span class="right-info">
       
       
@@ -9281,8 +9303,8 @@ Detailed specification is given in RFC8018 Section 5.2 <span><a href="https://to
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>{Promise&lt;Uint8Array&gt;}: Derived key.</p>
+          <td class="return-type code" data-ice="returnType"><span>Promise</span>&lt;<span>Uint8Array</span>&gt;</td>
+          <td class="return-desc" data-ice="returnDescription"><p>Derived key.</p>
 </td>
         </tr>
       </tbody>

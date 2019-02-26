@@ -197,8 +197,8 @@
 <li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-pbkdf"><code>pbkdf</code></a>: Subpackage providing password-based key derivation function 1 and 2.</li>
 <li><a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypto-hmac"><code>hmac</code></a>: Subpackage providing hash-based message authentication code.</li>
 </ul>
-<p>The structure of the package is described in the README.md of the root package, and hence we should start from there. But we can use various cryptographic functions not only via the root package, <code>js-crypto-utils</code>, but also by directly importing subpackages of intended functions. We should refer to README.md of each subpackage for detailed usage.</p>
-<h1 id="for-developers">For Developers</h1><p>Usage of this monorepo and procedures for NPM deployment are summarized as follows.</p>
+<p>The structure of the package is described in the README.md of the <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypt-utils">root package</a>, and hence we should start from there. But we can use various cryptographic functions not only via the root package, <a href="https://github.com/junkurihara/jscu/tree/develop/packages/js-crypt-utils"><code>js-crypto-utils</code></a>, but also by directly importing subpackages of intended functions. We should refer to README.md of each subpackage for its detailed usage.</p>
+<h1 id="for-developers-and-contributors">For Developers and Contributors</h1><p>Using <code>npm</code> package is the simplest way to fully leverage <code>jscu</code> functions. Considering you fork, develop, and update <code>jscu</code> packages themselves, i.e., as developers and contributors, usage of this monorepo and procedures for NPM deployment are summarized as follows.</p>
 <ul>
 <li>This monorepo is managed via <a href="https://yarnpkg.com/en/docs/workspaces">Yarn Workspace</a> and <a href="https://github.com/lerna/lerna">Lerna</a>. After cloning this Git repo, just do <code>yarn install</code> at the root of the cloned folder. Then the setup is all done.</li>
 <li>Versioning pattern of each package is completely independent, but the version of this Git repository specified in the root <code>package.json</code> is tied with the root package, i.e., <code>packages/js-crypto-utils</code>. The name of root package is also given in the root <code>package.json</code>.</li>
@@ -210,6 +210,10 @@
 </ol>
 </li>
 </ul>
+<h1 id="contributing">Contributing</h1><p><code>jscu</code> is free, open source software licensed under MIT License.</p>
+<p>You can open issues for bugs you&apos;ve found or features you think are missing. You can also submit pull requests to this repository, or submit translations using Weblate.</p>
+<p>Contributors are more than welcome!</p>
+<h1 id="documentation">Documentation</h1><p>The <a href="https://junkurihara.github.io/jscu-webpage/"><code>jscu</code> documentation</a> is a dynamically generated site from this monorepo via <a href="https://esdoc.org/">esdoc</a>. You can submit pull requests to &apos;docs&apos; of this monorepo for document update.</p>
 </div>
 </div>
 

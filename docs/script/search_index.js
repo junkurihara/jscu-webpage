@@ -109,19 +109,25 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html#lineNumber10",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber6",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-utils/test/api.keygen.spec.js.html#lineNumber39",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
+    "test-file/packages/js-crypto-utils/test/api.keygen.spec.js.html#lineNumber39",
     "",
     "test"
   ],
@@ -141,6 +147,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
     "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html#lineNumber19",
+    " AES Encryption/Decryption with Passwords via PBKDF2",
     "test"
   ],
   [
@@ -1882,6 +1894,12 @@ window.esdocSearchIndex = [
     "typedef/index.html#static-typedef-RSASigningOption",
     "packages/js-crypto-utils/src/typedef.js~RSASigningOption",
     "typedef"
+  ],
+  [
+    "packages/js-crypto-utils/test/api.encrypt-sym.spec.js",
+    "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html",
+    "packages/js-crypto-utils/test/api.encrypt-sym.spec.js",
+    "testFile"
   ],
   [
     "packages/js-crypto-utils/test/api.encrypt.spec.js",

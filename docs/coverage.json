@@ -1,7 +1,7 @@
 {
-  "coverage": "75%",
-  "expectCount": 180,
-  "actualCount": 135,
+  "coverage": "75.13%",
+  "expectCount": 181,
+  "actualCount": 136,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
       "expectCount": 3,
@@ -164,8 +164,8 @@
       ]
     },
     "packages/js-crypto-random/src/random.js": {
-      "expectCount": 2,
-      "actualCount": 2,
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     },
     "packages/js-crypto-rsa/src/nodeapi.js": {

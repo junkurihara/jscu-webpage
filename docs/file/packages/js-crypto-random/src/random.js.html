@@ -108,6 +108,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-random-src">js-crypto-random/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomAsciiString">getRandomAsciiString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomBytes">getRandomBytes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomString">getRandomString</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-rsa-src">js-crypto-rsa/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateKey">generateKey</a></span></span></li>
@@ -170,6 +171,32 @@
 import * as util from &apos;js-crypto-env&apos;;
 
 /**
+ * Secure random string generator based on getRandomBytes,
+ * which is composed of uppercase or lowercase alphanumeric characters;
+ * @param {Number} len - Length of string.
+ * @return {String} - Generated random ASCII string.
+ */
+export function getRandomString(len) {
+  const array = getRandomBytes(len);
+  const types = getRandomBytes(len); // indicating alphanumeric, upper, lower
+  let finalString = &apos;&apos;;
+
+  // Ascii code
+  // 1-0: 0x30 -- 0x39, 10 chars
+  // A-Z: 0x41 -- 0x5a,
+  // a-z: 0x61 -- 0x7a
+  for (let i = 0; i &lt; len; i++) {
+    types[i] = (types[i] % 3);
+    array[i] = (types[i] === 0) ?
+      (array[i] % 10) + 0x30 :
+      (array[i] % 26) + ((types[i] === 1) ? 0x41 : 0x61);
+    finalString += String.fromCharCode(array[i]);
+  }
+
+  return finalString;
+}
+
+/**
  * Secure random &apos;ASCII&apos; string generator based on getRandomBytes;
  * @param {Number} len - Length of ASCII string.
  * @return {String} - Generated random ASCII string.
@@ -211,7 +238,8 @@ export function getRandomBytes(len) {
   }
 
   return array;
-}</code></pre>
+}
+</code></pre>
 
 </div>
 

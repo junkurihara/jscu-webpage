@@ -487,6 +487,12 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber24",
+    " Random string (uppercase, lowercase and alphanumeric chars) of desired length should be generated successfully",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber51",
     " Shared secret is correctly computed at each side",
     "test"
@@ -981,6 +987,12 @@ window.esdocSearchIndex = [
     "jscu/packages/js-crypto-random/src/random.js~getrandombytes",
     "function/index.html#static-function-getRandomBytes",
     "<span>getRandomBytes</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/random.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-random/src/random.js~getrandomstring",
+    "function/index.html#static-function-getRandomString",
+    "<span>getRandomString</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/random.js</span>",
     "function"
   ],
   [

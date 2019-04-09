@@ -227,10 +227,12 @@ describe(`${envName}: RSA/EC Key conversion from/to JWK test.`, () =&gt; {
 
 
         return result &amp;&amp; (objectSort(jwkpri).toString() === objectSort(jwkpri2).toString());
-      }));
+      }))
+        .catch( (e) =&gt; {console.error(e.message);});
       console.log(elem);
       return elem.every( (x) =&gt; x);
     }));
+    console.log(`result: ${array}`);
     expect(array.every( (x) =&gt; x)).to.be.true;
 
     // AES256 encrypted key sample
@@ -295,14 +297,17 @@ describe(`${envName}: RSA/EC Key conversion from/to JWK test.`, () =&gt; {
 
 
         return result &amp;&amp; (objectSort(jwkpri).toString() === objectSort(jwkpri2).toString());
-      }));
+      }))
+        .catch( (e) =&gt; {console.error(e.message);});
       console.log(elem);
       return elem.every( (x) =&gt; x);
     }));
+    console.log(`result: ${array}`);
     expect(array.every( (x) =&gt; x)).to.be.true;
   });
 
-});</code></pre>
+});
+</code></pre>
 
 </div>
 

@@ -167,61 +167,60 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * index.js
  **/
-export default {getNodeCrypto, getWebCrypto, getMsCrypto, getWebCryptoAll, getRootWebCryptoAll};
-export {getNodeCrypto, getWebCrypto, getMsCrypto, getWebCryptoAll, getRootWebCryptoAll};
 /**
  * Obtain require(crypto) in Node.js environment.
  * @return {undefined|Object} - Node.js crypto object
  */
-function getNodeCrypto(){
+const getNodeCrypto = () =&gt; {
   if(typeof window !== &apos;undefined&apos;) return undefined;
   else return require(&apos;crypto&apos;);
-}
+};
 
 /**
  * Obtain window.crypto.subtle object in browser environments.
  * @return {undefined|Object} - WebCrypto API object
  */
-function getWebCrypto () {
+const getWebCrypto = () =&gt; {
   if (typeof window === &apos;undefined&apos;) return undefined;
   if (window.crypto) return window.crypto.subtle;
-}
+};
 
 /**
  * Obtain window.crypto.subtle or window.msCrypto.subtle object in browser environments.
  * @return {undefined|Object} - WebCrypto API object
  */
-function getWebCryptoAll () {
+const getWebCryptoAll = () =&gt; {
   if (typeof window === &apos;undefined&apos;) return undefined;
   else {
     if (window.msCrypto) return window.msCrypto.subtle;
     if (window.crypto) return window.crypto.subtle;
   }
-}
+};
 
 /**
  * Obtain window.crypto or window.msCrypto object in browser environments.
  * @return {undefined|Object} - WebCrypto API object
  */
-function getRootWebCryptoAll () {
+const getRootWebCryptoAll = () =&gt; {
   if (typeof window === &apos;undefined&apos;) return undefined;
   else {
     if (window.msCrypto) return window.msCrypto;
     if (window.crypto) return window.crypto;
   }
-}
-
-
+};
 
 /**
  * Retrieve MsCryptoObject, i.e., window.msCrypto.subtle
  * @return {undefined|Object}
  */
-function getMsCrypto(){
+const getMsCrypto = () =&gt; {
   if (typeof window === &apos;undefined&apos;) return undefined;
   if (window.crypto) return undefined;
   if (window.msCrypto) return window.msCrypto.subtle;
-}
+};
+
+export default {getNodeCrypto, getWebCrypto, getMsCrypto, getWebCryptoAll, getRootWebCryptoAll};
+export {getNodeCrypto, getWebCrypto, getMsCrypto, getWebCryptoAll, getRootWebCryptoAll};
 </code></pre>
 
 </div>

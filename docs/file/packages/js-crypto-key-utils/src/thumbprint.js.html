@@ -181,7 +181,7 @@ const Buffer = BufferMod.Buffer;
  * @param {JwkThumbpirntFormat} [output=&apos;binary&apos;] - Output format, &apos;binary&apos;, &apos;hex&apos; or &apos;base64&apos;
  * @return {Promise&lt;String|Uint8Array&gt;} - The computed JWK thumbprint.
  */
-export async function getJwkThumbprint(jwkey, alg=&apos;SHA-256&apos;, output=&apos;binary&apos;){
+export const getJwkThumbprint = async (jwkey, alg=&apos;SHA-256&apos;, output=&apos;binary&apos;) =&gt; {
   // assertion
   if([&apos;hex&apos;, &apos;binary&apos;].indexOf(output) &lt; 0) throw new Error(&apos;UnsupportedOutputFormat&apos;);
 
@@ -200,7 +200,8 @@ export async function getJwkThumbprint(jwkey, alg=&apos;SHA-256&apos;, output=&a
   if(output === &apos;hex&apos;) return jseu.encoder.arrayBufferToHexString(thumbPrintBuf);
   else if(output === &apos;base64&apos;) return jseu.encoder.encodeBase64(thumbPrintBuf);
   else if (output === &apos;binary&apos;) return thumbPrintBuf;
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

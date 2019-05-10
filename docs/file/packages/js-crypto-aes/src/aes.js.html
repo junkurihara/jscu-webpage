@@ -180,7 +180,7 @@ import params from &apos;./params.js&apos;;
  * @param {Number} tagLength - Authentication tag length if required
  * @throws {Error} - Throws if UnsupportedAlgorithm, InvalidArguments, InvalidIVLength, or InvalidTagLength.
  */
-function assertAlgorithms({name, iv, tagLength}){
+const assertAlgorithms = ({name, iv, tagLength}) =&gt; {
   if(Object.keys(params.ciphers).indexOf(name) &lt; 0) throw new Error(&apos;UnsupportedAlgorithm&apos;);
   if(params.ciphers[name].ivLength){
     if(!(iv instanceof Uint8Array)) throw new Error(&apos;InvalidArguments&apos;);
@@ -191,7 +191,7 @@ function assertAlgorithms({name, iv, tagLength}){
     if(!Number.isInteger(tagLength)) throw new Error(&apos;InvalidArguments&apos;);
     if(tagLength &lt; 4 || tagLength &gt; 16) throw new Error(&apos;InvalidTagLength&apos;);
   }
-}
+};
 
 /**
  * Encrypt data with AES
@@ -204,7 +204,7 @@ function assertAlgorithms({name, iv, tagLength}){
  * @return {Promise&lt;Uint8Array&gt;} - Encrypted message.
  * @throws {Error} - Throws if InvalidArguments, FaildToEncryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto).
  */
-export async function encrypt(msg, key, {name = &apos;AES-GCM&apos;, iv, additionalData=new Uint8Array([]), tagLength}){
+export const encrypt = async (msg, key, {name = &apos;AES-GCM&apos;, iv, additionalData=new Uint8Array([]), tagLength}) =&gt; {
   // assertion and sanitizing
   if(!(msg instanceof Uint8Array) || !(key instanceof Uint8Array)) throw new Error(&apos;InvalidArguments&apos;);
   assertAlgorithms({name, iv, tagLength});
@@ -231,7 +231,7 @@ export async function encrypt(msg, key, {name = &apos;AES-GCM&apos;, iv, additio
   }
 
   return data;
-}
+};
 
 
 /**
@@ -245,7 +245,7 @@ export async function encrypt(msg, key, {name = &apos;AES-GCM&apos;, iv, additio
  * @return {Promise&lt;Uint8Array&gt;} - Decrypted plaintext message.
  * @throws {Error} - Throws if InvalidArguments, FaildToDecryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto).
  */
-export async function decrypt(data, key, {name=&apos;AES-GCM&apos;, iv, additionalData=new Uint8Array([]), tagLength}){
+export const decrypt = async (data, key, {name=&apos;AES-GCM&apos;, iv, additionalData=new Uint8Array([]), tagLength}) =&gt; {
   // assertion and sanitizing
   if(!(data instanceof Uint8Array) || !(key instanceof Uint8Array)) throw new Error(&apos;InvalidArguments&apos;);
   assertAlgorithms({name, iv, tagLength});
@@ -269,7 +269,8 @@ export async function decrypt(data, key, {name=&apos;AES-GCM&apos;, iv, addition
   } else throw new Error(&apos;UnsupportedEnvironment&apos;);
 
   return msg;
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

@@ -181,7 +181,7 @@ import jschash from &apos;js-crypto-hash&apos;;
  * @return {Promise&lt;Uint8Array&gt;} - Keyed-hash value.
  * @throws {Error} - Throws if UnsupportedEnvironment, i.e., even neither WebCrypto, NodeCrypto nor PureJS is available.
  */
-export async function compute(key, data, hash = &apos;SHA-256&apos;){
+export const compute = async (key, data, hash = &apos;SHA-256&apos;) =&gt; {
   const webCrypto = util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // node crypto
 
@@ -230,7 +230,7 @@ export async function compute(key, data, hash = &apos;SHA-256&apos;){
       throw new Error(&apos;UnsupportedEnvironments&apos;);
     }
   }
-}
+};
 
 
 /**
@@ -240,7 +240,7 @@ export async function compute(key, data, hash = &apos;SHA-256&apos;){
  * @param {String} hash - Name of hash algorithm like &apos;SHA-256&apos;.
  * @return {Promise&lt;void&gt;} - Keyed-hash value.
  */
-async function purejs(key, data, hash){
+const purejs = async (key, data, hash) =&gt; {
   const B = params.hashes[hash].blockSize;
   const L = params.hashes[hash].hashSize;
 
@@ -262,7 +262,7 @@ async function purejs(key, data, hash){
   outer.set(hashedInner, B);
 
   return await jschash.compute(outer, hash);
-}
+};
 
 /**
  * Verify keyed-hash value using the key
@@ -273,12 +273,13 @@ async function purejs(key, data, hash){
  * @return {Promise&lt;boolean&gt;} - Result of verification.
  * @throws {Error} - Throws if InvalidInputMac
  */
-export async function verify(key, data, mac, hash = &apos;SHA-256&apos;){
+export const verify = async (key, data, mac, hash = &apos;SHA-256&apos;) =&gt; {
   if (!(mac instanceof Uint8Array)) throw new Error(&apos;InvalidInputMac&apos;);
 
   const newMac = await compute(key, data, hash);
   return (mac.toString() === newMac.toString());
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

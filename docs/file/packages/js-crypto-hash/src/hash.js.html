@@ -181,7 +181,7 @@ import jsHash from &apos;hash.js&apos;;
  * @throws {Error} - Throws if UnsupportedHashAlgorithm, UnsupportedMessageType,
  *  or UnsupportedEnvironment, i.e., a case where even pure js implementation won&apos;t work.
  */
-export async function compute(msg, hash = &apos;SHA-256&apos;) {
+export const compute = async (msg, hash = &apos;SHA-256&apos;) =&gt; {
   if(Object.keys(params.hashes).indexOf(hash) &lt; 0) throw new Error(&apos;UnsupportedHashAlgorithm&apos;);
   if(!(msg instanceof Uint8Array)) throw new Error(&apos;UnsupportedMessageType&apos;);
 
@@ -274,7 +274,8 @@ const purejs = (hash, msg) =&gt; {
   }
 
   return new Uint8Array(h);
-};</code></pre>
+};
+</code></pre>
 
 </div>
 

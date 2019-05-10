@@ -179,7 +179,7 @@ import * as purejs from &apos;./purejs.js&apos;;
  * @return {Promise&lt;{publicKey: JsonWebKey, privateKey: JsonWebKey }&gt;} - The generated keys.
  * @throws {Error} - Throws if UnsupportedEnvironment, i.e., neither WebCrypto, NodeCrypto, nor PureJS codes works.
  */
-export async function generateKey(namedCurve=&apos;P-256&apos;){
+export const generateKey = async (namedCurve=&apos;P-256&apos;) =&gt; {
   const webCrypto = util.getWebCrypto(); // web crypto api
   const nodeCrypto = util.getNodeCrypto(); // implementation on node.js
 
@@ -207,7 +207,7 @@ export async function generateKey(namedCurve=&apos;P-256&apos;){
   }
 
   return keyPair;
-}
+};
 
 
 /**
@@ -219,7 +219,7 @@ export async function generateKey(namedCurve=&apos;P-256&apos;){
  * @return {Promise&lt;Uint8Array&gt;} - Output signature byte array in raw or der format.
  * @throws {Error} - Throws if UnsupportedEnvironment, i.e., neither WebCrypto, NodeCrypto, nor PureJS codes works.
  */
-export async function sign(msg, privateJwk, hash = &apos;SHA-256&apos;, signatureFormat=&apos;raw&apos;) {
+export const sign = async (msg, privateJwk, hash = &apos;SHA-256&apos;, signatureFormat=&apos;raw&apos;) =&gt; {
   // assertion
   if (signatureFormat !== &apos;raw&apos; &amp;&amp; signatureFormat !== &apos;der&apos;) throw new Error(&apos;InvalidSignatureFormat&apos;);
 
@@ -249,7 +249,7 @@ export async function sign(msg, privateJwk, hash = &apos;SHA-256&apos;, signatur
     });
   }
   return signature;
-}
+};
 
 
 /**
@@ -262,7 +262,7 @@ export async function sign(msg, privateJwk, hash = &apos;SHA-256&apos;, signatur
  * @return {Promise&lt;boolean&gt;} - The result of verification.
  * @throws {Error} - Throws if UnsupportedEnvironment, i.e., neither WebCrypto, NodeCrypto, nor PureJS codes works.
  */
-export async function verify(msg, signature, publicJwk, hash = &apos;SHA-256&apos;, signatureFormat=&apos;raw&apos;) {
+export const verify = async (msg, signature, publicJwk, hash = &apos;SHA-256&apos;, signatureFormat=&apos;raw&apos;) =&gt; {
   // assertion
   if (signatureFormat !== &apos;raw&apos; &amp;&amp; signatureFormat !== &apos;der&apos;) throw new Error(&apos;InvalidSignatureFormat&apos;);
 
@@ -293,7 +293,7 @@ export async function verify(msg, signature, publicJwk, hash = &apos;SHA-256&apo
   }
 
   return valid;
-}
+};
 
 /**
  * ECDH: Elliptic Curve Diffie-Hellman Key Exchange, which derives shared secret from my private key and destination&apos;s public key.
@@ -304,7 +304,7 @@ export async function verify(msg, signature, publicJwk, hash = &apos;SHA-256&apo
  * @return {Promise&lt;Uint8Array&gt;} - The derived master secret via ECDH.
  * @throws {Error} - Throws if UnsupportedEnvironment, i.e., neither WebCrypto, NodeCrypto, nor PureJS codes works.
  */
-export async function deriveSecret(publicJwk, privateJwk){
+export const deriveSecret = async (publicJwk, privateJwk) =&gt; {
   // assertion
   if(publicJwk.crv !== privateJwk.crv) throw new Error(&apos;UnmatchedCurveName&apos;);
 
@@ -339,7 +339,8 @@ export async function deriveSecret(publicJwk, privateJwk){
   }
 
   return secret;
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

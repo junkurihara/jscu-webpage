@@ -178,11 +178,11 @@ import {KeyStructure} from &apos;./asn1def.js&apos;;
  * @param {AsnFormat} [format=&apos;pem&apos;] - pem or der
  * @return {boolean} - True if encrypted.
  */
-export function isAsn1Encrypted(key, format=&apos;pem&apos;){
+export const isAsn1Encrypted = (key, format=&apos;pem&apos;) =&gt; {
   let keyType;
   try{ keyType = getAsn1KeyType(key, format);} catch(e) {return false;}
   return keyType === &apos;encryptedPrivate&apos;;
-}
+};
 
 /**
  * Check if the given key is public.
@@ -190,11 +190,11 @@ export function isAsn1Encrypted(key, format=&apos;pem&apos;){
  * @param {AsnFormat} format - pem or der
  * @return {boolean} - True if public.
  */
-export function isAsn1Public(key, format=&apos;pem&apos;){
+export const isAsn1Public = (key, format=&apos;pem&apos;) =&gt; {
   let keyType;
   try{ keyType = getAsn1KeyType(key, format);} catch(e) {return false;}
   return (keyType === &apos;public&apos;);
-}
+};
 
 /**
  * Retrieve the key type of public or private in ASN.1 format
@@ -203,7 +203,7 @@ export function isAsn1Public(key, format=&apos;pem&apos;){
  * @return {&apos;public&apos;|&apos;private&apos;|&apos;encryptedPrivate&apos;} - The key type of the given key.
  * @throws {Error} - Throws if NotSpkiNorPkcs8Key.
  */
-export function getAsn1KeyType(key, format=&apos;pem&apos;){
+export const getAsn1KeyType = (key, format=&apos;pem&apos;) =&gt; {
   // Peel the pem strings
   const binKey = (format === &apos;pem&apos;) ? jseu.formatter.pemToBin(key, &apos;private&apos;) : key;
 
@@ -212,7 +212,7 @@ export function getAsn1KeyType(key, format=&apos;pem&apos;){
   else if (decoded.type === &apos;oneAsymmetricKey&apos;) return &apos;private&apos;;
   else if (decoded.type === &apos;subjectPublicKeyInfo&apos;) return &apos;public&apos;;
   else throw new Error(&apos;NotSpkiNorPkcs8Key&apos;);
-}
+};
 
 /**
  * Retrieve the type of SEC1 octet key.
@@ -221,7 +221,7 @@ export function getAsn1KeyType(key, format=&apos;pem&apos;){
  * @return {PublicOrPrivate} - public or private
  * @throws {Error} - Throws if UnsupportedKeyStructure.
  */
-export function getSec1KeyType(sec1key, namedCurve){
+export const getSec1KeyType = (sec1key, namedCurve)=&gt; {
   let format;
   if (sec1key instanceof Uint8Array) format = &apos;binary&apos;;
   else if (typeof sec1key === &apos;string&apos;) format = &apos;string&apos;;
@@ -238,7 +238,7 @@ export function getSec1KeyType(sec1key, namedCurve){
     || (binKey.length === len+1 &amp;&amp; (binKey[0] === 0x02 || binKey[0] === 0x03))
   ) return &apos;public&apos;;
   else throw new Error(&apos;UnsupportedKeyStructure&apos;);
-}
+};
 
 /**
  * Check key type of JWK.
@@ -246,7 +246,7 @@ export function getSec1KeyType(sec1key, namedCurve){
  * @return {PublicOrPrivate} - public or private
  * @throws {Error} - Throws if InvalidECKey, InvalidRSAKey or UnsupportedJWKType.
  */
-export function getJwkType(jwkey){
+export const getJwkType = (jwkey) =&gt; {
   if(jwkey.kty === &apos;EC&apos;){
     if (jwkey.x &amp;&amp; jwkey.y &amp;&amp; jwkey.d) return &apos;private&apos;;
     else if (jwkey.x &amp;&amp; jwkey.y) return &apos;public&apos;;
@@ -258,7 +258,7 @@ export function getJwkType(jwkey){
     else throw new Error(&apos;InvalidRSAKey&apos;);
   }
   else throw new Error(&apos;UnsupportedJWKType&apos;);
-}
+};
 
 /**
  * Prune leading zeros of an octet sequence in Uint8Array for jwk formatting of RSA.
@@ -267,7 +267,7 @@ export function getJwkType(jwkey){
  * @return {Uint8Array} - An octet sequence pruned leading zeros of length equal to or shorter than the input array.
  * @throws {Error} - Throws if NonUint8Array.
  */
-export function pruneLeadingZeros(array){
+export const pruneLeadingZeros = (array) =&gt; {
   if(!(array instanceof Uint8Array)) throw new Error(&apos;NonUint8Array&apos;);
 
   let offset = 0;
@@ -279,7 +279,7 @@ export function pruneLeadingZeros(array){
   const returnArray = new Uint8Array(array.length - offset);
   returnArray.set(array.slice(offset, array.length));
   return returnArray;
-}
+};
 
 // for pem/oct/der formatting from jwk of RSA
 /**
@@ -289,14 +289,15 @@ export function pruneLeadingZeros(array){
  * @returns {Uint8Array} - An octet sequence with leading zeros.
  * @throws {Error} - Throws if NonUint8Array or InvalidLength.
  */
-export function appendLeadingZeros(array, len){
+export const appendLeadingZeros = (array, len) =&gt; {
   if(!(array instanceof Uint8Array)) throw new Error(&apos;NonUint8Array&apos;);
   if(array.length &gt; len) throw new Error(&apos;InvalidLength&apos;);
 
   const returnArray = new Uint8Array(len); // initialized with zeros
   returnArray.set(array, len - array.length);
   return returnArray;
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

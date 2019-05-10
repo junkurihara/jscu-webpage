@@ -184,7 +184,7 @@ const Ec = elliptic.ec;
  * @param {boolean} [compact=false] - Export compressed form of public key if true.
  * @return {JsonWebKey} - Encoded key object in JWK format.
  */
-export function fromJwk(jwkey, {outputPublic, outputFormat=&apos;binary&apos;, compact=false}){
+export const fromJwk = (jwkey, {outputPublic, outputFormat=&apos;binary&apos;, compact=false}) =&gt; {
   // original key type
   const orgType = getJwkType(jwkey);
   const type = (typeof outputPublic === &apos;boolean&apos; &amp;&amp; outputPublic) ? &apos;public&apos; : orgType;
@@ -215,7 +215,7 @@ export function fromJwk(jwkey, {outputPublic, outputFormat=&apos;binary&apos;, c
     const bufD = jseu.encoder.decodeBase64Url(jwkey.d);
     return (outputFormat === &apos;string&apos;) ? jseu.encoder.arrayBufferToHexString(bufD) : bufD;
   }
-}
+};
 
 /**
  * Convert Octet form of EC public/private keys to JWK.
@@ -224,7 +224,7 @@ export function fromJwk(jwkey, {outputPublic, outputFormat=&apos;binary&apos;, c
  * @param {boolean} [outputPublic] - Export public key even from private key if true.
  * @return {JsonWebKey} - Derived key object in JWK format.
  */
-export function toJwk(octkey, namedCurve, {outputPublic}){
+export const toJwk = (octkey, namedCurve, {outputPublic}) =&gt; {
   if (Object.keys(params.namedCurves).indexOf(namedCurve) &lt; 0) throw new Error(&apos;UnsupportedCurve&apos;);
 
   // original key type and check the key structure
@@ -259,7 +259,8 @@ export function toJwk(octkey, namedCurve, {outputPublic}){
     jwKey.d = jseu.encoder.encodeBase64Url(binKey);
   }
   return jwKey;
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

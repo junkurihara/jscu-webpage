@@ -185,7 +185,7 @@ import hmac  from &apos;js-crypto-hmac&apos;;
  * @param {Uint8Array} [salt=null] - Byte array of salt.
  * @return {Promise&lt;{key: Uint8Array, salt: Uint8Array}&gt;} - Derived key and salt used to derive the key.
  */
-export async function compute(master, hash = &apos;SHA-256&apos;, length = 32, info = &apos;&apos;, salt = null){
+export const compute = async (master, hash = &apos;SHA-256&apos;, length = 32, info = &apos;&apos;, salt = null) =&gt; {
   if(!info) info = &apos;&apos;;
   const webCrypto = util.getWebCrypto(); // web crypto api
 
@@ -215,7 +215,7 @@ export async function compute(master, hash = &apos;SHA-256&apos;, length = 32, i
   }
 
   return {key, salt};
-}
+};
 
 /**
  * Naive implementation of RFC5869 in PureJavaScript
@@ -226,7 +226,7 @@ export async function compute(master, hash = &apos;SHA-256&apos;, length = 32, i
  * @param {Uint8Array} salt - Byte array of salt.
  * @return {Promise&lt;Uint8Array&gt;} - Derived key.
  */
-async function rfc5869(master, hash, length, info, salt){
+const rfc5869 = async (master, hash, length, info, salt) =&gt; {
   const len = params.hashes[hash].hashSize;
 
   // RFC5869 Step 1 (Extract)
@@ -245,7 +245,8 @@ async function rfc5869(master, hash, length, info, salt){
     okm.set(t, len * i);
   }
   return okm.slice(0, length);
-}</code></pre>
+};
+</code></pre>
 
 </div>
 

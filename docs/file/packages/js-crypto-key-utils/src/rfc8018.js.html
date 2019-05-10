@@ -187,7 +187,7 @@ const BN = asn.bignum;
  * @param {AsnEncryptOptionsWithPassphrase} [options={passphrase: &apos;&apos;}] - Encryption options for ASN.1 private key.
  * @return {Promise&lt;DER&gt;} - Encrypted private key in DER.
  */
-export async function encryptEncryptedPrivateKeyInfo(binKey, options = {passphrase:&apos;&apos;}){
+export const encryptEncryptedPrivateKeyInfo = async (binKey, options = {passphrase:&apos;&apos;}) =&gt; {
   // default params
   if(typeof options.algorithm === &apos;undefined&apos;) options.algorithm = &apos;pbes2&apos;;
   if(typeof options.iterationCount === &apos;undefined&apos;) options.iterationCount = 2048;
@@ -207,7 +207,7 @@ export async function encryptEncryptedPrivateKeyInfo(binKey, options = {passphra
     encryptedPBES1.encryptionAlgorithm.parameters = PBEParameter.encode(encryptedPBES1.encryptionAlgorithm.parameters, &apos;der&apos;);
     return EncryptedPrivateKeyInfo.encode(encryptedPBES1, &apos;der&apos;);
   }
-}
+};
 
 /**
  * Decrypt EncryptedPrivateKeyInfo
@@ -215,7 +215,7 @@ export async function encryptEncryptedPrivateKeyInfo(binKey, options = {passphra
  * @param {String} passphrase - Passphrase to decyrpt the object.
  * @return {Promise&lt;Object&gt;} - Decrypted object.
  */
-export async function decryptEncryptedPrivateKeyInfo(epki, passphrase){
+export const decryptEncryptedPrivateKeyInfo = async (epki, passphrase) =&gt; {
   const decoded = {};
 
   // encryptionAlgorithm.algorithm
@@ -236,10 +236,10 @@ export async function decryptEncryptedPrivateKeyInfo(epki, passphrase){
     return await decryptPBES2(decoded, passphrase);
   }
   else return await decryptPBES1(decoded, passphrase);
-}
+};
 
 //////////////////////////////
-function encodePBES2(decoded){
+const encodePBES2 = (decoded) =&gt; {
   const epki = { encryptionAlgorithm: {} };
 
   // algorithm
@@ -266,9 +266,9 @@ function encodePBES2(decoded){
   // encoded data
   epki.encryptedData = decoded.encryptedData;
   return EncryptedPrivateKeyInfo.encode(epki, &apos;der&apos;);
-}
+};
 
-function decodePBES2(rawParams){
+const decodePBES2 = (rawParams) =&gt; {
   const pbes2Params = PBES2Params.decode(rawParams, &apos;der&apos;);
 
   // keyDerivationFunc
@@ -304,12 +304,12 @@ function decodePBES2(rawParams){
       parameters: encryptionParams
     }
   };
-}
+};
 
 
 //////////////////////
 // PBES2 RFC8018 Section 6.2.1
-async function encryptPBES2(binKey, passphrase, kdfAlgorithm, prf, iterationCount, cipher){
+const encryptPBES2 = async (binKey, passphrase, kdfAlgorithm, prf, iterationCount, cipher) =&gt; {
   // kdf
   const pBuffer = jseu.encoder.stringToArrayBuffer(passphrase);
   const salt = await jscrandom.getRandomBytes(
@@ -357,11 +357,11 @@ async function encryptPBES2(binKey, passphrase, kdfAlgorithm, prf, iterationCoun
       }
     }
   };
-}
+};
 
 //////////////////////////////
 // PBES2 RFC8018 Section 6.2.2
-async function decryptPBES2(decoded, passphrase){
+const decryptPBES2 = async (decoded, passphrase) =&gt; {
   const kdf = decoded.encryptionAlgorithm.parameters.keyDerivationFunc;
   const eS = decoded.encryptionAlgorithm.parameters.encryptionScheme;
 
@@ -395,11 +395,11 @@ async function decryptPBES2(decoded, passphrase){
   } else throw new Error(&apos;UnsupportedEncryptionAlgorithm&apos;);
 
   return OneAsymmetricKey.decode(out, &apos;der&apos;);
-}
+};
 
 //////////////////////////////
 // PBES1 RFC8018 Section 6.1.1
-async function encryptPBES1(binKey, passphrase, algorithm, iterationCount){
+const encryptPBES1 = async (binKey, passphrase, algorithm, iterationCount) =&gt; {
   // pbkdf1
   const pBuffer = jseu.encoder.stringToArrayBuffer(passphrase);
   const salt = await jscrandom.getRandomBytes(8); // defined as 8 octet
@@ -429,11 +429,11 @@ async function encryptPBES1(binKey, passphrase, algorithm, iterationCount){
     },
     encryptedData: out
   };
-}
+};
 
 //////////////////////////////
 // PBES1 RFC8018 Section 6.1.2
-async function decryptPBES1(decoded, passphrase){
+const decryptPBES1 = async (decoded, passphrase) =&gt; {
   // pbkdf1
   const pBuffer = jseu.encoder.stringToArrayBuffer(passphrase);
   const salt = new Uint8Array(decoded.encryptionAlgorithm.parameters.salt);
@@ -455,7 +455,7 @@ async function decryptPBES1(decoded, passphrase){
   else throw new Error(&apos;UnsupportedEncryptionAlgorithm&apos;);
 
   return OneAsymmetricKey.decode(out, &apos;der&apos;);
-}
+};
 </code></pre>
 
 </div>

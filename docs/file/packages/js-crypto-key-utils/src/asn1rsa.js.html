@@ -181,7 +181,7 @@ import {appendLeadingZeros, pruneLeadingZeros} from &apos;./util&apos;;
  * @param {PublicOrPrivate} type - &apos;public&apos; or &apos;private&apos;.
  * @returns {Object} - Parsed object of ASN.1 encoded key object.
  */
-export function fromJwk(jwk, type){
+export const fromJwk = (jwk, type) =&gt; {
 
   const publicKeyAlgorithmOid = params.publicKeyAlgorithms[&apos;RSA&apos;].oid;
   // Parameters is always null Ox0500 in ASN.1 as shown in the Section 2.3.1 https://tools.ietf.org/html/rfc3279
@@ -229,7 +229,7 @@ export function fromJwk(jwk, type){
  * @param {PublicOrPrivate} type - &apos;public&apos; or &apos;private&apos;
  * @return {JsonWebKey} - Encoded RSA key object in JWK format.
  */
-export function toJwk(decoded, type){
+export const toJwk = (decoded, type) =&gt; {
 
   if (type === &apos;public&apos;){ // SPKI
     // algorithm.algorithm.parameters is always null Ox0500 in ASN.1
@@ -333,7 +333,8 @@ const OtherPrimeInfo = asn.define(&apos;OtherPrimeInfo&apos;, function(){
     this.key(&apos;exponent&apos;).int(),
     this.key(&apos;coefficient&apos;).int()
   );
-});</code></pre>
+});
+</code></pre>
 
 </div>
 

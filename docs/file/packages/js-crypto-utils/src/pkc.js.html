@@ -181,7 +181,7 @@ import params from &apos;./params.js&apos;;
  * @param {ECKeyGenerationOption|RSAKeyGenerationOption} [options={}] - Key generation options.
  * @return {Promise&lt;{publicKey: JsonWebKey, privateKey: JsonWebKey}&gt;} - Generated key pair in JWK format.
  */
-export async function generateKey(keyType = &apos;EC&apos;, options = {}){
+export const generateKey = async (keyType = &apos;EC&apos;, options = {}) =&gt; {
   const localOpt = cloneDeep(options);
 
   let kp;
@@ -200,7 +200,7 @@ export async function generateKey(keyType = &apos;EC&apos;, options = {}){
     publicKey: new Key(&apos;jwk&apos;, kp.publicKey),
     privateKey: new Key(&apos;jwk&apos;, kp.privateKey)
   };
-}
+};
 
 
 /**
@@ -212,7 +212,7 @@ export async function generateKey(keyType = &apos;EC&apos;, options = {}){
  * @return {Promise&lt;Uint8Array&gt;} - Signature byte array.
  * @throws {Error} - Throws if NonKeyObject or UnsupportedKeyType.
  */
-export async function sign(msg, privateKey, hash = &apos;SHA-256&apos;, options = {}){
+export const sign = async (msg, privateKey, hash = &apos;SHA-256&apos;, options = {}) =&gt; {
   if(!(privateKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
   const privateJwk = await privateKey.export(&apos;jwk&apos;);
   const localOpt = cloneDeep(options);
@@ -230,7 +230,7 @@ export async function sign(msg, privateKey, hash = &apos;SHA-256&apos;, options 
   else throw new Error(&apos;UnsupportedKeyType&apos;);
 
   return signature;
-}
+};
 
 /**
  * Verify message with given public key
@@ -242,7 +242,7 @@ export async function sign(msg, privateKey, hash = &apos;SHA-256&apos;, options 
  * @return {Promise&lt;boolean&gt;} - Result of verification.
  * @throws {Error} - Throws if NonKeyObject or UnsupportedKeyType.
  */
-export async function verify(msg, sig, publicKey, hash = &apos;SHA-256&apos;, options = {}){
+export const verify = async (msg, sig, publicKey, hash = &apos;SHA-256&apos;, options = {}) =&gt; {
   if(!(publicKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
   const publicJwk = await publicKey.export(&apos;jwk&apos;);
   const localOpt = cloneDeep(options);
@@ -260,7 +260,7 @@ export async function verify(msg, sig, publicKey, hash = &apos;SHA-256&apos;, op
   else throw new Error(&apos;UnsupportedKeyType&apos;);
 
   return valid;
-}
+};
 
 
 
@@ -273,7 +273,7 @@ export async function verify(msg, sig, publicKey, hash = &apos;SHA-256&apos;, op
  * @return {Promise&lt;PKCCiphertextObject&gt;} - Encrypted message object.
  * @throws {Error} - Throws if NonKeyObject, MissingOrInvalidPrivateKeyForECDH, or UnsupportedKeyType.
  */
-export async function encrypt(msg, publicKey, options = {}){
+export const encrypt = async (msg, publicKey, options = {}) =&gt; {
   if(!(publicKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
   const publicJwk = await publicKey.export(&apos;jwk&apos;);
   const localOpt = cloneDeep(options);
@@ -292,7 +292,7 @@ export async function encrypt(msg, publicKey, options = {}){
   else throw new Error(&apos;UnsupportedKeyType&apos;);
 
   return ciphertext;
-}
+};
 
 
 /**
@@ -304,7 +304,7 @@ export async function encrypt(msg, publicKey, options = {}){
  * @return {Promise&lt;Uint8Array&gt;} - Decrypted message byte array.
  * @throws {Error} - Throws if NonKeyObject, MissingPublicKeyForECDH, or UnsupportedKeyType.
  */
-export async function decrypt(data, privateKey, options = {}){
+export const decrypt = async (data, privateKey, options = {}) =&gt; {
   if(!(privateKey instanceof Key)) throw new Error(&apos;NonKeyObject&apos;);
   const privateJwk = await privateKey.export(&apos;jwk&apos;);
   const localOpt = cloneDeep(options);
@@ -323,7 +323,7 @@ export async function decrypt(data, privateKey, options = {}){
   else throw new Error(&apos;UnsupportedKeyType&apos;);
 
   return msg;
-}
+};
 </code></pre>
 
 </div>

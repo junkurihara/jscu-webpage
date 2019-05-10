@@ -33,7 +33,7 @@
       },
       {
         "lineNumber": 16,
-        "line": "function assertAlgorithms({name, iv, tagLength}){"
+        "line": "const assertAlgorithms = ({name, iv, tagLength}) => {"
       }
     ],
     "codeParams": [
@@ -95,7 +95,7 @@
       },
       {
         "lineNumber": 40,
-        "line": "export async function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
+        "line": "export const encrypt = async (msg, key, {name = 'AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}) => {"
       }
     ],
     "codeParams": [
@@ -162,7 +162,7 @@
       },
       {
         "lineNumber": 81,
-        "line": "export async function decrypt(data, key, {name='AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}){"
+        "line": "export const decrypt = async (data, key, {name='AES-GCM', iv, additionalData=new Uint8Array([]), tagLength}) => {"
       }
     ],
     "codeParams": [
@@ -233,7 +233,7 @@
       },
       {
         "lineNumber": 18,
-        "line": "export function encrypt(msg, key, {name, iv, additionalData, tagLength}, nodeCrypto){"
+        "line": "export const encrypt = (msg, key, {name, iv, additionalData, tagLength}, nodeCrypto) => {"
       }
     ],
     "codeParams": [
@@ -306,7 +306,7 @@
       },
       {
         "lineNumber": 62,
-        "line": "export function decrypt(data, key, {name, iv, additionalData, tagLength}, nodeCrypto) {"
+        "line": "export const decrypt = (data, key, {name, iv, additionalData, tagLength}, nodeCrypto) => {"
       }
     ],
     "codeParams": [
@@ -379,7 +379,7 @@
       },
       {
         "lineNumber": 16,
-        "line": "export async function encrypt(msg, key, {name = 'AES-GCM', iv, additionalData, tagLength}, webCrypto) {"
+        "line": "export const encrypt = async (msg, key, {name = 'AES-GCM', iv, additionalData, tagLength}, webCrypto) => {"
       }
     ],
     "codeParams": [
@@ -452,7 +452,7 @@
       },
       {
         "lineNumber": 50,
-        "line": "export async function decrypt(data, key, {name, iv, additionalData, tagLength}, webCrypto) {"
+        "line": "export const decrypt = async (data, key, {name, iv, additionalData, tagLength}, webCrypto) => {"
       }
     ],
     "codeParams": [
@@ -564,7 +564,7 @@
       },
       {
         "lineNumber": 24,
-        "line": "export async function fromJwk(jwkey, format, {outputPublic, compact=false, encOptions}){"
+        "line": "export const fromJwk = async (jwkey, format, {outputPublic, compact=false, encOptions}) => {"
       }
     ],
     "codeParams": [
@@ -623,7 +623,7 @@
       },
       {
         "lineNumber": 61,
-        "line": "export async function toJwk(key, format, {outputPublic, passphrase}){"
+        "line": "export const toJwk = async (key, format, {outputPublic, passphrase}) => {"
       }
     ],
     "codeParams": [
@@ -680,7 +680,7 @@
       },
       {
         "lineNumber": 20,
-        "line": "export function fromJwk(jwkey, {outputPublic, outputFormat='binary', compact=false}){"
+        "line": "export const fromJwk = (jwkey, {outputPublic, outputFormat='binary', compact=false}) => {"
       }
     ],
     "codeParams": [
@@ -740,7 +740,7 @@
       },
       {
         "lineNumber": 37,
-        "line": "export function checkLength(mode, {k, label, hash, mLen, cLen}){"
+        "line": "export const checkLength = (mode, {k, label, hash, mLen, cLen}) => {"
       }
     ],
     "codeParams": [
@@ -794,7 +794,7 @@
       },
       {
         "lineNumber": 31,
-        "line": "export function checkLength(mode, {k, hash, saltLength}){"
+        "line": "export const checkLength = (mode, {k, hash, saltLength}) => {"
       }
     ],
     "codeParams": [

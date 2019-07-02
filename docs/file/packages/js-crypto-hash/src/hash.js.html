@@ -171,6 +171,7 @@
 import * as util from &apos;js-crypto-env&apos;;
 import params from &apos;./params.js&apos;;
 import md5 from &apos;md5&apos;;
+import {SHA3} from &apos;sha3&apos;;
 import jsHash from &apos;hash.js&apos;;
 
 /**
@@ -268,6 +269,13 @@ const purejs = (hash, msg) =&gt; {
   let h;
   if(hash === &apos;MD5&apos;){
     h = md5(Array.from(msg), {asBytes: true});
+  }
+  else if ([&apos;SHA3-512&apos;, &apos;SHA3-384&apos;, &apos;SHA3-256&apos;, &apos;SHA3-224&apos;].indexOf(hash) &gt;= 0){
+    // sha3
+    const sha3obj = new SHA3(params.hashes[hash].hashSize * 8);
+    const Buffer = require(&apos;buffer/&apos;).Buffer;
+    sha3obj.update(Buffer.from(msg));
+    h = sha3obj.digest(&apos;binary&apos;);
   }
   else {
     h = jsHash[params.hashes[hash].nodeName]().update(msg).digest();

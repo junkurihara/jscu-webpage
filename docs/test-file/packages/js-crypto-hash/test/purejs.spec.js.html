@@ -169,31 +169,32 @@ const env = getTestEnv();
 const hash = env.library;
 const envName = env.envName;
 
-
-
+import jseu from &apos;js-encoding-utils&apos;;
 import params from &apos;../src/params.js&apos;;
 import chai from &apos;chai&apos;;
+import {testVectors} from &apos;./test-vector&apos;;
 // const should = chai.should();
 const expect = chai.expect;
 
 
-const hashes = [&apos;SHA-256&apos;, &apos;SHA-384&apos;, &apos;SHA-512&apos;, &apos;SHA-1&apos;, &apos;MD5&apos;];
+const hashes = [&apos;SHA-256&apos;, &apos;SHA-384&apos;, &apos;SHA-512&apos;, &apos;SHA-1&apos;, &apos;MD5&apos;, &apos;SHA3-512&apos;, &apos;SHA3-384&apos;, &apos;SHA3-256&apos;, &apos;SHA3-224&apos;];
 describe(`${envName}: Hash generation test in PureJS for webcrypto`, () =&gt; {
-  let msg;
   before( async () =&gt; {
     if (typeof window !== &apos;undefined&apos; &amp;&amp; typeof window.crypto !== &apos;undefined&apos;) window.crypto.subtle.digest = undefined;
     if (typeof window !== &apos;undefined&apos; &amp;&amp; typeof window.msCrypto !== &apos;undefined&apos;) window.msCrypto.subtle.digest = undefined;
-    msg = new Uint8Array(32);
-    for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
   });
 
   it(&apos;Hash should be generated for each hash algorithms in Pure JS for webcrypto&apos;, async () =&gt; {
+    const str = Object.keys(testVectors)[0];
+    const msg = jseu.encoder.stringToArrayBuffer(str);
     await Promise.all(hashes.map( async (alg) =&gt; {
       const d = await hash.compute(msg, alg).catch( (e) =&gt; console.error(e));
-      console.log(`${alg}: ${d}`);
+      const hex = jseu.encoder.arrayBufferToHexString(d);
+      console.log(`${alg}: ${hex}`);
       expect(d, `failed at ${alg}`).to.be.a(&apos;Uint8Array&apos;);
       const len = params.hashes[alg].hashSize;
       expect(d, `failed at ${alg}`).to.be.length(len);
+      expect(hex).to.equal(testVectors[str][alg]);
     }));
   });
 });

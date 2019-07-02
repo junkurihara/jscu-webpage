@@ -175,7 +175,7 @@ const hmac = env.library;
 const envName = env.envName;
 
 
-const hashes = [&apos;SHA-256&apos;, &apos;SHA-384&apos;, &apos;SHA-512&apos;, &apos;MD5&apos;, &apos;SHA-1&apos;];
+const hashes = [&apos;SHA-256&apos;, &apos;SHA-384&apos;, &apos;SHA-512&apos;, &apos;MD5&apos;, &apos;SHA-1&apos;, &apos;SHA3-224&apos;, &apos;SHA3-256&apos;, &apos;SHA3-384&apos;, &apos;SHA3-512&apos;];
 describe(`${envName}: HMAC test in PureJS environment`, () =&gt; {
   let msg;
   before( async () =&gt; {

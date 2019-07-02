@@ -238,7 +238,7 @@ export const compute = async (key, data, hash = &apos;SHA-256&apos;) =&gt; {
  * @param {Uint8Array} key - ByteArray of symmetric key.
  * @param {Uint8Array} data - Byte array of message to be hashed.
  * @param {String} hash - Name of hash algorithm like &apos;SHA-256&apos;.
- * @return {Promise&lt;void&gt;} - Keyed-hash value.
+ * @return {Promise&lt;Uint8Array&gt;} - Keyed-hash value.
  */
 const purejs = async (key, data, hash) =&gt; {
   const B = params.hashes[hash].blockSize;
@@ -261,7 +261,7 @@ const purejs = async (key, data, hash) =&gt; {
   outer.set(KxorOpad);
   outer.set(hashedInner, B);
 
-  return await jschash.compute(outer, hash);
+  return jschash.compute(outer, hash);
 };
 
 /**

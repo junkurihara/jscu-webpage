@@ -31,7 +31,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber14",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber27",
     "",
     "test"
   ],
@@ -61,7 +61,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber13",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber14",
     "",
     "test"
   ],
@@ -109,7 +109,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber43",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber51",
     "",
     "test"
   ],
@@ -247,7 +247,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber21",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber22",
     " HKDF is done with automatic salt generation",
     "test"
   ],
@@ -259,7 +259,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber21",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber34",
     " HMAC successfully generates and verify a MAC",
     "test"
   ],
@@ -271,19 +271,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber33",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber47",
     " HMAC successfully generates unique MAC for unique key",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber22",
+    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber17",
     " Hash should be generated for each hash algorithms",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber24",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber21",
     " Hash should be generated for each hash algorithms in Pure JS for webcrypto",
     "test"
   ],
@@ -301,7 +301,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber48",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber62",
     " If msg is overwritten, it can be detected via MAC",
     "test"
   ],
@@ -391,25 +391,25 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber92",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber100",
     " PBKDF1 with password buffer",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber77",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber85",
     " PBKDF1 with password string",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber62",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber70",
     " PBKDF2 with password buffer",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber47",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber55",
     " PBKDF2 with password string",
     "test"
   ],
@@ -565,13 +565,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber57",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber62",
     " When the fixed salt is given, the mac is always fixed",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber33",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber34",
     " When the same salt is given, the same hash is obtained with HKDF",
     "test"
   ],

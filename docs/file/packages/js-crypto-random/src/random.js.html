@@ -108,6 +108,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pbkdf2">pbkdf2</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-random-src">js-crypto-random/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomAsciiString">getRandomAsciiString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomBytes">getRandomBytes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomSampledString">getRandomSampledString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getRandomString">getRandomString</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-rsa-src">js-crypto-rsa/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
@@ -209,6 +210,26 @@ export const getRandomAsciiString = (len) =&gt; {
   for (let i = 0; i &lt; len; i++) {
     array[i] = (array[i] % 0x5e) + 0x20;
     finalString += String.fromCharCode(array[i]);
+  }
+
+  return finalString;
+};
+
+/**
+ * Secure random string generator based on getRandomBytes,
+ * which is composed of givin character candidates;
+ * @param {Number} len - Length of string.
+ * @param {String} candidates - Candidates string to sample randomly.
+ * @return {String} - Generated random string.
+ */
+export const getRandomSampledString = (len, candidates) =&gt; {
+  const candidate_len = candidates.length;
+  if (candidate_len === 0) return &apos;&apos;;
+  const array = getRandomBytes(len);
+  let finalString = &apos;&apos;;
+
+  for (let i = 0; i &lt; len; i++) {
+    finalString += candidates[array[i]%candidate_len];
   }
 
   return finalString;

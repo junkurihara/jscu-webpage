@@ -1,121 +1,7 @@
 window.esdocSearchIndex = [
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/encryptedPrivateKey.spec.js.html#lineNumber19",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-utils/test/api.keygen.spec.js.html#lineNumber39",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber13",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber27",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-utils/test/api.sign.spec.js.html#lineNumber6",
-    "",
-    "test"
-  ],
-  [
-    "",
     "test-file/packages/js-x509-utils/test/x509.ec.spec.js.html#lineNumber27",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber13",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber14",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber15",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber6",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html#lineNumber10",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber14",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber15",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber10",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber51",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
     "",
     "test"
   ],
@@ -127,13 +13,67 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/misc2.spec.js.html#lineNumber20",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
     "",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/misc.spec.js.html#lineNumber24",
+    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber15",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber15",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber14",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber27",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/convertRSA.spec.js.html#lineNumber31",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/encryptedPrivateKey.spec.js.html#lineNumber19",
     "",
     "test"
   ],
@@ -145,7 +85,67 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-key-utils/test/convertRSA.spec.js.html#lineNumber31",
+    "test-file/packages/js-crypto-key-utils/test/misc.spec.js.html#lineNumber24",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/misc2.spec.js.html#lineNumber20",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber51",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber10",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber14",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html#lineNumber10",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber6",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-utils/test/api.keygen.spec.js.html#lineNumber39",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-utils/test/api.sign.spec.js.html#lineNumber6",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
     "",
     "test"
   ],
@@ -355,13 +355,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
+    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
     " JWK key pair is correctly generated",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
     " JWK key pair is correctly generated",
     "test"
   ],
@@ -488,6 +488,12 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber24",
+    " Random sampling from cadidate string with desired length should be generated successfully",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber31",
     " Random string (uppercase, lowercase and alphanumeric chars) of desired length should be generated successfully",
     "test"
   ],
@@ -987,6 +993,12 @@ window.esdocSearchIndex = [
     "jscu/packages/js-crypto-random/src/random.js~getrandombytes",
     "function/index.html#static-function-getRandomBytes",
     "<span>getRandomBytes</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/random.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-random/src/random.js~getrandomsampledstring",
+    "function/index.html#static-function-getRandomSampledString",
+    "<span>getRandomSampledString</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-random/src/random.js</span>",
     "function"
   ],
   [

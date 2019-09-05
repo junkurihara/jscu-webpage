@@ -9959,7 +9959,7 @@
     "__docId__": 249,
     "kind": "file",
     "name": "packages/js-crypto-utils/src/pkcec.js",
-    "content": "/**\n * pkcec.js\n */\n\nimport random from 'js-crypto-random';\nimport ec from 'js-crypto-ec';\nimport hkdf from 'js-crypto-hkdf';\nimport aes from 'js-crypto-aes';\n\nimport params from './params.js';\n\nexport const encrypt = async (\n  msg, publicKey,\n  { privateKey, hash='SHA-256', encrypt='AES-GCM', keyLength=32, iv=null, info='' }\n) => {\n  const sharedSecret = await ec.deriveSecret(publicKey, privateKey);\n  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info); // use HKDF for key derivation\n\n  let data;\n  if(encrypt !== 'AES-KW') {\n    iv = (!iv) ? await random.getRandomBytes(params.ciphers[encrypt].ivLength) : iv;\n    data = await aes.encrypt(msg, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData\n  }\n  else {\n    data = await aes.wrapKey(msg, hkdfOutput.key, {name: encrypt});\n  }\n\n  return {data, salt: hkdfOutput.salt, iv};\n};\n\n\nexport const decrypt = async (\n  data, privateKey,\n  { publicKey, hash='SHA-256', encrypt='AES-GCM', keyLength=32, info='', salt=null, iv=null }\n) => {\n  const sharedSecret = await ec.deriveSecret(publicKey, privateKey);\n  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info, salt);\n\n  if(encrypt !== 'AES-KW') {\n    return aes.decrypt(data, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData\n  }\n  else {\n    return aes.unwrapKey(data, hkdfOutput.key, {name: encrypt});\n  }\n};\n\n",
+    "content": "/**\n * pkcec.js\n */\n\nimport random from 'js-crypto-random';\nimport ec from 'js-crypto-ec';\nimport hkdf from 'js-crypto-hkdf';\nimport aes from 'js-crypto-aes';\n\nimport params from './params.js';\n\nexport const encrypt = async (\n  msg, publicKey,\n  { privateKey, hash='SHA-256', encrypt='AES-GCM', keyLength=32, iv=null, info='' }\n) => {\n  const sharedSecret = await ec.deriveSecret(publicKey, privateKey);\n  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info); // use HKDF for key derivation\n\n  let data;\n  if(encrypt !== 'AES-KW') {\n    iv = (!iv) ? await random.getRandomBytes(params.ciphers[encrypt].ivLength) : iv;\n    data = await aes.encrypt(msg, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData\n    return {data, salt: hkdfOutput.salt, iv};\n  }\n  else {\n    data = await aes.wrapKey(msg, hkdfOutput.key, {name: encrypt});\n    return {data, salt: hkdfOutput.salt};\n  }\n};\n\n\nexport const decrypt = async (\n  data, privateKey,\n  { publicKey, hash='SHA-256', encrypt='AES-GCM', keyLength=32, info='', salt=null, iv=null }\n) => {\n  const sharedSecret = await ec.deriveSecret(publicKey, privateKey);\n  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info, salt);\n\n  if(encrypt !== 'AES-KW') {\n    return aes.decrypt(data, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData\n  }\n  else {\n    return aes.unwrapKey(data, hkdfOutput.key, {name: encrypt});\n  }\n};\n\n",
     "static": true,
     "longname": "/home/circleci/repo/packages/js-crypto-utils/src/pkcec.js",
     "access": "public",
@@ -10013,7 +10013,7 @@
     ],
     "return": {
       "types": [
-        "{\"data\": *, \"salt\": *, \"iv\": *}"
+        "{\"data\": *, \"salt\": *}"
       ]
     }
   },

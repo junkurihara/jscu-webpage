@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">packages/js-crypto-utils/test/api.sign.spec.js | jscu</title>
+  <title data-ice="title">packages/js-crypto-aes/test/ctr.spec.js | jscu</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -171,67 +171,54 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-utils/test/api.sign.spec.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/js-crypto-aes/test/ctr.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {getTestEnv} from &apos;./prepare.js&apos;;
 const env = getTestEnv();
-const jscu = env.library;
+const aes = env.library;
 const envName = env.envName;
 
-describe(`${envName}: Signing and verification test via exported api`, () =&gt; {
-  const curves = [&apos;P-256&apos;, &apos;P-384&apos;, &apos;P-521&apos;, &apos;P-256K&apos;];
-  const hashes = [ &apos;SHA-256&apos;, &apos;SHA-384&apos;, &apos;SHA-512&apos;];
-  let ecKeySet = [];
-  let rsaKeySet = [];
-  let msg;
-  before( async function () {
-    this.timeout(10000);
-    ecKeySet = await Promise.all(curves.map( async (crv) =&gt; await jscu.pkc.generateKey(&apos;EC&apos;, {namedCurve: crv})));
-    rsaKeySet = await Promise.all([2048, 4096].map( async (nLen) =&gt; await jscu.pkc.generateKey(&apos;RSA&apos;, {modulusLength: nLen})));
-    msg = new Uint8Array(32);
-    for(let i = 0; i &lt; 32; i++) msg[i] = 0xFF &amp; i;
+import jseu from &apos;js-encoding-utils&apos;;
+import chai from &apos;chai&apos;;
+// const should = chai.should();
+const expect = chai.expect;
+
+// https://tools.ietf.org/html/rfc3686
+const testVectors = [
+  { key: &apos;AE6852F8121067CC4BF7A5765577F39E&apos;,
+    iv: &apos;000000300000000000000000&apos;,
+    data: &apos;53696E676C6520626C6F636B206D7367&apos;,
+    output: &apos;E4095D4FB7A7B3792D6175A3261311B8&apos; },
+  { key: &apos;7E24067817FAE0D743D6CE1F32539163&apos;,
+    iv: &apos;006CB6DBC0543B59DA48D90B&apos;,
+    data: &apos;000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F&apos;,
+    output: &apos;5104A106168A72D9790D41EE8EDAD388EB2E1EFC46DA57C8FCE630DF9141BE28&apos;},
+  { key: &apos;F6D66D6BD52D59BB0796365879EFF886C66DD51A5B6A99744B50590C87A23884&apos;,
+    iv: &apos;00FAAC24C1585EF15A43D875&apos;,
+    data: &apos;000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F&apos;,
+    output: &apos;F05E231B3894612C49EE000B804EB2A9B8306B508F839D6A5530831D9344AF1C&apos; },
+];
+
+describe(`${envName}: Encryption and Decryption with AES-CTR Test`, () =&gt; {
+  before( async () =&gt; {
+  });
+
+  it(&apos;Encrypt and decrypt with AES-CTR succeeds correctly&apos;, async function() {
+    this.timeout(5000);
+    await Promise.all(testVectors.map( async (testVec) =&gt; {
+
+      const key = jseu.encoder.hexStringToArrayBuffer(testVec.key);
+      const data = jseu.encoder.hexStringToArrayBuffer(testVec.data);
+      const iv = jseu.encoder.hexStringToArrayBuffer(testVec.iv);
+      const encrypted = await aes.encrypt(data, key, {name: &apos;AES-CTR&apos;, iv});
+      expect(jseu.encoder.arrayBufferToHexString(encrypted).toUpperCase()).to.equal(testVec.output);
+      const decrypted = await aes.decrypt(encrypted, key, {name: &apos;AES-CTR&apos;, iv});
+      expect(jseu.encoder.arrayBufferToHexString(decrypted).toUpperCase()).to.equal(testVec.data);
+    }));
   });
 
 
-
-  it(&apos;ECDSA Signing and verification should be done successfully&apos;, async () =&gt; {
-    for (let i = 0; i &lt; curves.length; i++){
-      for (let j = 0; j &lt; hashes.length; j++){
-        const sig = await jscu.pkc.sign(msg, ecKeySet[i].privateKey, hashes[j]);
-        const result = await jscu.pkc.verify(msg, sig, ecKeySet[i].publicKey, hashes[j]);
-        expect(result).to.be.true;
-      }
-    }
-  });
-
-  it(&apos;RSA-PSS Signing and verification should be done successfully&apos;, async () =&gt; {
-    const array = await Promise.all(
-      rsaKeySet.map( async (kp) =&gt; {
-        let result = true;
-        for(let i = 0; i &lt; hashes.length; i++) {
-          const sig = await jscu.pkc.sign(msg, kp.privateKey, hashes[i], {name: &apos;RSA-PSS&apos;, saltLength: 32});
-          const valid = await jscu.pkc.verify(msg, sig, kp.publicKey, hashes[i], {name: &apos;RSA-PSS&apos;, saltLength: 32});
-          result = valid &amp;&amp; result;
-        }
-        return result;
-      }));
-      expect(array.every( (r) =&gt; r)).to.be.true;
-  });
-
-  it(&apos;RSASSA-PKCS1-v1_5 Signing and verification should be done successfully&apos;, async () =&gt; {
-    const array = await Promise.all(
-      rsaKeySet.map( async (kp) =&gt; {
-        let result = true;
-        for(let i = 0; i &lt; hashes.length; i++) {
-          const sig = await jscu.pkc.sign(msg, kp.privateKey, hashes[i], {name: &apos;RSASSA-PKCS1-v1_5&apos;});
-          const valid = await jscu.pkc.verify(msg, sig, kp.publicKey, hashes[i], {name: &apos;RSASSA-PKCS1-v1_5&apos;});
-          result = valid &amp;&amp; result;
-        }
-        return result;
-      }));
-    expect(array.every( (r) =&gt; r)).to.be.true;
-  });
-
-});</code></pre>
+});
+</code></pre>
 
 </div>
 

@@ -31,10 +31,16 @@
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
@@ -60,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
@@ -245,9 +252,67 @@
       <div>
         <p>
           <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span><span class="code" data-ice="signature">(wrappedKey: <span>*</span>, wrappingKey: <span>*</span>, name: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>AES-KW unwrapping</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span><span class="code" data-ice="signature">(keyToBeWrapped: <span>*</span>, wrappingKey: <span>*</span>, name: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>AES-KW wrapping</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>): <span>Uint8Array</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span><span class="code" data-ice="signature">(data: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>, unwrapKey: <span>*</span>): <span>Uint8Array</span></span>
         </p>
       </div>
       <div>
@@ -276,13 +341,71 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>): <span>Uint8Array</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span><span class="code" data-ice="signature">(msg: <span>Uint8Array</span>, key: <span>Uint8Array</span>, name: <span>String</span>, iv: <span>Uint8Array</span>, additionalData: <span>Uint8Array</span>, tagLength: <span>Number</span>, nodeCrypto: <span>Object</span>, wrapKey: <span>*</span>): <span>Uint8Array</span></span>
         </p>
       </div>
       <div>
         
         
         <div data-ice="description"><p>Encrypt plaintext message via AES Node.js crypto API</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span><span class="code" data-ice="signature">(wrappedKey: <span>*</span>, unwrappingKey: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, nodeCrypto: <span>*</span>): <span>Uint8Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Node.js KeyUnwrapping function as well as keyWrapping</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span><span class="code" data-ice="signature">(keyToBeWrapped: <span>*</span>, wrappingKey: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, nodeCrypto: <span>*</span>): <span>Uint8Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Node.js KeyWrapping function simply uses encrypt function.</p>
 </div>
       </div>
     </td>
@@ -341,6 +464,64 @@
         
         
         <div data-ice="description"><p>Encrypt data through AES of WebCrypto API.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span><span class="code" data-ice="signature">(wrappedKey: <span>*</span>, unwrappingKey: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, nodeCrypto: <span>*</span>): <span>Uint8Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebCrypto KeyUnwrapping function as well as keyWrapping</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span><span class="code" data-ice="signature">(keyToBeWrapped: <span>*</span>, wrappingKey: <span>*</span>, name: <span>*</span>, iv: <span>*</span>, nodeCrypto: <span>*</span>): <span>Uint8Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebCrypto KeyWrapping function simply uses encrypt function.</p>
 </div>
       </div>
     </td>
@@ -1108,6 +1289,35 @@ We should employ an appropriate key derivation procedure like HKDF to use the se
         
         
         <div data-ice="description"><p>Hash-based Key Derivation Function computing from given master secret and salt.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          <span data-ice="async">async</span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span><span class="code" data-ice="signature">(sharedSecret: <span>*</span>, otherInfoBytes: <span>*</span>, keyDataLen: <span>*</span>, hash: <span>*</span>): <span>Promise</span>&lt;<span>Uint8Array</span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>NIST Concatenation KDF fo JOSE</p>
 </div>
       </div>
     </td>

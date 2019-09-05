@@ -31,10 +31,16 @@
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
@@ -60,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
@@ -181,23 +188,18 @@ export const encrypt = async (
   { privateKey, hash=&apos;SHA-256&apos;, encrypt=&apos;AES-GCM&apos;, keyLength=32, iv=null, info=&apos;&apos; }
 ) =&gt; {
   const sharedSecret = await ec.deriveSecret(publicKey, privateKey);
-  const sessionKeySalt = await hkdf.compute(sharedSecret, hash, keyLength, info);
+  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info); // use HKDF for key derivation
 
-  // TODO: other iv-required algorithms
-  switch (encrypt) {
-  case &apos;AES-GCM&apos;: {
-    iv = (!iv)
-      ? await random.getRandomBytes(params.ciphers[encrypt].ivLength)
-      : iv;
-    break;
+  let data;
+  if(encrypt !== &apos;AES-KW&apos;) {
+    iv = (!iv) ? await random.getRandomBytes(params.ciphers[encrypt].ivLength) : iv;
+    data = await aes.encrypt(msg, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData
   }
-  default:
-    throw new Error(&apos;UnsupportedSessionKeyAlgorithm&apos;);
+  else {
+    data = await aes.wrapKey(msg, hkdfOutput.key, {name: encrypt});
   }
 
-  const data = await aes.encrypt(msg, sessionKeySalt.key, {name: encrypt, iv}); // no specification of tagLength and additionalData
-
-  return {data, salt: sessionKeySalt.salt, iv};
+  return {data, salt: hkdfOutput.salt, iv};
 };
 
 
@@ -206,16 +208,16 @@ export const decrypt = async (
   { publicKey, hash=&apos;SHA-256&apos;, encrypt=&apos;AES-GCM&apos;, keyLength=32, info=&apos;&apos;, salt=null, iv=null }
 ) =&gt; {
   const sharedSecret = await ec.deriveSecret(publicKey, privateKey);
-  const sessionKeySalt = await hkdf.compute(sharedSecret, hash, keyLength, info, salt);
+  const hkdfOutput = await hkdf.compute(sharedSecret, hash, keyLength, info, salt);
 
-  let msg;
-  if(Object.keys(params.ciphers).indexOf(encrypt) &gt;= 0){
-    msg = await aes.decrypt(data, sessionKeySalt.key, {name: encrypt, iv}); // no specification of tagLength and additionalData
+  if(encrypt !== &apos;AES-KW&apos;) {
+    return aes.decrypt(data, hkdfOutput.key, {name: encrypt, iv}); // no specification of tagLength and additionalData
   }
-  else throw new Error(&apos;UnsupportedSessionKeyAlgorithm&apos;);
-
-  return msg;
+  else {
+    return aes.unwrapKey(data, hkdfOutput.key, {name: encrypt});
+  }
 };
+
 </code></pre>
 
 </div>

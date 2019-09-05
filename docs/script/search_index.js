@@ -1,109 +1,7 @@
 window.esdocSearchIndex = [
   [
     "",
-    "test-file/packages/js-x509-utils/test/x509.ec.spec.js.html#lineNumber27",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-aes/test/cbc.spec.js.html#lineNumber12",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber15",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber15",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber14",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber13",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber27",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber13",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
-    "",
-    "test"
-  ],
-  [
-    "",
     "test-file/packages/js-crypto-key-utils/test/convertRSA.spec.js.html#lineNumber31",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/encryptedPrivateKey.spec.js.html#lineNumber19",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/jwkthumbprint.spec.js.html#lineNumber16",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/misc.spec.js.html#lineNumber24",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-key-utils/test/misc2.spec.js.html#lineNumber20",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber51",
-    "",
-    "test"
-  ],
-  [
-    "",
-    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber10",
     "",
     "test"
   ],
@@ -115,7 +13,37 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-hmac/test/purejs.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hmac/test/hmac.spec.js.html#lineNumber27",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/purejs.spec.js.html#lineNumber13",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-utils/test/api.encrypt-sym.spec.js.html#lineNumber10",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/nist-concat-kdf.spec.js.html#lineNumber11",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/ctr.spec.js.html#lineNumber27",
     "",
     "test"
   ],
@@ -127,7 +55,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
+    "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber14",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-random/test/random.spec.js.html#lineNumber10",
     "",
     "test"
   ],
@@ -139,13 +73,97 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-hash/test/purejs.spec.js.html#lineNumber15",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hash/test/hash.spec.js.html#lineNumber15",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-utils/test/api.sign.spec.js.html#lineNumber6",
     "",
     "test"
   ],
   [
     "",
+    "test-file/packages/js-x509-utils/test/x509.ec.spec.js.html#lineNumber27",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-pbkdf/test/pbkdf.spec.js.html#lineNumber51",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/misc2.spec.js.html#lineNumber20",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/misc.spec.js.html#lineNumber24",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/misc.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-x509-utils/test/x509.rsa.spec.js.html#lineNumber19",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/kw.spec.js.html#lineNumber27",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/cbc.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/jwkthumbprint.spec.js.html#lineNumber16",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/convertEC.spec.js.html#lineNumber28",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber12",
+    "",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-key-utils/test/encryptedPrivateKey.spec.js.html#lineNumber19",
     "",
     "test"
   ],
@@ -205,8 +223,14 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber48",
+    " ECDH: Encrypted content encryption key is successfully generated and decrypted with AES-KW",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber20",
-    " ECDH: Encrypted message is successfully generated and decrypted",
+    " ECDH: Encrypted message is successfully generated and decrypted with AES-GCM",
     "test"
   ],
   [
@@ -235,6 +259,12 @@ window.esdocSearchIndex = [
   ],
   [
     "",
+    "test-file/packages/js-crypto-aes/test/ctr.spec.js.html#lineNumber31",
+    " Encrypt and decrypt with AES-CTR succeeds correctly",
+    "test"
+  ],
+  [
+    "",
     "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber23",
     " Encrypt and decrypt with AES-GCM succeeds correctly",
     "test"
@@ -243,6 +273,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/packages/js-crypto-aes/test/gcm.spec.js.html#lineNumber32",
     " Encrypt and decrypt with AES-GCM succeeds correctly with AAD",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-aes/test/kw.spec.js.html#lineNumber31",
+    " Encrypt and decrypt with AES-KW succeeds correctly with default iv",
     "test"
   ],
   [
@@ -355,13 +391,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
+    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
     " JWK key pair is correctly generated",
     "test"
   ],
   [
     "",
-    "test-file/packages/js-crypto-ec/test/ec.spec.js.html#lineNumber22",
+    "test-file/packages/js-crypto-rsa/test/rsa.spec.js.html#lineNumber24",
     " JWK key pair is correctly generated",
     "test"
   ],
@@ -433,7 +469,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber48",
+    "test-file/packages/js-crypto-utils/test/api.encrypt.spec.js.html#lineNumber76",
     " RSA-OAEP: Encrypted message is successfully generated and decrypted",
     "test"
   ],
@@ -579,6 +615,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html#lineNumber34",
     " When the same salt is given, the same hash is obtained with HKDF",
+    "test"
+  ],
+  [
+    "",
+    "test-file/packages/js-crypto-hkdf/test/nist-concat-kdf.spec.js.html#lineNumber12",
+    " test",
     "test"
   ],
   [
@@ -1050,6 +1092,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "jscu/packages/js-crypto-hkdf/src/nist-concat-kdf.js~nistconcatkdf",
+    "function/index.html#static-function-nistConcatKdf",
+    "<span>nistConcatKdf</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-hkdf/src/nist-concat-kdf.js</span>",
+    "function"
+  ],
+  [
     "jscu/packages/js-x509-utils/src/x509.js~parse",
     "function/index.html#static-function-parse",
     "<span>parse</span> <span class=\"search-result-import-path\">jscu/packages/js-x509-utils/src/x509.js</span>",
@@ -1158,6 +1206,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "jscu/packages/js-crypto-aes/src/aes.js~unwrapkey",
+    "function/index.html#static-function-unwrapKey",
+    "<span>unwrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/aes.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-aes/src/nodeapi.js~unwrapkey",
+    "function/index.html#static-function-unwrapKey",
+    "<span>unwrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/nodeapi.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-aes/src/webapi.js~unwrapkey",
+    "function/index.html#static-function-unwrapKey",
+    "<span>unwrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/webapi.js</span>",
+    "function"
+  ],
+  [
     "jscu/packages/js-crypto-ec/src/ec.js~verify",
     "function/index.html#static-function-verify",
     "<span>verify</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-ec/src/ec.js</span>",
@@ -1212,6 +1278,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "jscu/packages/js-crypto-aes/src/aes.js~wrapkey",
+    "function/index.html#static-function-wrapKey",
+    "<span>wrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/aes.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-aes/src/nodeapi.js~wrapkey",
+    "function/index.html#static-function-wrapKey",
+    "<span>wrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/nodeapi.js</span>",
+    "function"
+  ],
+  [
+    "jscu/packages/js-crypto-aes/src/webapi.js~wrapkey",
+    "function/index.html#static-function-wrapKey",
+    "<span>wrapKey</span> <span class=\"search-result-import-path\">jscu/packages/js-crypto-aes/src/webapi.js</span>",
+    "function"
+  ],
+  [
     "",
     "test-file/packages/js-crypto-env/test/env.spec.js.html#lineNumber8",
     "Common env test",
@@ -1260,9 +1344,21 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "packages/js-crypto-aes/test/ctr.spec.js",
+    "test-file/packages/js-crypto-aes/test/ctr.spec.js.html",
+    "packages/js-crypto-aes/test/ctr.spec.js",
+    "testFile"
+  ],
+  [
     "packages/js-crypto-aes/test/gcm.spec.js",
     "test-file/packages/js-crypto-aes/test/gcm.spec.js.html",
     "packages/js-crypto-aes/test/gcm.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-aes/test/kw.spec.js",
+    "test-file/packages/js-crypto-aes/test/kw.spec.js.html",
+    "packages/js-crypto-aes/test/kw.spec.js",
     "testFile"
   ],
   [
@@ -1374,6 +1470,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/js-crypto-hkdf/src/nist-concat-kdf.js",
+    "file/packages/js-crypto-hkdf/src/nist-concat-kdf.js.html",
+    "packages/js-crypto-hkdf/src/nist-concat-kdf.js",
+    "file"
+  ],
+  [
     "packages/js-crypto-hkdf/src/params.js",
     "file/packages/js-crypto-hkdf/src/params.js.html",
     "packages/js-crypto-hkdf/src/params.js",
@@ -1383,6 +1485,12 @@ window.esdocSearchIndex = [
     "packages/js-crypto-hkdf/test/hkdf.spec.js",
     "test-file/packages/js-crypto-hkdf/test/hkdf.spec.js.html",
     "packages/js-crypto-hkdf/test/hkdf.spec.js",
+    "testFile"
+  ],
+  [
+    "packages/js-crypto-hkdf/test/nist-concat-kdf.spec.js",
+    "test-file/packages/js-crypto-hkdf/test/nist-concat-kdf.spec.js.html",
+    "packages/js-crypto-hkdf/test/nist-concat-kdf.spec.js",
     "testFile"
   ],
   [

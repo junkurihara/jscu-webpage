@@ -31,10 +31,16 @@
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
@@ -60,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
@@ -214,24 +221,13 @@ export const encrypt = async (msg, key, {name = &apos;AES-GCM&apos;, iv, additio
   const webCrypto = await util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = await util.getNodeCrypto(); // node crypto
 
-  let data;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.encrypt === &apos;function&apos;) {// for web API including IE...
-    data = await webapi.encrypt(msg, key, {name, iv, additionalData, tagLength}, webCrypto)
-      .catch((e) =&gt; {
-        throw new Error(`FailedToEncryptWeb: ${e.message}`);
-      });
+    return webapi.encrypt(msg, key, {name, iv, additionalData, tagLength}, webCrypto);
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos; ) { // for node
-    try{
-      data = nodeapi.encrypt(msg, key, {name, iv, additionalData, tagLength}, nodeCrypto);
-    } catch(e) {
-      throw new Error(`FailedToEncryptNode: ${e.message}`);
-    }
-  } else {
-    throw new Error(&apos;UnsupportedEnvironment&apos;); // TODO:fallback to native implementation
-  }
+    return nodeapi.encrypt(msg, key, {name, iv, additionalData, tagLength}, nodeCrypto);
 
-  return data;
+  } else throw new Error(&apos;UnsupportedEnvironment&apos;); // TODO:fallback to native implementation
 };
 
 
@@ -244,7 +240,7 @@ export const encrypt = async (msg, key, {name = &apos;AES-GCM&apos;, iv, additio
  * @param {Uint8Array} [additionalData = new Uint8Array([])] - Byte array of additional data if required.
  * @param {Number} [tagLength = params.ciphers[name].tagLength] - Authentication tag length if required.
  * @return {Promise&lt;Uint8Array&gt;} - Decrypted plaintext message.
- * @throws {Error} - Throws if InvalidArguments, FaildToDecryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto).
+ * @throws {Error} - Throws if InvalidArguments, FailedToDecryptWeb/Node, or UnsupportedEnvironment (no webcrypto/nodecrypto).
  */
 export const decrypt = async (data, key, {name=&apos;AES-GCM&apos;, iv, additionalData=new Uint8Array([]), tagLength}) =&gt; {
   // assertion and sanitizing
@@ -255,21 +251,72 @@ export const decrypt = async (data, key, {name=&apos;AES-GCM&apos;, iv, addition
   const webCrypto = await util.getWebCryptoAll(); // web crypto api
   const nodeCrypto = await util.getNodeCrypto(); // node crypto
 
-  let msg;
   if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.encrypt === &apos;function&apos;) {
-    msg = await webapi.decrypt(data, key, {name, iv, additionalData, tagLength}, webCrypto).catch((e) =&gt; {
-      throw new Error(`FailedToDecryptWeb: ${e.message}`);
-    });
+    return webapi.decrypt(data, key, {name, iv, additionalData, tagLength}, webCrypto);
   }
   else if (typeof nodeCrypto !== &apos;undefined&apos;){
-    try{
-      msg = nodeapi.decrypt(data, key, {name, iv, additionalData, tagLength}, nodeCrypto);
-    } catch(e) {
-      throw new Error(`FailedToDecryptNode: ${e.message}`);
-    }
+    return nodeapi.decrypt(data, key, {name, iv, additionalData, tagLength}, nodeCrypto);
   } else throw new Error(&apos;UnsupportedEnvironment&apos;);
+};
 
-  return msg;
+
+/**
+ * AES-KW wrapping
+ * @param keyToBeWrapped {Uint8Array} - key bytes to be wrapped
+ * @param wrappingKey {Uint8Array} - wrapping key encryption key
+ * @param name {&apos;AES-KW&apos;} - this is simply for future extension
+ * @return {Promise&lt;Uint8Array&gt;} - output wrapped key
+ */
+export const wrapKey = async (
+  keyToBeWrapped, wrappingKey, {name = &apos;AES-KW&apos;}
+) =&gt; {
+  // assertion
+  if(!(keyToBeWrapped instanceof Uint8Array)) throw new Error(&apos;NonUint8ArrayData&apos;);
+  if(!(wrappingKey instanceof Uint8Array)) throw new Error(&apos;NonUint8ArrayKey&apos;);
+  if(keyToBeWrapped.length % 8 &gt; 0) throw new Error(&apos;WrappedKeyMustBeMultipleOf8&apos;);
+
+  const webCrypto = await util.getWebCryptoAll(); // web crypto api
+  const nodeCrypto = await util.getNodeCrypto(); // node crypto
+
+  const iv = params.wrapKeys[&apos;AES-KW&apos;].defaultIV;
+
+  if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.wrapKey === &apos;function&apos;) {// for web API including IE...
+    return webapi.wrapKey(keyToBeWrapped, wrappingKey, {name, iv}, webCrypto);
+  }
+  else if (typeof nodeCrypto !== &apos;undefined&apos; ) { // for node
+    return nodeapi.wrapKey(keyToBeWrapped, wrappingKey, {name, iv}, nodeCrypto);
+  } else {
+    throw new Error(&apos;UnsupportedEnvironment&apos;); // TODO:fallback to native implementation
+  }
+};
+
+/**
+ * AES-KW unwrapping
+ * @param wrappedKey {Uint8Array} - wrapped key bytes
+ * @param wrappingKey {Uint8Array} - wrapping key encryption key
+ * @param name {&apos;AES-KW&apos;} - this is simply for future extension
+ * @return {Promise&lt;Uint8Array&gt;} - output unwrapped key
+ */
+export const unwrapKey = async (
+  wrappedKey, wrappingKey, {name = &apos;AES-KW&apos;}
+) =&gt; {
+  // assertion
+  if(!(wrappedKey instanceof Uint8Array)) throw new Error(&apos;NonUint8ArrayData&apos;);
+  if(!(wrappingKey instanceof Uint8Array)) throw new Error(&apos;NonUint8ArrayKey&apos;);
+
+  const webCrypto = await util.getWebCryptoAll(); // web crypto api
+  const nodeCrypto = await util.getNodeCrypto(); // node crypto
+
+  const iv = params.wrapKeys[&apos;AES-KW&apos;].defaultIV;
+
+  if (typeof webCrypto !== &apos;undefined&apos; &amp;&amp; typeof webCrypto.importKey === &apos;function&apos; &amp;&amp; typeof webCrypto.wrapKey === &apos;function&apos;) {// for web API including IE...
+    return webapi.unwrapKey(wrappedKey, wrappingKey, {name, iv}, webCrypto);
+  }
+  else if (typeof nodeCrypto !== &apos;undefined&apos; ) { // for node
+    return nodeapi.unwrapKey(wrappedKey, wrappingKey, {name, iv}, nodeCrypto);
+  } else {
+    throw new Error(&apos;UnsupportedEnvironment&apos;); // TODO:fallback to native implementation
+  }
 };
 </code></pre>
 

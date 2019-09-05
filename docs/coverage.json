@@ -1,25 +1,25 @@
 {
-  "coverage": "75.27%",
-  "expectCount": 182,
-  "actualCount": 137,
+  "coverage": "75.91%",
+  "expectCount": 191,
+  "actualCount": 145,
   "files": {
     "packages/js-crypto-aes/src/aes.js": {
-      "expectCount": 3,
-      "actualCount": 3,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     },
     "packages/js-crypto-aes/src/nodeapi.js": {
-      "expectCount": 2,
-      "actualCount": 2,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     },
     "packages/js-crypto-aes/src/webapi.js": {
-      "expectCount": 6,
-      "actualCount": 3,
+      "expectCount": 8,
+      "actualCount": 5,
       "undocumentLines": [
-        106,
-        111,
-        116
+        172,
+        177,
+        182
       ]
     },
     "packages/js-crypto-ec/src/asn1enc.js": {
@@ -67,6 +67,13 @@
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
+    },
+    "packages/js-crypto-hkdf/src/nist-concat-kdf.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        40
+      ]
     },
     "packages/js-crypto-hmac/src/hmac.js": {
       "expectCount": 3,
@@ -211,7 +218,7 @@
       "actualCount": 0,
       "undocumentLines": [
         12,
-        37
+        32
       ]
     },
     "packages/js-x509-utils/src/ec.js": {

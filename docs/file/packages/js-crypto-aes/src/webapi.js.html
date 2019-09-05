@@ -31,10 +31,16 @@
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
@@ -60,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
@@ -170,6 +177,53 @@
  */
 
 /**
+ * WebCrypto KeyWrapping function simply uses encrypt function.
+ * @param keyToBeWrapped {Uint8Array} - plaintext key
+ * @param wrappingKey {Uint8Array} - wrapping key
+ * @param name {string} - &apos;AES-KW&apos;
+ * @param iv {Uint8Array} - default is &apos;0xA6A6A6A6A6A6A6A6&apos;
+ * @param nodeCrypto {Object} - crypto.subtle object
+ * @return {Uint8Array} - Unwrapped Key
+ */
+export const wrapKey = async (keyToBeWrapped, wrappingKey, {name = &apos;AES-KW&apos;, iv}, webCrypto) =&gt; {
+  if (typeof window.msCrypto === &apos;undefined&apos;) {
+    // modern browsers
+    try {
+      const kek = await webCrypto.importKey(&apos;raw&apos;, wrappingKey, {name}, false, [&apos;wrapKey&apos;, &apos;unwrapKey&apos;]);
+      const cek = await webCrypto.importKey(&apos;raw&apos;, keyToBeWrapped, {name}, true, [&apos;wrapKey&apos;, &apos;unwrapKey&apos;]);
+      const data = await webCrypto.wrapKey(&apos;raw&apos;, cek, kek, {name, iv});
+      return new Uint8Array(data);
+    } catch (e) { throw new Error(`WebCrypto_FailedToWrapKey - ${e.message}`); }
+  }
+  else {
+    throw new Error(&apos;ThrowAwayIeAsap&apos;);
+  }
+};
+
+/**
+ * WebCrypto KeyUnwrapping function as well as keyWrapping
+ * @param wrappedKey {Uint8Array} - Wrapped key
+ * @param unwrappingKey {Uint8Array} - Key used for wrapping
+ * @param name {string} - &apos;AES-KW&apos;
+ * @param iv {Uint8Array} - default is &apos;0xA6A6A6A6A6A6A6A6&apos;
+ * @param nodeCrypto {Object} - crypto.subtle object
+ * @return {Uint8Array} - Unwrapped Key
+ */
+export const unwrapKey = async (wrappedKey, unwrappingKey, {name = &apos;AES-KW&apos;, iv}, webCrypto) =&gt; {
+  if (typeof window.msCrypto === &apos;undefined&apos;) {
+    // modern browsers
+    try {
+      const kek = await webCrypto.importKey(&apos;raw&apos;, unwrappingKey, {name}, false, [&apos;wrapKey&apos;, &apos;unwrapKey&apos;]);
+      const cek = await webCrypto.unwrapKey(&apos;raw&apos;, wrappedKey, kek, {name, iv}, {name: &apos;AES-GCM&apos;}, true, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
+      return new Uint8Array(await webCrypto.exportKey(&apos;raw&apos;, cek));
+    } catch (e) { throw new Error(`WebCrypto_FailedToUnwrapKey - ${e.message}`); }
+  }
+  else {
+    throw new Error(&apos;ThrowAwayMsIeAsap&apos;);
+  }
+};
+
+/**
  * Encrypt data through AES of WebCrypto API.
  * @param {Uint8Array} msg - Plaintext message to be encrypted.
  * @param {Uint8Array} key - Byte array of symmetric key.
@@ -186,20 +240,28 @@ export const encrypt = async (msg, key, {name = &apos;AES-GCM&apos;, iv, additio
 
   if (typeof window.msCrypto === &apos;undefined&apos;) {
     // modern browsers
-    const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
-    const data = await webCrypto.encrypt(encryptionConfig, sessionKeyObj, msg);
-    return new Uint8Array(data);
+    try {
+      const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
+      const data = await webCrypto.encrypt(encryptionConfig, sessionKeyObj, msg);
+      return new Uint8Array(data);
+    } catch (e) {
+      throw new Error(`WebCrypto_EncryptionFailure: ${e.message}`);
+    }
   }
   else {
-    const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
-    const encryptedObj = await msEncrypt(encryptionConfig, sessionKeyObj, msg, webCrypto);
+    try {
+      const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, encryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
+      const encryptedObj = await msEncrypt(encryptionConfig, sessionKeyObj, msg, webCrypto);
 
-    if (name === &apos;AES-GCM&apos;) {
-      const data = new Uint8Array(encryptedObj.ciphertext.byteLength + encryptedObj.tag.byteLength);
-      data.set(new Uint8Array(encryptedObj.ciphertext));
-      data.set(new Uint8Array(encryptedObj.tag), encryptedObj.ciphertext.byteLength);
-      return data;
-    } else return new Uint8Array(encryptedObj);
+      if (name === &apos;AES-GCM&apos;) {
+        const data = new Uint8Array(encryptedObj.ciphertext.byteLength + encryptedObj.tag.byteLength);
+        data.set(new Uint8Array(encryptedObj.ciphertext));
+        data.set(new Uint8Array(encryptedObj.tag), encryptedObj.ciphertext.byteLength);
+        return data;
+      } else return new Uint8Array(encryptedObj);
+    } catch (e) {
+      throw new Error(`ThrowAwayMsIeAsap: ${e.message}`);
+    }
   }
 };
 
@@ -220,26 +282,28 @@ export const decrypt = async (data, key, {name, iv, additionalData, tagLength}, 
 
   if (!window.msCrypto) {
     // modern browsers
-    const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
-    const msg = await webCrypto.decrypt(decryptionConfig, sessionKeyObj, data).catch((e) =&gt; {
-      throw new Error(`DecryptionFailure: ${e.message}`);
-    });
-    return new Uint8Array(msg);
+    try {
+      const sessionKeyObj = await webCrypto.importKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;]);
+      const msg = await webCrypto.decrypt(decryptionConfig, sessionKeyObj, data);
+      return new Uint8Array(msg);
+    } catch (e) {
+      throw new Error(`WebCrypto_DecryptionFailure: ${e.message}`);
+    }
   }
   else {
-    const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
-    if (name === &apos;AES-GCM&apos;) {
-      const ciphertext = data.slice(0, data.length - tagLength);
-      const tag = data.slice(data.length - tagLength, data.length);
-      const msg = await msDecrypt(Object.assign(decryptionConfig, {tag}), sessionKeyObj, ciphertext, webCrypto).catch((e) =&gt; {
-        throw new Error(`DecryptionFailure: ${e.message}`);
-      });
+    try {
+      const sessionKeyObj = await msImportKey(&apos;raw&apos;, key, decryptionConfig, false, [&apos;encrypt&apos;, &apos;decrypt&apos;], webCrypto);
+      let msg;
+      if (name === &apos;AES-GCM&apos;) {
+        const ciphertext = data.slice(0, data.length - tagLength);
+        const tag = data.slice(data.length - tagLength, data.length);
+        msg = await msDecrypt(Object.assign(decryptionConfig, {tag}), sessionKeyObj, ciphertext, webCrypto);
+      } else {
+        msg = await msDecrypt(decryptionConfig, sessionKeyObj, data, webCrypto);
+      }
       return new Uint8Array(msg);
-    } else{
-      const msg = await msDecrypt(decryptionConfig, sessionKeyObj, data, webCrypto).catch((e) =&gt; {
-        throw new Error(`DecryptionFailure: ${e.message}`);
-      });
-      return new Uint8Array(msg);
+    } catch (e) {
+      throw new Error(`ThrowAwayMsIeAsap: ${e.message}`);
     }
   }
 };
@@ -263,6 +327,15 @@ const setCipherParams = ({name, iv, additionalData, tagLength}) =&gt; {
   case &apos;AES-CBC&apos;: {
     alg.name = name;
     alg.iv = iv;
+    break;
+  }
+  case &apos;AES-CTR&apos;: {
+    if(iv.length === 0 || iv.length &gt; 16) throw new Error(&apos;InvalidIVLength&apos;);
+    alg.name = name;
+    alg.counter = new Uint8Array(16);
+    alg.counter.set(iv);
+    alg.counter[15] += 1;
+    alg.length = 128; // todo: this might be  (16 - iv.length) * 8.
     break;
   }}
 

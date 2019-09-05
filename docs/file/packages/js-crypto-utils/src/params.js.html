@@ -31,10 +31,16 @@
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-aes-src">js-crypto-aes/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decrypt">decrypt</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encrypt">encrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-unwrapKey">unwrapKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wrapKey">wrapKey</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-ec-src">js-crypto-ec/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decodeAsn1Signature">decodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-encodeAsn1Signature">encodeAsn1Signature</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deriveSecret">deriveSecret</a></span></span></li>
@@ -60,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getWebCryptoAll">getWebCryptoAll</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hash-src">js-crypto-hash/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hkdf-src">js-crypto-hkdf/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-nistConcatKdf">nistConcatKdf</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-hmac-src">js-crypto-hmac/src</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-compute">compute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verify">verify</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#js-crypto-key-utils-src">js-crypto-key-utils/src</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/js-crypto-key-utils/src/key.js~Key.html">Key</a></span></span></li>
@@ -171,10 +178,17 @@
 
 export default {
   ciphers: {
-    &apos;AES-GCM&apos;: {ivLength: 12}  // 12 bytes is recommended for AES-GCM
+    &apos;AES-GCM&apos;: {ivLength: 12},  // 12 bytes is recommended for AES-GCM
+    &apos;AES-CTR&apos;: {ivLength: 12},  // 12 bytes is recommended for AES-CTR
+    &apos;AES-CBC&apos;: {ivLength: 16},  // 16 bytes is recommended for AES-CBC
+    &apos;AES-KW&apos;: {}
   },
 
   hashes: {
+    &apos;SHA3-512&apos;: {hashSize: 64},
+    &apos;SHA3-384&apos;: {hashSize: 48},
+    &apos;SHA3-256&apos;: {hashSize: 32},
+    &apos;SHA3-224&apos;: {hashSize: 28},
     &apos;SHA-256&apos;: {hashSize: 32},
     &apos;SHA-384&apos;: {hashSize: 48},
     &apos;SHA-512&apos;: {hashSize: 64},

@@ -271,7 +271,7 @@ const jwkey = jscu.keyUtil.x509.toJwk(crtsample, &apos;pem&apos;);
 <li><a href="https://github.com/indutny/elliptic">elliptic</a> for browsers</li>
 </ul>
 </li>
-<li>RSA-PSS, RSASSA-PKCS1-v1_5, RSA-OAEP (RSA-PSSS does not work in IE and Edge)<ul>
+<li>RSA-PSS, RSASSA-PKCS1-v1_5, RSA-OAEP (RSA-PSSS does not work in Edge)<ul>
 <li>WebCrypto API for browsers</li>
 <li>NodeCrypto for Node.js</li>
 </ul>
@@ -281,7 +281,7 @@ const jwkey = jscu.keyUtil.x509.toJwk(crtsample, &apos;pem&apos;);
 <li><a href="https://github.com/indutny/asn1.js">asn1.js</a> for browsers and Node.js</li>
 </ul>
 </li>
-<li>X.509 generation from JWK, and extraction of JWK from X.509 (may not work in IE due to RSA)<ul>
+<li>X.509 generation from JWK, and extraction of JWK from X.509<ul>
 <li>WebCrypto API for browsers</li>
 <li>NodeCrypto for Node.js</li>
 <li><a href="https://github.com/indutny/elliptic">elliptic</a> for browsers</li>
@@ -295,10 +295,10 @@ const jwkey = jscu.keyUtil.x509.toJwk(crtsample, &apos;pem&apos;);
 <li><p>Random, hash, HKDF, HMAC, JWK Thumbprint</p>
 <ul>
 <li>WebCrypto API for browsers</li>
-<li>MsCrypto for IE</li>
 <li>NodeCrypto for Node.js</li>
 </ul>
-<p>Especially for Hash functions, we shall use the following pure JS implementation for some browsers (WebCrypto does not support SHA-3 yet). SHA-512/SHA-1 does not work in IE, SHA-1 doesn&apos;t in Edge. I believe IE/Edge should be discarded ASAP.</p>
+<p>IE is completely out of our scope now.</p>
+<p>Especially for Hash functions, we shall use the following pure JS implementation for some browsers (WebCrypto does not support SHA-3 yet). SHA-1 doesn&apos;t work in Edge. I believe Edge should be discarded ASAP.</p>
 <ul>
 <li><a href="https://www.npmjs.com/package/sha3">sha3</a> for SHA3-224, SHA3-256, SHA3-384 and SHA3-512 for browsers</li>
 <li><a href="https://www.npmjs.com/package/hash.js">hash.js</a> for SHA-1, SHA-256, SHA-384, SHA-512 for some legacy browsers</li>
